@@ -1,6 +1,5 @@
 import Heading from "../../Tags/Heading/Heading";
 import Paragraph from "../../Tags/Paragraph/Paragraph";
-import Image from "../../Tags/Image/Image";
 import { GlobeSvgIcon } from "../../SvgContainer/SVgContainer";
 
 

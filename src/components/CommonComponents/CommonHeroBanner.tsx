@@ -1,15 +1,15 @@
 import rating from '../../assets/images/rating.png'
 
-interface commonHeroBannerSchema {
-  title: string;
-  higlightedTxt: string;
-  videoLink: string;
-  descreption: string;
-  trendingSubject: {
-    label: string;
-  }[];
-  reviewCount: number;
-}
+// interface commonHeroBannerSchema {
+//   title: string;
+//   higlightedTxt: string;
+//   videoLink: string;
+//   descreption: string;
+//   trendingSubject: {
+//     label: string;
+//   }[];
+//   reviewCount: number;
+// }
 
 import bgVideo from "../../assets/videos/train.mp4";
 import Heading from "../Tags/Heading/Heading";
@@ -74,12 +74,12 @@ const CommonHeroBanner = () => {
                 className="text-lg text-white font-[600]  "
               />
               <ul className="flex flex-row gap-x-2 ">
-                {[0, 2, 3, 4, 5, 6].map((item, idx) => {
+                {[0, 2, 3, 4, 5, 6].map((item) => {
                   return (
                     <li
                       data-aos="fade-up"
                       data-aos-delay="100"
-                      key={idx}
+                      key={item}
                       className="text-sm text-primary-gray font-normal py-1 px-2 bg-white rounded-[4px] "
                     >
                       language
