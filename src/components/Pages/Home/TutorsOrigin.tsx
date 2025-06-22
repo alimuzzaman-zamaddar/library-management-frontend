@@ -121,7 +121,7 @@ const TutorsOrigin = () => {
           Txt={"Tutors from all over the world offer online language lessons"}
         />
       </div>
-      <div className="flex flex-row items-center justify-center flex-wrap gap-[36px] py-5 px-[36px] border-[1px] border-solid border-primary-gray w-full rounded-[8px] ">
+      <div className="flex flex-row items-center justify-center flex-wrap gap-[36px] py-6 px-[36px] border-[1px] border-solid border-[#DBE1E5] w-full rounded-[8px] ">
         {tutorsOriginArr.map((item, idx) => {
           return (
             <div key={idx} className="flex flex-row gap-x-3 items-center ">
