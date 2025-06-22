@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-primary-gray: #333;
+  --color-primary-blue: #041345;
+  --color-primary-black: #0d0d0d;
+  --color-secondry-gray: #dbe1e5;
+  --color-alt-gray:#5C5C5C;
+  --color-secondary-white: #e8e8e8;
+
+  /* Container */
+  /* customize your container from here */
+
+  --container-max-width: 1620px;
+  --container-padding-x: 1rem;
+  --container-padding-y: 2rem;
+  --shadow-nav-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.08);
+
+  /* Font family */
+  /* add your fonts custom fonts here */
+  --font-open-sans: "Open Sans", sans-serif;
+
+  /* Breakpoints */
+  /* customize your break poing if needed */
+
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 576px;
+  --breakpoint-lg: 768px;
+  --breakpoint-xl: 1024px;
+  --breakpoint-2xl: 1280px;
+  --breakpoint-3xl: 1520px;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  max-width: var(--container-max-width);
+  padding-left: var(--container-padding-x);
+  padding-right: var(--container-padding-x);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* add your custom class from here */
+
+@layer components {
+  .nav-link-label {
+    @apply text-lg text-primary-gray font-[600] h-auto w-auto py-1.5 px-6 border-[2px] rounded-[8px];
+  }
+
+  .primary-btn {
+    @apply text-lg text-white font-[600] h-auto w-auto  px-5 py-3 border-[2px] border-transparent hover:border-solid  rounded-[8px] bg-primary-blue cursor-pointer hover:bg-transparent hover:border-primary-blue hover:text-primary-blue;
+  }
+}
