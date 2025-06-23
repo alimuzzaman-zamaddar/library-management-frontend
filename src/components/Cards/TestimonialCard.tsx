@@ -1,7 +1,7 @@
 import Heading from "../Tags/Heading/Heading";
 import Image from "../Tags/Image/Image";
 import Paragraph from "../Tags/Paragraph/Paragraph";
-import oldwoman from "../../assets/images/testimonial/old-woman.png";
+
 
 interface testimonialCardSchema {
   authorName: string;
@@ -78,7 +78,7 @@ const TestimonialCard: React.FC<testimonialCardSchema> = ({
           className="w-[53px] h-[53px] flex items-center justify-center border-[1px] border-solid border-light-blue rounded-full "
         >
           <Image
-            Src={oldwoman}
+            Src={bgImgUrl}
             className="w-[47px] rounded-full h-[47px] object-cover "
             Alt="not found"
           />
