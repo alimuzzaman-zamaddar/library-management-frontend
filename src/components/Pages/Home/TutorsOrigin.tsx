@@ -110,14 +110,14 @@ const tutorsOriginArr: tutorsOriginSchema[] = [
 const TutorsOrigin = () => {
   return (
     <section className="flex flex-col gap-y-12 h-auto pt-[100px] pb-[80px]  items-center w-full container ">
-      <div className=" flex flex-col gap-y-1 items-center">
+      <div className=" flex flex-col gap-y-4 items-center">
         <Heading
           Variant="h4"
           Txt={`Learn languages online with the world's best tutors`}
-          className="text-primary-gray text-[32px] font-bold "
+          className="common-heading"
         />
         <Paragraph
-          className="text-base text-primary-gray font-[400] "
+          className="common-sub-heading"
           Txt={"Tutors from all over the world offer online language lessons"}
         />
       </div>

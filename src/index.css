@@ -7,7 +7,10 @@
   --color-primary-black: #0d0d0d;
   --color-secondry-gray: #dbe1e5;
   --color-alt-gray:#5C5C5C;
+  --color-rgba-gray:rgba(4, 19, 69, 0.05);  
+  --color-alt-border:#DBE1E5;
   --color-secondary-white: #e8e8e8;
+  --color-light-blue:#163F66;
 
   /* Container */
   /* customize your container from here */
@@ -56,4 +59,13 @@ body {
   .primary-btn {
     @apply text-lg text-white font-[600] h-auto w-auto  px-5 py-3 border-[2px] border-transparent hover:border-solid  rounded-[8px] bg-primary-blue cursor-pointer hover:bg-transparent hover:border-primary-blue hover:text-primary-blue;
   }
+
+  .common-heading{
+    @apply text-primary-gray text-[32px] font-bold;
+  }
+
+  .common-sub-heading{
+    @apply text-base text-primary-gray font-[400];
+  }
+
 }
