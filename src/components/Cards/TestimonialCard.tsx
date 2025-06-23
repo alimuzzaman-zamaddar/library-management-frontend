@@ -66,7 +66,6 @@ const TestimonialCard: React.FC<testimonialCardSchema> = ({
           }
         })}
       </div>
-
       <Paragraph
         className="text-base font-normal leading-[150%] text-primary-gray "
         Txt={descreption}
