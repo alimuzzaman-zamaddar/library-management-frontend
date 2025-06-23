@@ -6,11 +6,13 @@
   --color-primary-blue: #041345;
   --color-primary-black: #0d0d0d;
   --color-secondry-gray: #dbe1e5;
-  --color-alt-gray:#5C5C5C;
-  --color-rgba-gray:rgba(4, 19, 69, 0.05);  
-  --color-alt-border:#DBE1E5;
+  --color-alt-gray: #5c5c5c;
+  --color-rgba-gray: rgba(4, 19, 69, 0.05);
+  --color-alt-border: #dbe1e5;
   --color-secondary-white: #e8e8e8;
-  --color-light-blue:#163F66;
+  --color-text-gray:#5C5C5C;
+  --color-light-blue: #163f66;
+  --color-light-pink:rgba(140, 30, 175, 0.20);
 
   /* Container */
   /* customize your container from here */
@@ -57,15 +59,18 @@ body {
   }
 
   .primary-btn {
-    @apply text-lg text-white font-[600] h-auto w-auto  px-5 py-3 border-[2px] border-transparent hover:border-solid  rounded-[8px] bg-primary-blue cursor-pointer hover:bg-transparent hover:border-primary-blue hover:text-primary-blue;
+    @apply text-lg text-white font-[600] h-auto w-auto ease-in-out duration-300 px-5 py-3 border-[2px] border-transparent hover:border-solid  rounded-[8px] bg-primary-blue cursor-pointer hover:bg-transparent hover:border-primary-blue hover:text-primary-blue;
   }
 
-  .common-heading{
+  .common-heading {
     @apply text-primary-gray text-[32px] font-bold;
   }
 
-  .common-sub-heading{
+  .common-sub-heading {
     @apply text-base text-primary-gray font-[400];
   }
 
+  .linear-btn {
+    @apply h-auto w-full py-[17.5px] bg-[linear-gradient(90deg,#DEA03C_0%,#F42626_100%)] text-white rounded-[8px] text-lg font-[600] cursor-pointer ;
+  }
 }

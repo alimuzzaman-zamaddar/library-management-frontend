@@ -4,7 +4,6 @@ import frame1 from "../../../assets/images/how-it-works/frame1.png";
 import frame2 from "../../../assets/images/how-it-works/frame2.png";
 import frame3 from "../../../assets/images/how-it-works/frame3.png";
 import step1 from "../../../assets/images/how-it-works/step1.png";
-import step2 from "../../../assets/images/how-it-works/step2.png";
 import Image from "../../Tags/Image/Image";
 
 type howitWorksSchema = {

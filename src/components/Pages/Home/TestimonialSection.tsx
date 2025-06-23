@@ -65,7 +65,7 @@ const TestimonialSection = () => {
       <div className=" flex flex-col gap-y-4 items-center">
         <Heading
           Variant="h4"
-          Txt={`What students love about us`}
+          Txt={`What students, love, about us`}
           className="common-heading"
         />
         <Paragraph

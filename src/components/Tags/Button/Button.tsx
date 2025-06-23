@@ -14,7 +14,7 @@ const Button: React.FC<ButtonProps> = ({
   className,
 }) => {
   return (
-    <div data-aos="fade-up" data-aos-delay="100">
+    <div  data-aos="fade-up" data-aos-delay="100">
       <button className={className} onClick={onClick} type={type}>
         {Txt}
       </button>
