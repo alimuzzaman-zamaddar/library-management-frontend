@@ -1,6 +1,6 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import signupimg from "../../../assets/images/signup/signup-pageimg.png"
+import signupimg from "../../../assets/images/signup/signup-pageimg.png";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 
 export default function TutorSignUp() {
@@ -15,13 +15,13 @@ export default function TutorSignUp() {
 
   const onSubmit = (data: any) => {
     const finalData = { ...data, role };
-    reset()
+    reset();
     console.log(finalData);
   };
 
   return (
     <div className="min-h-screen  flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-[1205px] w-full grid grid-cols-1 xl:grid-cols-2 shadow-md rounded-t-[12px] rounded-l-[12px]">
+      <div className="max-w-[1205px] w-full grid grid-cols-1 xl:grid-cols-[55%_45%] shadow-md rounded-t-[12px] rounded-l-[12px]">
         {/* Image Section */}
         <div className="hidden xl:block">
           <img
@@ -67,7 +67,12 @@ export default function TutorSignUp() {
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>
-                <label htmlFor="text" className="text-sm text-[#333] font-semibold leading-[142.857%] mb-3">Full Name</label>
+              <label
+                htmlFor="text"
+                className="text-sm text-[#333] font-semibold leading-[142.857%] mb-3"
+              >
+                Full Name
+              </label>
               <input
                 type="text"
                 placeholder="Enter Your Full Name"
@@ -75,12 +80,19 @@ export default function TutorSignUp() {
                 className="w-full px-4 py-[14px] border border-[#DBE1E5] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
               />
               {errors.fullName && (
-                <p className="text-sm text-red-600 mt-1">Full Name is required</p>
+                <p className="text-sm text-red-600 mt-1">
+                  Full Name is required
+                </p>
               )}
             </div>
 
             <div>
-                <label htmlFor="email" className="text-sm text-[#333] font-semibold leading-[142.857%] mb-3">Email</label>
+              <label
+                htmlFor="email"
+                className="text-sm text-[#333] font-semibold leading-[142.857%] mb-3"
+              >
+                Email
+              </label>
               <input
                 type="email"
                 placeholder="Enter Your Email"
@@ -93,7 +105,12 @@ export default function TutorSignUp() {
             </div>
 
             <div>
-                <label htmlFor="email" className="text-sm text-[#333] font-semibold leading-[142.857%] mb-3">Password</label>
+              <label
+                htmlFor="email"
+                className="text-sm text-[#333] font-semibold leading-[142.857%] mb-3"
+              >
+                Password
+              </label>
               <input
                 type="password"
                 placeholder="Enter Your Password"
@@ -140,7 +157,10 @@ export default function TutorSignUp() {
 
           <p className="text-center text-sm mt-4 py-8">
             Already have an account?
-            <a href="#" className="text-[14px] leading-[20px] cursor-pointer font-semibold font-['Open_Sans'] bg-gradient-to-r from-[#DEA03C] to-[#F42626] bg-clip-text text-transparent ml-1">
+            <a
+              href="#"
+              className="text-[14px] leading-[20px] cursor-pointer font-semibold font-['Open_Sans'] bg-gradient-to-r from-[#DEA03C] to-[#F42626] bg-clip-text text-transparent ml-1"
+            >
               Sign in
             </a>
           </p>
