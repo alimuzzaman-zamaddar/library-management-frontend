@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import signupimg from "../../../assets/images/signup/signup-pageimg.png";
+import signupimg from "../../assets/images/signup/signup-pageimg.png";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 
 export default function TutorSignUp() {
@@ -20,8 +20,8 @@ export default function TutorSignUp() {
   };
 
   return (
-    <div className="min-h-screen  flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-[1205px] w-full grid grid-cols-1 xl:grid-cols-[55%_45%] shadow-md rounded-t-[12px] rounded-l-[12px]">
+    <div className="min-h-screen container w-auto  flex items-center justify-center py-12 rounded-[12px] ">
+      <div className=" grid grid-cols-1 xl:grid-cols-[55%_45%] ">
         {/* Image Section */}
         <div className="hidden xl:block">
           <img
@@ -32,7 +32,7 @@ export default function TutorSignUp() {
         </div>
 
         {/* Form Section */}
-        <div className="p-8 border border-[#DBE1E5] bg-white rounded-r-[12px]">
+        <div className="p-8 border border-[#DBE1E5] rounded-r-[12px] shadow-md">
           <h2 className="text-center text-[22px] xl:text-[32px] leading-[150%] font-bold text-gray-900 mb-4">
             Create Your Account
           </h2>
@@ -40,7 +40,7 @@ export default function TutorSignUp() {
             Join Syntax Master today
           </p>
 
-          <div className="flex justify-center gap-2 my-8 bg-[#F1F5F9] rounded-lg px-3 py-[6px]">
+          <div className="flex justify-center gap-2 my-8 bg-[#F1F5F9] rounded-lg px-3 py-[6px] ">
             <button
               type="button"
               className={`w-full py-2 text-[16px] font-semibold rounded-md ${

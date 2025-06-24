@@ -2,8 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "./../Pages/PulicRoutes/Home";
 import Layout from "../Layout/Layout";
 import FindaTutor from "../Pages/PulicRoutes/FindaTutor";
-import TutorSignUp  from "../Pages/Tutor/Auth/TutorSignUp"
-import Onboarding from "../Pages/Tutor/Onbording";
+import TutorSignUp  from "../Pages/Auth/TutorSignUp"
+import Onboarding from "../Pages/Auth/Tutor/Onbording";
 
 
 const router = createBrowserRouter([
