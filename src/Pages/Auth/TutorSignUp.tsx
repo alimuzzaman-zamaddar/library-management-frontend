@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import signupimg from "../../assets/images/signup/signup-pageimg.png";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import Heading from "../../components/Tags/Heading/Heading";
+import { Link } from "react-router-dom";
 
 export default function TutorSignUp() {
   const [role, setRole] = useState<"student" | "tutor">("student");
@@ -156,12 +157,12 @@ export default function TutorSignUp() {
 
           <p className="text-center text-sm mt-4 py-8">
             Already have an account?
-            <a
-              href="#"
+            <Link
+              to="/login"
               className="text-[14px] leading-[20px] cursor-pointer font-semibold font-['Open_Sans'] bg-gradient-to-r from-[#DEA03C] to-[#F42626] bg-clip-text text-transparent ml-1"
             >
               Sign in
-            </a>
+            </Link>
           </p>
 
           <div className="flex items-center justify-center my-4">

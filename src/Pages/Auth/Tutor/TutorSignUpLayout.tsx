@@ -1,4 +1,6 @@
 import React from 'react';
+import Heading from '../../../components/Tags/Heading/Heading';
+import Paragraph from '../../../components/Tags/Paragraph/Paragraph';
 
 interface TutorSignUpLayoutProps {
   step: number;
@@ -34,12 +36,13 @@ export const TutorSignUpLayout: React.FC<TutorSignUpLayoutProps> = ({
   const progressPercent = (step / totalSteps) * 100;
 
   return (
-    <div className="min-h-screen container flex items-center justify-center px-4">
-      <div className="w-full max-w-3xl bg-white p-8 border border-[#DBE1E5] rounded-lg shadow-md">
+    <div className="min-h-screen container flex items-center justify-center px-4 my-10">
+      <div className="w-auto bg-white p-8 border border-[#DBE1E5] rounded-lg shadow-md">
         {/* Title + Description */}
         <div className="mb-6">
-          <h2  data-aos="fade-up" className="text-[22px] xl:text-[32px] leading-[150%] font-bold text-gray-900 mb-4">{currentStep.title}</h2>
-          <p  data-aos="fade-up" className="text-sm text-gray-500">{currentStep.description}</p>
+          <Heading Variant='h2' Txt={currentStep.title} className='text-[22px] xl:text-[32px] leading-[150%] font-bold text-gray-900 mb-4'  />
+          <Paragraph Txt={currentStep.description} className='text-sm text-gray-500'  />
+
         </div>
 
         {/* Progress Bar */}

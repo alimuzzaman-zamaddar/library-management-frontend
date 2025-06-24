@@ -6,6 +6,7 @@ import TutorSignUp  from "../Pages/Auth/TutorSignUp"
 import Onboarding from "../Pages/Auth/Tutor/Onbording";
 import DashboardPage from "../TurorDashboard/DashboardPage";
 import TutorDashboardLayout from "../Layout/TutorDashboardLayout";
+import StudentOnboarding from "../Pages/Auth/Student/StudentOnboarding";
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
   },
  { path: "/sign-up", element: <TutorSignUp /> },
  { path: "/onbording", element: <Onboarding /> },
+ { path: "/student-on-boarding", element: <StudentOnboarding/> },
 
    {
     path: "/dashboard",

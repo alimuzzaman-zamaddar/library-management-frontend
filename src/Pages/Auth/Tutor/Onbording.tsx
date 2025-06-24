@@ -93,7 +93,7 @@ const { reset } = methods;
                 <div className="flex flex-col">
                   <label
                     htmlFor="firstName"
-                    className="text-sm text-[#060606] font-semibold leading-[142.857%] mb-3"
+                    className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3"
                   >
                     First Name
                   </label>
@@ -101,7 +101,7 @@ const { reset } = methods;
                     id="firstName"
                     {...methods.register("firstName")}
                     placeholder="Enter First Name"
-                    className="px-4 py-[14px] cursor-pointer border border-[#DBE1E5] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
+                    className="px-4 py-[14px] cursor-pointer border border-[var(--color-secondry-gray)] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
                   />
                 </div>
 
@@ -109,7 +109,7 @@ const { reset } = methods;
                 <div className="flex flex-col">
                   <label
                     htmlFor="lastName"
-                    className="text-sm text-[#060606] font-semibold leading-[142.857%] mb-3"
+                    className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3"
                   >
                     Last Name
                   </label>
@@ -117,21 +117,21 @@ const { reset } = methods;
                     id="lastName"
                     {...methods.register("lastName")}
                     placeholder="Enter Last Name"
-                    className="px-4 py-[14px] border cursor-pointer border-[#DBE1E5] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
+                    className="px-4 py-[14px] border cursor-pointer border-[var(--color-secondry-gray)] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
                   />
                 </div>
               </div>
               <div className="flex flex-col">
                 <label
                   htmlFor="Country/Region"
-                  className="text-sm text-[#060606] font-semibold leading-[142.857%] mb-3"
+                  className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3"
                 >
                   Country/Region
                 </label>
                 {/* Country Dropdown */}
                 <select
                   {...methods.register("country")}
-                  className="px-4 py-[14px] border cursor-pointer border-[#DBE1E5] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
+                  className="px-4 py-[14px] border cursor-pointer border-[var(--color-secondry-gray)] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
                 >
                   <option value="">Select Country</option>
                   {countries.map((country) => (
@@ -144,13 +144,13 @@ const { reset } = methods;
               <div className="flex flex-col">
                 <label
                   htmlFor="Timezone"
-                  className="text-sm text-[#060606] font-semibold leading-[142.857%] mb-3"
+                  className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3"
                 >
                   Timezone
                 </label>
                 <select
                   {...methods.register("timezone")}
-                  className="px-4 py-[14px] border cursor-pointer border-[#DBE1E5] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
+                  className="px-4 py-[14px] border cursor-pointer border-[var(--color-secondry-gray)] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
                 >
                   <option value="">Select Timezone</option>
                   {timezones.map((tz) => (
@@ -163,14 +163,14 @@ const { reset } = methods;
               <div className="flex flex-col">
                 <label
                   htmlFor="Languages you speak"
-                  className="text-sm text-[#060606] font-semibold leading-[142.857%] mb-3"
+                  className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3"
                 >
                   Languages you speak
                 </label>
                 <input
                   {...methods.register("languages")}
                   placeholder="Languages you speak"
-                  className="px-4 py-[14px] border cursor-pointer border-[#DBE1E5] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
+                  className="px-4 py-[14px] border cursor-pointer border-[var(--color-secondry-gray)] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
                 />
               </div>
             </>
@@ -179,7 +179,7 @@ const { reset } = methods;
           {step === 2 && (
             <>
               <div className="flex flex-col">
-                <label className="text-sm text-[#060606] font-semibold leading-[142.857%] mb-3">
+                <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3">
                   Subjects You Teach
                 </label>
                 <Controller
@@ -234,12 +234,12 @@ const { reset } = methods;
               </div>
 
               <div className="flex flex-col">
-                <label className="text-sm text-[#060606] font-semibold leading-[142.857%] mb-3">
+                <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3">
                   Experience
                 </label>
                 <select
                   {...methods.register("experience")}
-                  className="px-4 py-[14px] border cursor-pointer border-[#DBE1E5] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
+                  className="px-4 py-[14px] border cursor-pointer border-[var(--color-secondry-gray)] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
                 >
                   <option value="">Years of Experience</option>
                   <option value="0-1">0-1</option>
@@ -249,24 +249,24 @@ const { reset } = methods;
               </div>
 
               <div className="flex flex-col">
-                <label className="text-sm text-[#060606] font-semibold leading-[142.857%] mb-3">
+                <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3">
                   Education Background
                 </label>
                 <textarea
                   {...methods.register("education")}
                   placeholder="Describe your education"
-                  className="px-4 py-[14px] border cursor-pointer border-[#DBE1E5] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
+                  className="px-4 py-[14px] border cursor-pointer border-[var(--color-secondry-gray)] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
                 />
               </div>
 
               <div className="flex flex-col">
-                <label className="text-sm text-[#060606] font-semibold leading-[142.857%] mb-3">
+                <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3">
                   Certifications
                 </label>
                 <textarea
                   {...methods.register("certifications")}
                   placeholder="List your certifications"
-                  className="px-4 py-[14px] border cursor-pointer border-[#DBE1E5] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
+                  className="px-4 py-[14px] border cursor-pointer border-[var(--color-secondry-gray)] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
                 />
               </div>
             </>
@@ -275,26 +275,26 @@ const { reset } = methods;
           {step === 3 && (
             <>
               <div className="flex flex-col">
-                <label className="text-sm text-[#060606] font-semibold leading-[142.857%] mb-3">
+                <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3">
                   About Me
                 </label>
                 <textarea
                   {...methods.register("about")}
                   placeholder="Write something about yourself"
-                  className="px-4 py-[14px] border cursor-pointer border-[#DBE1E5] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
+                  className="px-4 py-[14px] border cursor-pointer border-[var(--color-secondry-gray)] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
                 {/* Upload Photo */}
                 <div className="flex flex-col">
-                  <label className="text-sm text-[#060606] font-semibold leading-[142.857%] mb-3">
+                  <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3">
                     Upload Photo
                   </label>
-                  <label className="group relative flex flex-col items-center justify-center h-48 border-2 border-dashed border-[#DBE1E5] rounded-md cursor-pointer text-center cursor-pointer hover:border-[#051345] transition-all">
+                  <label className="group relative flex flex-col items-center justify-center h-48 border-2 border-dashed border-[var(--color-secondry-gray)] rounded-md cursor-pointer text-center cursor-pointer hover:border-[var(--button-bg-blue)] transition-all">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-8 w-8 text-[#9FA7AC] group-hover:text-[#051345]"
+                      className="h-8 w-8 text-[#9FA7AC] group-hover:text-[var(--button-bg-blue)]"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -306,10 +306,10 @@ const { reset } = methods;
                         d="M3 7h4l2-3h6l2 3h4v13H3V7z"
                       />
                     </svg>
-                    <p className="mt-2 text-sm text-[#6B7280] group-hover:text-[#051345]">
+                    <p className="mt-2 text-sm text-[#6B7280] group-hover:text-[var(--button-bg-blue)]">
                       Upload your profile photo
                     </p>
-                    <div className="mt-4 px-4 py-1 border border-[#9FA7AC] rounded-full text-sm text-[#6B7280] group-hover:border-[#051345] group-hover:text-[#051345]">
+                    <div className="mt-4 px-4 py-1 border border-[#9FA7AC] rounded-full text-sm text-[#6B7280] group-hover:border-[var(--button-bg-blue)] group-hover:text-[var(--button-bg-blue)]">
                       Choose File
                     </div>
                     <input
@@ -323,22 +323,22 @@ const { reset } = methods;
 
                 {/* Upload Video */}
                 <div className="flex flex-col">
-                  <label className="text-sm text-[#060606] font-semibold leading-[142.857%] mb-3">
+                  <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3">
                     Upload Intro Video
                   </label>
-                  <label className="group relative flex flex-col items-center justify-center h-48 border-2 border-dashed border-[#DBE1E5] rounded-md cursor-pointer text-center hover:border-[#051345] transition-all">
+                  <label className="group relative flex flex-col items-center justify-center h-48 border-2 border-dashed border-[var(--color-secondry-gray)] rounded-md cursor-pointer text-center hover:border-[var(--button-bg-blue)] transition-all">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-8 w-8 text-[#9FA7AC] group-hover:text-[#051345]"
+                      className="h-8 w-8 text-[#9FA7AC] group-hover:text-[var(--button-bg-blue)]"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
                       <path d="M8 5v14l11-7z" />
                     </svg>
-                    <p className="mt-2 text-sm text-[#6B7280] group-hover:text-[#051345]">
+                    <p className="mt-2 text-sm text-[#6B7280] group-hover:text-[var(--button-bg-blue)]">
                       Upload Introduction video
                     </p>
-                    <div className="mt-4 px-4 py-1 border border-[#9FA7AC] rounded-full text-sm text-[#6B7280] group-hover:border-[#051345] group-hover:text-[#051345]">
+                    <div className="mt-4 px-4 py-1 border border-[#9FA7AC] rounded-full text-sm text-[#6B7280] group-hover:border-[var(--button-bg-blue)] group-hover:text-[var(--button-bg-blue)]">
                       Choose File
                     </div>
                     <input
@@ -360,12 +360,12 @@ const { reset } = methods;
           {step === 4 && (
             <>
               <div className="flex flex-col">
-                <label className="text-sm text-[#060606] font-semibold leading-[142.857%] mb-3">
+                <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3">
                   Choose your timezone
                 </label>
                 <select
                   {...methods.register("finalTimezone")}
-                  className="px-4 py-[14px] border cursor-pointer border-[#DBE1E5] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
+                  className="px-4 py-[14px] border cursor-pointer border-[var(--color-secondry-gray)] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
                 >
                   {timezones.map((tz) => (
                     <option key={tz.value} value={tz.value}>
@@ -376,19 +376,19 @@ const { reset } = methods;
               </div>
 
               <div className="flex flex-col">
-                <label className="text-sm text-[#060606] font-semibold leading-[142.857%] mb-3">
+                <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3">
                   Set your 50 minute lesson price
                 </label>
                 <input
                   {...methods.register("lessonPrice")}
                   placeholder="$ Set your lesson price"
-                  className="px-4 py-[14px] border cursor-pointer border-[#DBE1E5] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
+                  className="px-4 py-[14px] border cursor-pointer border-[var(--color-secondry-gray)] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
                 />
               </div>
 
               {/* Weekly Availability */}
               <div>
-                <label className="text-sm text-[#060606] font-semibold leading-[142.857%] mb-4 block">
+                <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-4 block">
                   Set your availability
                 </label>
 
@@ -406,7 +406,7 @@ const { reset } = methods;
                   return (
                     <div key={day} className="mb-6">
                       {/* Checkbox */}
-                      <label className="flex items-center cursor-pointer gap-2 text-sm font-semibold text-[#060606] mb-2">
+                      <label className="flex items-center cursor-pointer gap-2 text-sm font-semibold text-[var(--color-text-blue)] mb-2">
                         <input
                           type="checkbox"
                           {...methods.register(`availability.${day}.enabled`)}
@@ -427,7 +427,7 @@ const { reset } = methods;
                                   {...methods.register(
                                     `availability.${day}.slots.${index}.from`
                                   )}
-                                  className="px-4 py-2 border border-[#DBE1E5] rounded-md"
+                                  className="px-4 py-2 border border-[var(--color-secondry-gray)] rounded-md"
                                 >
                                   {generateTimes().map((time) => (
                                     <option key={time}>{time}</option>
@@ -442,7 +442,7 @@ const { reset } = methods;
                                   {...methods.register(
                                     `availability.${day}.slots.${index}.to`
                                   )}
-                                  className="px-4 py-2 border border-[#DBE1E5] rounded-md"
+                                  className="px-4 py-2 border border-[var(--color-secondry-gray)] rounded-md"
                                 >
                                   {generateTimes().map((time) => (
                                     <option key={time}>{time}</option>
@@ -453,7 +453,7 @@ const { reset } = methods;
                           ))}
                           <button
                             type="button"
-                            className="text-sm font-semibold text-[#051345] underline"
+                            className="text-sm font-semibold text-[var(--button-bg-blue)] underline"
                             // TODO: add slot logic
                           >
                             Add another timeslot
@@ -472,14 +472,14 @@ const { reset } = methods;
               <button
                 type="button"
                 onClick={prev}
-                className="text-gray-700 border text-sm px-4 xl:px-15 py-[14px] rounded"
+                className="text-gray-700 hover:text-white hover:bg-[var(--button-bg-blue)] duration-700 cursor-pointer border text-sm px-4 xl:px-15 py-[14px] rounded"
               >
                 Back
               </button>
             )}
             <button
               type="submit"
-              className="bg-[#051345] text-white text-sm px-6 xl:px-15 py-[14px] rounded ml-auto"
+              className="bg-[var(--button-bg-blue)] border border-[var(--button-bg-blue)] hover:bg-white duration-700 hover:text-[var(--button-bg-blue)] hover:border-[ver(--button-bg-blue)] cursor-pointer hover text-white text-sm px-6 xl:px-15 py-[14px] rounded ml-auto"
             >
               {step === 4 ? "Complete" : "Next"}
             </button>
