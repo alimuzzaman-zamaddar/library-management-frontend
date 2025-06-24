@@ -1,6 +1,5 @@
-import { Link, NavLink } from "react-router-dom";
 "use client";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate ,Link} from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import Image from "../components/Tags/Image/Image";
 import Button from "../components/Tags/Button/Button";
