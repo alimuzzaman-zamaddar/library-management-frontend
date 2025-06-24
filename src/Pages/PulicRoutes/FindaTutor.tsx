@@ -3,9 +3,11 @@ import SyntaxMaster from "../../components/Pages/Home/SyntaxMaster";
 import TestimonialSection from "../../components/Pages/Home/TestimonialSection";
 import bgVideo from "../../assets/videos/train.mp4";
 import MasterWork from "../../components/Pages/FindTutors/MasterWork";
+import AvailableTeacher from "../../components/Pages/FindTutors/AvailableTeacher";
+
+
 
 const FindaTutor = () => {
-
   const trendingSubjects = [
     { id: 1, label: "Web Development" },
     { id: 2, label: "Data Science" },
@@ -25,9 +27,10 @@ const FindaTutor = () => {
         authenticCount={100}
         descreption="Connect with professional tutors in languages, arts, photography, music and more. Start your learning journey today."
       />
+      <AvailableTeacher />
       <SyntaxMaster />
       <TestimonialSection />
-      <MasterWork/>
+      <MasterWork />
     </section>
   );
 };
