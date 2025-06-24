@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import signupimg from "../../assets/images/signup/signup-pageimg.png";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
+import Heading from "../../components/Tags/Heading/Heading";
 
 export default function TutorSignUp() {
   const [role, setRole] = useState<"student" | "tutor">("student");
@@ -33,9 +34,7 @@ export default function TutorSignUp() {
 
         {/* Form Section */}
         <div className="p-8 border border-[#DBE1E5] rounded-r-[12px] shadow-md">
-          <h2 className="text-center text-[22px] xl:text-[32px] leading-[150%] font-bold text-gray-900 mb-4">
-            Create Your Account
-          </h2>
+          <Heading Txt="Create Your Account" className="text-center text-[22px] xl:text-[32px] leading-[150%] font-bold text-gray-900 mb-4" Variant="h1" />
           <p className="text-center text-sm text-gray-500 mb-6">
             Join Syntax Master today
           </p>
