@@ -7,8 +7,6 @@ import Onboarding from "../Pages/Auth/Tutor/Onbording";
 import DashboardPage from "../TurorDashboard/DashboardPage";
 import TutorDashboardLayout from "../Layout/TutorDashboardLayout";
 import StudentOnboarding from "../Pages/Auth/Student/StudentOnboarding";
-import TutorSignUp from "../Pages/Tutor/Auth/TutorSignUp";
-import Onboarding from "../Pages/Tutor/Onbording";
 import BecomeTutor from "../Pages/PulicRoutes/BecomeTutor";
 
 
