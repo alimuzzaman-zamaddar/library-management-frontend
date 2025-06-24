@@ -1,3 +1,4 @@
+import { Link, NavLink } from "react-router-dom";
 "use client";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.png";
@@ -58,10 +59,11 @@ const Navbar = () => {
           );
         })}
       </ul>
+      <Link to="/sign-up">
       <div className="flex flex-row items-center justify-between gap-x-4 ">
-        <div></div>
         <Button className="primary-btn" Txt={"Login"} />
       </div>
+      </Link>
     </nav>
   );
 };
