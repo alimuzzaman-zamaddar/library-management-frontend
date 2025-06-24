@@ -15,7 +15,7 @@ const redirectLinkArr: navLinksScheam[] = [
   },
   {
     label: "Find tutors",
-    redirectLink: "/find-tutors",
+    redirectLink: "/find-a-tutor",
   },
   {
     label: "Become a Tutor",
