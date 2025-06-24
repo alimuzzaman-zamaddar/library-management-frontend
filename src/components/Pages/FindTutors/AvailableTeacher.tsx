@@ -57,7 +57,7 @@ const teacherDetials = [
     languagePreferences: "English, Spanish",
     respondTime: 2,
     expertise: ["Music theory", "Guitar", "Piano"],
-    isAvailable: true,
+    isAvailable: false,
     introductionVideo: train,
     countryFlagImgUrl: belgium,
   },
@@ -97,7 +97,7 @@ const teacherDetials = [
     languagePreferences: "English, Spanish",
     respondTime: 2,
     expertise: ["Watercolor", "Canvas work", "Acrylic techniques"],
-    isAvailable: true,
+    isAvailable: false,
     introductionVideo: train,
     countryFlagImgUrl: france,
   },
@@ -126,11 +126,17 @@ const teacherDetials = [
 const AvailableTeacher = () => {
   return (
     <section className="h-auto items-center w-auto container pt-20 pb-[120px] flex flex-col gap-y-20  ">
-      <div className=" h-auto w-full shadow-md bg-white border-[1px] rounded-[12px] border-solid border-alt-border p-8 flex flex-row justify-between ">
+      <div
+        data-aos="fade-up"
+        data-aos-delay="100"
+        className=" h-auto w-full shadow-md bg-white border-[1px] rounded-[12px] border-solid border-alt-border p-8 flex flex-row justify-between "
+      >
         <div className="flex flex-col gap-y-5">
           <div className="flex flex-row gap-x-5 ">
             <div className="h-auto w-auto gap-x-2 p-3 border-[1px] border-solid border-secondry-gray rounded-[12px] flex items-center   ">
-              <FilterSvg />
+              <div data-aos="fade-up" data-aos-delay="100">
+                <FilterSvg />
+              </div>
               <Heading
                 className="text-lg font-[600]  text-primary-gray "
                 Txt={"All Filters"}
@@ -138,6 +144,8 @@ const AvailableTeacher = () => {
             </div>
             <div className="relative">
               <select
+                data-aos="fade-up"
+                data-aos-delay="100"
                 className="h-auto cursor-pointer outline-none text-lg font-[600]  text-primary-gray w-auto  gap-x-2 pl-8 p-3 border-[1px] border-solid border-secondry-gray rounded-[12px] flex items-center "
                 name=""
               >
@@ -146,12 +154,18 @@ const AvailableTeacher = () => {
                 <option value="">$25 -$50</option>
                 <option value="">$05 -$75</option>
               </select>
-              <div className="absolute top-1/2 left-0 pl-2.5 -translate-y-1/2">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="100"
+                className="absolute top-1/2 left-0 pl-2.5 -translate-y-1/2"
+              >
                 <DollarSvg />
               </div>
             </div>
             <div className="relative">
               <select
+                data-aos="fade-up"
+                data-aos-delay="100"
                 className="h-auto cursor-pointer text-lg font-[600] outline-none  text-primary-gray w-auto  gap-x-2 pl-8 p-3 border-[1px] border-solid border-secondry-gray rounded-[12px] flex items-center "
                 name=""
               >
@@ -162,12 +176,18 @@ const AvailableTeacher = () => {
                 <option value="">IRAN</option>
                 <option value="">BD</option>
               </select>
-              <div className="absolute top-1/2 left-0 pl-2.5 -translate-y-1/2">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="100"
+                className="absolute top-1/2 left-0 pl-2.5 -translate-y-1/2"
+              >
                 <GlobePlane />
               </div>
             </div>
             <div className="relative">
               <select
+                data-aos="fade-up"
+                data-aos-delay="100"
                 className="h-auto cursor-pointer text-lg font-[600] outline-none  text-primary-gray w-auto  gap-x-2 pl-8 p-3 border-[1px] border-solid border-secondry-gray rounded-[12px] flex items-center "
                 name=""
               >
@@ -177,7 +197,11 @@ const AvailableTeacher = () => {
                 <option value="">Frehch Tutor</option>
                 <option value="">Bangla Tutor</option>
               </select>
-              <div className="absolute top-1/2 left-0 pl-2.5 -translate-y-1/2">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="100"
+                className="absolute top-1/2 left-0 pl-2.5 -translate-y-1/2"
+              >
                 <GlobePlane />
               </div>
             </div>
@@ -207,6 +231,8 @@ const AvailableTeacher = () => {
             />
             <div className="relative">
               <select
+                data-aos="fade-up"
+                data-aos-delay="100"
                 className="
             h-auto cursor-pointer text-lg font-[600] text-primary-gray
             w-auto pl-10 pr-3 py-3
@@ -220,7 +246,11 @@ const AvailableTeacher = () => {
                 <option value="">French Tutor</option>
                 <option value="">Bangla Tutor</option>
               </select>
-              <div className="absolute left-3 top-1 translate-y-1/2 pointer-events-none">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="100"
+                className="absolute left-3 top-1 translate-y-1/2 pointer-events-none"
+              >
                 <ReleveanceSvg />
               </div>
             </div>

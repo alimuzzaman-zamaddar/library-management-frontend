@@ -653,3 +653,31 @@ export const VideoIcon = () => {
     </svg>
   );
 };
+
+export const CircleInActive = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="23"
+      height="24"
+      viewBox="0 0 23 24"
+      fill="none"
+    >
+      <circle cx="11.5" cy="12" r="11.5" fill="#A9BAD3" />
+    </svg>
+  );
+};
+
+export const CircleActive = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="23"
+      height="24"
+      viewBox="0 0 23 24"
+      fill="none"
+    >
+      <circle cx="11.5" cy="12" r="11.5" fill="#0184FF" />
+    </svg>
+  );
+};

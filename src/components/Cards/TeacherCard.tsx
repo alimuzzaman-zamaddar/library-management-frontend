@@ -1,13 +1,12 @@
 import { useRef, useState } from "react";
 import Button from "../Tags/Button/Button";
 import Image from "../Tags/Image/Image";
-import guitar from "../../assets/images/available-tutor/guitar.png";
+
 import {
   BookMarkSvg,
   HeartSvg,
   LocationSvgIcon,
   MsgSvgPlane,
-  SpainFlag,
   VideoIcon,
 } from "../SvgContainer/SVgContainer";
 import Heading from "../Tags/Heading/Heading";
@@ -67,8 +66,12 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
   };
 
   return (
-    <div className="flex flex-row gap-x-5  ">
-      <div className="flex h-auto w-auto p-8 bg-white border-[1px] border-solid border-secondry-gray rounded-[12px] flex-row gap-x-4  ">
+    <div data-name={id} className="flex flex-row gap-x-5  ">
+      <div
+        data-aos="fade-up"
+        data-aos-delay="100"
+        className="flex h-auto w-auto p-8 bg-white border-[1px] border-solid border-secondry-gray rounded-[12px] flex-row gap-x-4  "
+      >
         <Image
           Src={bgImgUrl}
           className="h-[180px] w-[180px] object-cover rounded-[4px] "
@@ -150,21 +153,33 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
               Txt={shortDescreption}
             />
             <div className="flex items-center flex-row gap-x-4 ">
-              <div className="flex flex-row items-center gap-x-1">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="100"
+                className="flex flex-row items-center gap-x-1"
+              >
                 <LocationSvgIcon />
                 <Paragraph
                   className="text-base text-nowrap font-normal  text-primary-gray"
                   Txt={location}
                 />
               </div>
-              <div className="flex flex-row items-center gap-x-1">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="100"
+                className="flex flex-row items-center gap-x-1"
+              >
                 <LocationSvgIcon />
                 <Paragraph
                   className="text-base text-nowrap font-normal  text-primary-gray"
                   Txt={`Speaks:${languagePreferences}`}
                 />
               </div>
-              <div className="flex flex-row items-center gap-x-1">
+              <div
+                data-aos="fade-up"
+                data-aos-delay="100"
+                className="flex flex-row items-center gap-x-1"
+              >
                 <LocationSvgIcon />
                 <Paragraph
                   className="text-base text-nowrap font-normal  text-primary-gray"
@@ -176,6 +191,8 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
               {expertise.map((item, idx) => {
                 return (
                   <div
+                    data-aos="fade-up"
+                    data-aos-delay="100"
                     key={idx}
                     className="bg-off-white rounded-[8px] text-base  font-normal text-shadow-black h-auto w-auto py-1.5 px-3 shadow-sm "
                   >
@@ -199,7 +216,11 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
                   Txt={`$${hourlyRate}`}
                   className="text-[32px] font-bold text-secondary-black"
                 />
-                <div className="h-auto w-auto cursor-pointer border-[1px] p-[6.54px]  border-solid border-secondry-gray rounded-[8px] ">
+                <div
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  className="h-auto w-auto cursor-pointer border-[1px] p-[6.54px]  border-solid border-secondry-gray rounded-[8px] "
+                >
                   <HeartSvg />
                 </div>
               </div>
@@ -219,10 +240,18 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
             <div className="flex flex-col gap-y-2.5 ">
               <Button Txt={"Book Trail"} className="primary-btn !w-full" />
               <div className="flex flex-row gap-x-2.5 ">
-                <div className="h-auto w-auto cursor-pointer border-[1px] px-[34px] py-2.5 border-solid border-secondry-gray rounded-[8px] ">
+                <div
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  className="h-auto w-auto cursor-pointer border-[1px] px-[34px] py-2.5 border-solid border-secondry-gray rounded-[8px] "
+                >
                   <MsgSvgPlane />
                 </div>
-                <div className="h-auto cursor-pointer w-auto border-[1px] px-[34px] py-2.5 border-solid border-secondry-gray rounded-[8px] ">
+                <div
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  className="h-auto cursor-pointer w-auto border-[1px] px-[34px] py-2.5 border-solid border-secondry-gray rounded-[8px] "
+                >
                   <BookMarkSvg />
                 </div>
               </div>
@@ -233,6 +262,8 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
       <div className="flex flex-col justify-between ">
         <div className="relative w-[494px] h-[80%] rounded-[12px] overflow-hidden">
           <video
+            data-aos="fade-up"
+            data-aos-delay="100"
             ref={videoRef}
             src={introductionVideo}
             className="w-full h-full object-cover rounded-[12px]"
@@ -242,6 +273,8 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
           />
           {!isPlaying && (
             <div
+              data-aos="fade-up"
+              data-aos-delay="100"
               className="absolute inset-0 flex items-center justify-center cursor-pointer"
               onClick={handlePlayPause}
             >
