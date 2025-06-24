@@ -1,4 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
+"use client";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import Image from "../components/Tags/Image/Image";
 import Button from "../components/Tags/Button/Button";
@@ -24,12 +26,17 @@ const redirectLinkArr: navLinksScheam[] = [
 ];
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
     <nav className="w-full h-auto container flex flex-row justify-between items-center py-5 ">
       <Image
+        onClick={() => {
+          navigate("/");
+        }}
         Src={logo}
         Alt="not found"
-        className="w-[232px] h-[54px] object-cover  "
+        className="w-[232px] cursor-pointer h-[54px] object-cover  "
       />
       <ul className="flex flex-row gap-x-8 items-center ">
         {redirectLinkArr.map((item, idx) => {
