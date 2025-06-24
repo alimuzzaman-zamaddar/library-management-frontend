@@ -12,7 +12,13 @@
   --color-secondary-white: #e8e8e8;
   --color-text-gray:#5C5C5C;
   --color-light-blue: #163f66;
+  --color-secondary-black:#060606;
   --color-light-pink:rgba(140, 30, 175, 0.20);
+  --button-bg-blue: #051345;
+  --color-text-blue: #060606;
+  --color-off-white:#F3F4F6;
+  --color-primary-green:#21C357;
+
 
   /* Container */
   /* customize your container from here */
@@ -73,4 +79,9 @@ body {
   .linear-btn {
     @apply h-auto w-full py-[17.5px] bg-[linear-gradient(90deg,#DEA03C_0%,#F42626_100%)] text-white rounded-[8px] text-lg font-[600] cursor-pointer ;
   }
+
+  .reverse-primary-btn {
+    @apply text-lg text-primary-blue font-[600] h-auto w-auto ease-in-out duration-300 px-5 py-3 border-[2px] border-primary-blue rounded-[8px] bg-transparent cursor-pointer hover:bg-primary-blue hover:text-white;
+  }
+  
 }

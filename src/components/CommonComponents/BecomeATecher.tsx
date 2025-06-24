@@ -1,7 +1,7 @@
 import Heading from "../Tags/Heading/Heading";
 import Image from "../Tags/Image/Image";
 import Paragraph from "../Tags/Paragraph/Paragraph";
-import Button from "./../Tags/Button/Button";
+import Button from "../Tags/Button/Button";
 
 interface BecomeATecherSchema {
   bgImgUrl: string;
@@ -23,19 +23,23 @@ const BecomeATecher: React.FC<BecomeATecherSchema> = ({
   isHome,
 }) => {
   return (
-    <section className="h-auto relative w-auto container pb-[120px] ">
+    <section className={`w-full relative  pb-[120px] `}>
       <div
-        className={`flex w-full relative flex-row ${
+        className={`container mx-auto flex flex-col justify-center md:flex-row relative ${
           isHome ? "max-h-[787px]" : "h-[553px]"
-        } h-full w-auto `}
+        }`}
       >
         <Image
           Src={bgImgUrl}
-          className=" rounded-tl-[12px] rounded-bl-[12px] object-cover"
+          className="rounded-tl-[12px] rounded-bl-[12px] object-cover w-full md:w-1/2"
           Alt="not found"
         />
-        <div className="h-auto  w-auto py-[116px] bg-primary-blue relative px-8 flex flex-col rounded-tr-[12px] rounded-br-[12px]   gap-y-10">
-          <div className="flex flex-col gap-y-4 ">
+        <div
+          data-aos="fade-up"
+          data-aos-delay="100"
+          className="h-auto w-auto py-[116px] bg-primary-blue relative px-8 flex flex-col rounded-tr-[12px] rounded-br-[12px] gap-y-10"
+        >
+          <div className="flex flex-col gap-y-4">
             <div className="flex flex-col gap-y-3">
               {isHome && (
                 <Heading
@@ -47,30 +51,25 @@ const BecomeATecher: React.FC<BecomeATecherSchema> = ({
               <Heading
                 Txt={subTitle}
                 Variant="h3"
-                className="text-[64px] text-secondary-white font-bold leading-[150%]"
+                className="text-[64px] max-w-[562px] text-secondary-white font-bold leading-[150%]"
               />
             </div>
           </div>
-          <div className="flex flex-col gap-y-8 ">
+          <div className="flex flex-col gap-y-8">
             <Paragraph
-              className="max-w-[629px] text-lg text-secondary-white font-normal leading-[150%] "
+              className="max-w-[629px] text-lg text-secondary-white font-normal leading-[150%]"
               Txt={descreption}
             />
-            {isHome && (
-              <ul className="flex flex-col px-4 gap-y-3 ">
-                {features?.map((item, idx) => {
-                  return (
-                    <li
-                      key={idx}
-                      className=" list-disc text-secondary-white font-normal leading-[150%]  "
-                    >
-                      {item}
-                    </li>
-                  );
-                })}
-                <li className=" list-disc text-secondary-white font-normal leading-[150%]  ">
-                  Set your own hourly rates and cash out your earnings anytime.
-                </li>
+            {isHome && features && (
+              <ul className="flex flex-col px-4 gap-y-3">
+                {features.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="list-disc text-secondary-white font-normal leading-[150%]"
+                  >
+                    {item}
+                  </li>
+                ))}
               </ul>
             )}
             <Button className="linear-btn" Txt={btnTxt} />

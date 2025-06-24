@@ -11,7 +11,7 @@ interface commonHeroBannerSchema {
   }[];
   reviewCount?: number;
   variant: "home" | "become-tutor" | "find-tutor";
-  communityCont?: number;
+  communityCont?: number | string;
   activeMember?: number;
   authenticCount?: number;
 }
@@ -145,12 +145,26 @@ const CommonHeroBanner: React.FC<commonHeroBannerSchema> = ({
                 </div>
               </div>
             )}
+            {variant === "become-tutor" && (
+              <div className="bg-white relative grid grid-cols-2 gap-4 items-center rounded-[12px] py-4 px-5 border border-solid border-alt-gray w-full max-w-[648px]">
+                <Button
+                  Txt="Apply as a Tutor"
+                  className="primary-btn w-full !py-[13.5px]"
+                />
+                <Button
+                  Txt="How Its Work"
+                  className="reverse-primary-btn w-full !py-[13.5px]"
+                />
+              </div>
+            )}
 
             <div className="flex flex-row gap-x-3  items-center font-normal ">
-              <Heading
-                Txt={"Trending:"}
-                className="text-lg text-white font-[600]  "
-              />
+              {variant === "home" && (
+                <Heading
+                  Txt={"Trending:"}
+                  className="text-lg text-white font-[600]  "
+                />
+              )}
               {variant !== "become-tutor" && (
                 <ul className="flex flex-row gap-x-2 ">
                   {trendingSubject?.map(item => {
@@ -211,7 +225,7 @@ const CommonHeroBanner: React.FC<commonHeroBannerSchema> = ({
                 Txt={` ${
                   variant === "find-tutor"
                     ? `${activeMember} Average Rating`
-                    : `${activeMember}+ Active Students`
+                    : `${activeMember}k+ Active Students`
                 }`}
               />
             </div>
