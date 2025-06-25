@@ -1,6 +1,8 @@
 import TNavbar from "./TNavbar";
 import clsx from "clsx";
 import { FaBookOpen } from "react-icons/fa";
+import Heading from "../components/Tags/Heading/Heading";
+import Paragraph from "../components/Tags/Paragraph/Paragraph";
 
 const cardStyles = {
   "Active Students": "bg-[#4D6BFF]",
@@ -21,12 +23,9 @@ const DashboardPage = () => {
     <>
       <TNavbar />
       <div className="space-y-6 p-6">
-        <h1 className="text-2xl pl-[50px] xl:pl-0 font-bold text-gray-800">
-          Welcome back, John! 👋
-        </h1>
-        <p className="text-sm pl-[50px] xl:pl-0 text-gray-800">
-          Manage your students and track your teaching progress
-        </p>
+        <Heading className="text-2xl pl-[50px] xl:pl-0 font-bold text-[var(--color-primary-blue)] "  Variant="h2"  Txt="Welcome back, John! 👋" />
+        <Paragraph className="text-sm pl-[50px] xl:pl-0 text-[var(--color-text-gray)]"   
+          Txt="Here’s a quick overview of your teaching dashboard"/>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
           {cards.map((card) => (
             <div
