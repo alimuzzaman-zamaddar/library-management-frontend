@@ -178,7 +178,7 @@ const StudentOnboarding = () => {
                         value={subj}
                         {...methods.register("subjects[]")}
                       />
-                      <div className="w-5 h-5 rounded-full border border-gray-400   peer-checked:bg-[var(--button-bg-blue)]  peer-checked:border-white transition-all" />
+                      <div className="w-5 h-5 rounded-full border border-[var(--button-bg-blue)]   peer-checked:bg-[var(--button-bg-blue)]  peer-checked:border-white transition-all" />
                       <span className="text-sm text-gray-800">{subj}</span>
                     </label>
                   </label>
@@ -209,7 +209,7 @@ const StudentOnboarding = () => {
                       {...methods.register("level")}
                       className="sr-only peer"
                     />
-                    <div className="w-5 h-5 rounded-full border-2 border-[#041345] peer-checked:bg-[#041345] peer-checked:border-[#041345] transition-colors duration-300" />
+                    <div className="w-5 h-5 rounded-full border border-[var(--button-bg-blue)] peer-checked:bg-[var(--button-bg-blue)] peer-checked:border-[var(--button-bg-blue)] transition-colors duration-300" />
                     <span className="text-gray-800">{lvl}</span>
                   </label>
                 ))}
@@ -224,36 +224,56 @@ const StudentOnboarding = () => {
                 placeholder="Enter your learning goals"
                 className="border p-3 rounded-md w-full min-h-[100px]"
               />
+
+              {/* Preferred learning style */}
               <div className="space-y-2">
+                <div className="text-[16px] font-semibold leading-[125%] mb-3">
+                  What's your preferred learning style?
+                </div>
                 {[
                   "Interactive conversations",
                   "Structured lessons with exercises",
                   "Mix of both",
                 ].map((style) => (
-                  <label key={style} className="flex items-center gap-2">
+                  <label
+                    key={style}
+                    className="flex items-center gap-3 cursor-pointer"
+                  >
                     <input
                       type="radio"
                       value={style}
-                      {...methods.register("learningStyle")}
-                    />{" "}
-                    {style}
+                      {...methods.register("preferredLearningStyle")}
+                      className="sr-only peer"
+                    />
+                    <div className="w-5 h-5 rounded-full border border-[var(--button-bg-blue)] peer-checked:bg-[var(--button-bg-blue)] peer-checked:border-[var(--button-bg-blue)] transition-colors duration-300" />
+                    <span className="text-gray-800">{style}</span>
                   </label>
                 ))}
               </div>
+
+              {/* Learning Experience */}
               <div className="space-y-2">
+                <div className="text-[16px] font-semibold leading-[125%] mb-3">
+                  Previous learning experience
+                </div>
                 {[
                   "No formal learning experience",
                   "Self-taught",
                   "Taken courses before",
                   "Learned in school/university",
                 ].map((exp) => (
-                  <label key={exp} className="flex items-center gap-2">
+                  <label
+                    key={exp}
+                    className="flex items-center gap-3 cursor-pointer"
+                  >
                     <input
                       type="radio"
                       value={exp}
-                      {...methods.register("previousExperience")}
-                    />{" "}
-                    {exp}
+                      {...methods.register("learningExperience")}
+                      className="sr-only peer"
+                    />
+                    <div className="w-5 h-5 rounded-full border border-[var(--button-bg-blue)] peer-checked:bg-[var(--button-bg-blue)] peer-checked:border-[var(--button-bg-blue)] transition-colors duration-300" />
+                    <span className="text-gray-800">{exp}</span>
                   </label>
                 ))}
               </div>
@@ -262,6 +282,7 @@ const StudentOnboarding = () => {
 
           {step === 4 && (
             <>
+              {/* Availability checkboxes */}
               <div className="grid grid-cols-2 gap-4">
                 {[
                   "Weekday mornings",
@@ -271,39 +292,64 @@ const StudentOnboarding = () => {
                   "Weekend afternoons",
                   "Weekend evenings",
                 ].map((slot) => (
-                  <label key={slot} className="flex items-center gap-2">
+                  <label
+                    key={slot}
+                    className="inline-flex items-center space-x-2 cursor-pointer"
+                  >
                     <input
                       type="checkbox"
                       value={slot}
-                      {...methods.register("preferredTimes[]")}
-                    />{" "}
-                    {slot}
+                      {...methods.register("availability[]")}
+                      className="sr-only peer"
+                    />
+                    <div className="w-5 h-5 rounded-full border border-[var(--button-bg-blue)] peer-checked:bg-[var(--button-bg-blue)] peer-checked:border-white transition-all" />
+                    <span className="text-sm text-gray-800">{slot}</span>
                   </label>
                 ))}
               </div>
+
+              {/* Lesson Frequency */}
               <div className="space-y-2">
+                <div className="text-[16px] font-semibold leading-[125%] mb-3">
+                  How often do you plan to take lessons?
+                </div>
                 {["1-3 times per week", "Every other week", "Monthly"].map(
                   (freq) => (
-                    <label key={freq} className="flex items-center gap-2">
+                    <label
+                      key={freq}
+                      className="flex items-center gap-3 cursor-pointer"
+                    >
                       <input
                         type="radio"
                         value={freq}
                         {...methods.register("lessonFrequency")}
-                      />{" "}
-                      {freq}
+                        className="sr-only peer"
+                      />
+                      <div className="w-5 h-5 rounded-full border border-[var(--button-bg-blue)] peer-checked:bg-[var(--button-bg-blue)] peer-checked:border-[var(--button-bg-blue)] transition-colors duration-300" />
+                      <span className="text-gray-800">{freq}</span>
                     </label>
                   )
                 )}
               </div>
+
+              {/* Preferred Lesson Duration */}
               <div className="space-y-2">
+                <div className="text-[16px] font-semibold leading-[125%] mb-3">
+                  Preferred lesson duration
+                </div>
                 {["30 minutes", "45 minutes", "60 minutes"].map((dur) => (
-                  <label key={dur} className="flex items-center gap-2">
+                  <label
+                    key={dur}
+                    className="flex items-center gap-3 cursor-pointer"
+                  >
                     <input
                       type="radio"
                       value={dur}
                       {...methods.register("lessonDuration")}
-                    />{" "}
-                    {dur}
+                      className="sr-only peer"
+                    />
+                    <div className="w-5 h-5 rounded-full border border-[var(--button-bg-blue)] peer-checked:bg-[var(--button-bg-blue)] peer-checked:border-[var(--button-bg-blue)] transition-colors duration-300" />
+                    <span className="text-gray-800">{dur}</span>
                   </label>
                 ))}
               </div>

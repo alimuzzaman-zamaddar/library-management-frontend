@@ -37,7 +37,7 @@ export const TutorSignUpLayout: React.FC<TutorSignUpLayoutProps> = ({
 
   return (
     <div className="min-h-screen container flex items-center justify-center px-4 my-10">
-      <div className="w-auto bg-white p-8 border border-[#DBE1E5] rounded-lg shadow-md">
+      <div className="w-full max-w-3xl bg-white p-8 border border-[#DBE1E5] rounded-lg shadow-md">
         {/* Title + Description */}
         <div className="mb-6">
           <Heading Variant='h2' Txt={currentStep.title} className='text-[22px] xl:text-[32px] leading-[150%] font-bold text-gray-900 mb-4'  />
