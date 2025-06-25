@@ -2,13 +2,12 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "./../Pages/PulicRoutes/Home";
 import Layout from "../Layout/Layout";
 import FindaTutor from "../Pages/PulicRoutes/FindaTutor";
-import TutorSignUp  from "../Pages/Auth/TutorSignUp"
+import TutorSignUp from "../Pages/Auth/TutorSignUp";
 import Onboarding from "../Pages/Auth/Tutor/Onbording";
-import DashboardPage from "../Dashboard/DashboardPage";
+import DashboardPage from "../Pages/Dashboard/DashboardPage";
 import StudentOnboarding from "../Pages/Auth/Student/StudentOnboarding";
 import BecomeTutor from "../Pages/PulicRoutes/BecomeTutor";
-import UserDashboardLayout from "../Layout/UserDashboardLayout";
-
+import CommonDashboardLayout from "../Layout/CommonDashboardLayout";
 
 const router = createBrowserRouter([
   {
@@ -28,18 +27,15 @@ const router = createBrowserRouter([
     ),
   },
 
- { path: "/sign-up", element: <TutorSignUp /> },
- { path: "/onbording", element: <Onboarding /> },
- { path: "/student-on-boarding", element: <StudentOnboarding/> },
+  { path: "/sign-up", element: <TutorSignUp /> },
+  { path: "/onbording", element: <Onboarding /> },
+  { path: "/student-on-boarding", element: <StudentOnboarding /> },
 
-{
-  path: "/dashboard",
-  element: <UserDashboardLayout />,
-  children: [
-    { index: true, element: <DashboardPage /> },
-    // Add more nested routes as needed
-  ],
-},
+  {
+    path: "/dashboard",
+    element: <CommonDashboardLayout role="student" />,
+    children: [{ index: true, element: <DashboardPage /> }],
+  },
 
   {
     path: "/become-tutor",
