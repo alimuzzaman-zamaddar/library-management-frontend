@@ -7,6 +7,7 @@ import Onboarding from "../Pages/Auth/Tutor/Onbording";
 import DashboardPage from "../TurorDashboard/DashboardPage";
 import TutorDashboardLayout from "../Layout/TutorDashboardLayout";
 import StudentOnboarding from "../Pages/Auth/Student/StudentOnboarding";
+import BecomeTutor from "../Pages/PulicRoutes/BecomeTutor";
 
 
 const router = createBrowserRouter([
@@ -18,7 +19,6 @@ const router = createBrowserRouter([
       </Layout>
     ),
   },
-
   {
     path: "/find-a-tutor",
     element: (
@@ -27,6 +27,7 @@ const router = createBrowserRouter([
       </Layout>
     ),
   },
+
  { path: "/sign-up", element: <TutorSignUp /> },
  { path: "/onbording", element: <Onboarding /> },
  { path: "/student-on-boarding", element: <StudentOnboarding/> },
@@ -43,7 +44,16 @@ const router = createBrowserRouter([
       // { path: "settings", element: <Settings /> },
     ],
   },
-  
+  {
+    path: "/become-tutor",
+    element: (
+      <Layout>
+        <BecomeTutor />
+      </Layout>
+    ),
+  },
+  { path: "/sign-up", element: <TutorSignUp /> },
+  { path: "/onbording", element: <Onboarding /> },
 ]);
 
 export default router;

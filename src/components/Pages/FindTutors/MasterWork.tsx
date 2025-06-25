@@ -35,7 +35,7 @@ const MasterWork = () => {
       <div className="flex flex-col gap-y-10 max-w-[1070px] ">
         <div className="flex flex-col gap-y-[14px] ">
           <Heading
-            className="text-[32px] leading-[150%] font-bold text-primary-gray max-w-[520px] "
+            className="text-[32px] leading-[150%] font-bold text-primary-gray  "
             Txt={`How do online English lessons with Syntax Master work?`}
           />
           <Paragraph
@@ -43,7 +43,11 @@ const MasterWork = () => {
             Txt={`How do online English lessons with Syntax Master work?`}
           />
         </div>
-        <hr className="w-full border-t border-solid border-secondry-gray " />
+        <hr
+          data-aos="fade-up"
+          data-aos-delay="100"
+          className="w-full border-t border-solid border-secondry-gray "
+        />
       </div>
       <div className="relative w-full max-w-[1070px] flex flex-col gap-y-6  ">
         {lessonsFeatureArr.map((item, idx) => {
@@ -60,7 +64,11 @@ const MasterWork = () => {
                 />
               </div>
               {idx < lessonsFeatureArr.length - 1 && (
-                <hr className="w-full border-t border-solid h-[1px] border-secondry-gray " />
+                <hr
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  className="w-full border-t border-solid h-[1px] border-secondry-gray "
+                />
               )}
             </div>
           );

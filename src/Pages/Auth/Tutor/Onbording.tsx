@@ -7,19 +7,15 @@ export default function Onboarding() {
   const [step, setStep] = useState(1);
   const methods = useForm({ mode: "onChange" });
 
-  const next = () => setStep((prev) => prev + 1);
-  const prev = () => setStep((prev) => prev - 1);
-  
+  const next = () => setStep(prev => prev + 1);
+  const prev = () => setStep(prev => prev - 1);
+
   const onSubmit = (data: any) => {
-const { reset } = methods;
-
-    
-        reset(); // Reset the form to default values
-  setStep(1);
+    const { reset } = methods;
+    reset();
+    setStep(1);
     console.log("Final data:", data);
-  }
-
-
+  };
 
   const timezones = [
     { value: "UTC", label: "UTC (GMT+0)" },
@@ -134,7 +130,7 @@ const { reset } = methods;
                   className="px-4 py-[14px] border cursor-pointer border-[var(--color-secondry-gray)] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
                 >
                   <option value="">Select Country</option>
-                  {countries.map((country) => (
+                  {countries.map(country => (
                     <option key={country} value={country}>
                       {country}
                     </option>
@@ -153,7 +149,7 @@ const { reset } = methods;
                   className="px-4 py-[14px] border cursor-pointer border-[var(--color-secondry-gray)] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
                 >
                   <option value="">Select Timezone</option>
-                  {timezones.map((tz) => (
+                  {timezones.map(tz => (
                     <option key={tz.value} value={tz.value}>
                       {tz.label}
                     </option>
@@ -194,7 +190,7 @@ const { reset } = methods;
                       className="react-select-container my-3"
                       classNamePrefix="react-select"
                       styles={{
-                        control: (base) => ({
+                        control: base => ({
                           ...base,
                           border: "1px solid #DBE1E5",
                           borderRadius: "8px",
@@ -202,19 +198,19 @@ const { reset } = methods;
                           boxShadow: "none",
                           minHeight: "48px",
                         }),
-                        multiValue: (base) => ({
+                        multiValue: base => ({
                           ...base,
                           backgroundColor: "#D1FADF", // Light green
                           borderRadius: "6px",
                           padding: "2px 6px",
                         }),
-                        multiValueLabel: (base) => ({
+                        multiValueLabel: base => ({
                           ...base,
                           color: "#027A48",
                           fontWeight: "600",
                           fontSize: "12px",
                         }),
-                        multiValueRemove: (base) => ({
+                        multiValueRemove: base => ({
                           ...base,
                           color: "#027A48",
                           ":hover": {
@@ -222,7 +218,7 @@ const { reset } = methods;
                             color: "#027A48",
                           },
                         }),
-                        placeholder: (base) => ({
+                        placeholder: base => ({
                           ...base,
                           color: "#9FA7AC",
                           fontSize: "14px",
@@ -367,7 +363,7 @@ const { reset } = methods;
                   {...methods.register("finalTimezone")}
                   className="px-4 py-[14px] border cursor-pointer border-[var(--color-secondry-gray)] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
                 >
-                  {timezones.map((tz) => (
+                  {timezones.map(tz => (
                     <option key={tz.value} value={tz.value}>
                       {tz.label}
                     </option>
@@ -400,7 +396,7 @@ const { reset } = methods;
                   "Thursday",
                   "Friday",
                   "Saturday",
-                ].map((day) => {
+                ].map(day => {
                   const enabled = methods.watch(`availability.${day}.enabled`);
 
                   return (
@@ -417,7 +413,7 @@ const { reset } = methods;
                       {/* Time Selectors (conditional) */}
                       {enabled && (
                         <div className="space-y-4">
-                          {[0].map((index) => (
+                          {[0].map(index => (
                             <div key={index} className="grid grid-cols-2 gap-4">
                               <div className="flex flex-col">
                                 <label className="text-xs text-gray-600 mb-1">
@@ -429,7 +425,7 @@ const { reset } = methods;
                                   )}
                                   className="px-4 py-2 border border-[var(--color-secondry-gray)] rounded-md"
                                 >
-                                  {generateTimes().map((time) => (
+                                  {generateTimes().map(time => (
                                     <option key={time}>{time}</option>
                                   ))}
                                 </select>
@@ -444,7 +440,7 @@ const { reset } = methods;
                                   )}
                                   className="px-4 py-2 border border-[var(--color-secondry-gray)] rounded-md"
                                 >
-                                  {generateTimes().map((time) => (
+                                  {generateTimes().map(time => (
                                     <option key={time}>{time}</option>
                                   ))}
                                 </select>

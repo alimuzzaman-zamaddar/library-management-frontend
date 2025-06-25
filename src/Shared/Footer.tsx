@@ -114,6 +114,8 @@ const Footer = () => {
                         return (
                           <li key={idx}>
                             <Link
+                              data-aos="fade-up"
+                              data-aos-delay="100"
                               className="text-lg capitalize text-secondary-white font-bold "
                               to={link.redirectLink}
                             >
@@ -141,6 +143,8 @@ const Footer = () => {
               return (
                 <li data-aos="fade-up" data-aos-delay="100" key={idx}>
                   <Link
+                    data-aos="fade-up"
+                    data-aos-delay="100"
                     className=" text-base text-secondary-white font-[600] "
                     to={item.redirectLink}
                   >
