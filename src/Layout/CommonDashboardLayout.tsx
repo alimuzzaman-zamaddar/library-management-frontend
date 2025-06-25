@@ -1,81 +1,81 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-import { MdDashboard } from "react-icons/md";
 import { GiClassicalKnowledge } from "react-icons/gi";
 import DashboardFooter from "../Pages/Dashboard/Shared/DashboardFooter";
 import DashboardNavbar from "../Pages/Dashboard/Shared/DashboardNavbar";
 import Sidebar from "../Pages/Dashboard/Shared/Sidebar";
+import { HomeSvg, SearchIconSmall } from "../components/SvgContainer/SVgContainer";
 
 const tutorNavLinks = [
-  { id: 1, icon: <MdDashboard />, path: "/dashboard", title: "Dashboard" },
+  { id: 1, icon: HomeSvg, path: "/dashboard", title: "Dashboard" },
   {
     id: 2,
-    icon: <GiClassicalKnowledge />,
+    icon: GiClassicalKnowledge,
     path: "/find-tutors",
     title: "My Classes",
   },
-  { id: 3, icon: <GiClassicalKnowledge />, path: "/lessons", title: "Message" },
+  { id: 3, icon: GiClassicalKnowledge, path: "/lessons", title: "Message" },
   {
     id: 4,
-    icon: <GiClassicalKnowledge />,
+    icon: GiClassicalKnowledge,
     path: "/messages",
     title: "Earnings",
   },
   {
     id: 5,
-    icon: <GiClassicalKnowledge />,
+    icon: GiClassicalKnowledge,
     path: "/schedule",
     title: "Availability",
   },
   {
     id: 6,
-    icon: <GiClassicalKnowledge />,
+    icon: GiClassicalKnowledge,
     path: "/subscription",
     title: "Reviews",
   },
   {
     id: 7,
-    icon: <GiClassicalKnowledge />,
+    icon: GiClassicalKnowledge,
     path: "/settings",
     title: "Setting",
   },
 ];
 
 const studentNavLinks = [
-  { id: 1, icon: <MdDashboard />, path: "/dashboard", title: "Dashboard" },
+  { id: 1, icon: HomeSvg, path: "/dashboard", title: "Dashboard" },
   {
     id: 2,
-    icon: <GiClassicalKnowledge />,
-    path: "/find-tutors",
+    icon: SearchIconSmall,
+    path: "/dashboard/find-tutors",
     title: "Find Tutors",
   },
   {
     id: 3,
-    icon: <GiClassicalKnowledge />,
+    icon: GiClassicalKnowledge,
     path: "/lessons",
     title: "My Lessons",
   },
   {
     id: 4,
-    icon: <GiClassicalKnowledge />,
+    icon: GiClassicalKnowledge,
     path: "/messages",
     title: "Messages",
   },
   {
     id: 5,
-    icon: <GiClassicalKnowledge />,
+    icon: GiClassicalKnowledge,
     path: "/schedule",
     title: "Schedule",
   },
   {
     id: 6,
-    icon: <GiClassicalKnowledge />,
+    icon: GiClassicalKnowledge,
     path: "/subscription",
     title: "Subscription",
   },
   {
     id: 7,
-    icon: <GiClassicalKnowledge />,
+    icon: GiClassicalKnowledge,
     path: "/settings",
     title: "Settings",
   },
