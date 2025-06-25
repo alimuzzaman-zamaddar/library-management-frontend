@@ -34,9 +34,9 @@ export default function TutorSignUp() {
         </div>
 
         {/* Form Section */}
-        <div className="p-8 border border-[#DBE1E5] rounded-r-[12px] shadow-md">
-          <Heading Txt="Create Your Account" className="text-center text-[22px] xl:text-[32px] leading-[150%] font-bold text-gray-900 mb-4" Variant="h1" />
-          <p className="text-center text-sm text-gray-500 mb-6">
+        <div className="p-8 border border-[var(--color-secondry-gray)] rounded-r-[12px] shadow-md">
+          <Heading Txt="Create Your Account" className="text-center text-[22px] xl:text-[32px] leading-[150%] font-bold text-[var(--color-primary-blue)] mb-4" Variant="h1" />
+          <p className="text-center text-sm text-[var(--color-text-gray)] mb-6">
             Join Syntax Master today
           </p>
 
@@ -77,7 +77,7 @@ export default function TutorSignUp() {
                 type="text"
                 placeholder="Enter Your Full Name"
                 {...register("fullName", { required: true })}
-                className="w-full px-4 py-[14px] border border-[#DBE1E5] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
+                className="w-full px-4 py-[14px] border border-[var(--color-secondry-gray)] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
               />
               {errors.fullName && (
                 <p className="text-sm text-red-600 mt-1">
@@ -97,7 +97,7 @@ export default function TutorSignUp() {
                 type="email"
                 placeholder="Enter Your Email"
                 {...register("email", { required: true })}
-                className="w-full px-4 py-[14px] border my-3 border-[#DBE1E5] rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
+                className="w-full px-4 py-[14px] border my-3 border-[var(--color-secondry-gray)] rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
               />
               {errors.email && (
                 <p className="text-sm text-red-600 mt-1">Email is required</p>
@@ -115,7 +115,7 @@ export default function TutorSignUp() {
                 type="password"
                 placeholder="Enter Your Password"
                 {...register("password", { required: true, minLength: 8 })}
-                className="w-full px-4 py-[14px] border my-3 border-[#DBE1E5] rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
+                className="w-full px-4 py-[14px] border my-3 border-[var(--color-secondry-gray)] rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac]"
               />
               {errors.password && (
                 <p className="text-sm text-red-600 mt-1">
@@ -166,17 +166,17 @@ export default function TutorSignUp() {
           </p>
 
           <div className="flex items-center justify-center my-4">
-            <span className="border-b border-b-[#DBE1E5] w-1/4"></span>
+            <span className="border-b border-b-[var(--color-secondry-gray)] w-1/4"></span>
             <span className="text-sm text-[#333] px-2">Or Sign up With</span>
-            <span className="border-b border-b-[#DBE1E5] w-1/4"></span>
+            <span className="border-b border-b-[var(--color-secondry-gray)] w-1/4"></span>
           </div>
 
           <div className="flex gap-4 justify-center py-8">
-            <button className="border border-[#DBE1E5] cursor-pointer text-sm font-semibold px-4 py-[14px] rounded-md w-1/2 flex items-center justify-center gap-2">
+            <button className="border border-[var(--color-secondry-gray)] cursor-pointer text-sm font-semibold px-4 py-[14px] rounded-md w-1/2 flex items-center justify-center gap-2">
               <FaGoogle />
               Google
             </button>
-            <button className="border border-[#DBE1E5] cursor-pointer text-sm font-semibold px-4 py-[14px] rounded-md w-1/2 flex items-center justify-center gap-2">
+            <button className="border border-[var(--color-secondry-gray)] cursor-pointer text-sm font-semibold px-4 py-[14px] rounded-md w-1/2 flex items-center justify-center gap-2">
               <FaFacebookF />
               Facebook
             </button>
