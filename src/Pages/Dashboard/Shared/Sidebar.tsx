@@ -1,26 +1,18 @@
-
 import { NavLink } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
-import { FaHome, FaChalkboardTeacher, FaComments, FaCalendarAlt, FaCreditCard, FaCog } from "react-icons/fa";
 import clsx from "clsx";
-import logoimg from "../../../assets/images/LogoDashboard.png"
+import logoimg from "../../../assets/images/LogoDashboard.png";
 import Image from "../../../components/Tags/Image/Image";
+import { DotSvg } from "../../../components/SvgContainer/SVgContainer";
+import { useState } from "react";
 
-const studentNavLinks = [
-  { id: 1, icon: <FaHome />, path: "/dashboard", title: "Dashboard" },
-  { id: 2, icon: <FaChalkboardTeacher />, path: "/find-tutors", title: "Find Tutors" },
-  { id: 3, icon: <FaChalkboardTeacher />, path: "/lessons", title: "My Lessons" },
-  { id: 4, icon: <FaComments />, path: "/messages", title: "Message" },
-  { id: 5, icon: <FaCalendarAlt />, path: "/schedule", title: "Schedule" },
-  { id: 6, icon: <FaCreditCard />, path: "/subscription", title: "Subscription" },
-  { id: 7, icon: <FaCog />, path: "/settings", title: "Setting" },
-];
+const Sidebar = ({ navLinks, showSidebar, setShowSidebar }: any) => {
+  const [activeLink, setactiveLink] = useState(navLinks[0].id);
 
-const StudentSidebar = ({ navLinks = studentNavLinks, showSidebar, setShowSidebar }: any) => {
   return (
     <aside
       className={clsx(
-        "fixed xl:relative top-0 left-0 h-screen w-64 bg-white z-40 shadow-md transition-transform duration-300 ease-in-out",
+        "fixed xl:relative top-0 left-0 h-screen  w-64 bg-white z-40 shadow-md transition-transform duration-300 ease-in-out",
         showSidebar ? "translate-x-0" : "-translate-x-full xl:translate-x-0"
       )}
     >
@@ -36,16 +28,18 @@ const StudentSidebar = ({ navLinks = studentNavLinks, showSidebar, setShowSideba
           {/* Logo */}
           <Image Alt="Logo" Src={logoimg} className="mb-10" />
 
-
           {/* Navigation */}
           <nav className="flex flex-col gap-2">
             {navLinks.map((link: any) => (
               <NavLink
                 key={link.id}
                 to={link.path}
-                onClick={() => setShowSidebar(false)}
+                onClick={() => {
+                  setShowSidebar(false);
+                  setactiveLink(link.id);
+                }}
                 className={({ isActive }) =>
-                  `text-[18px] flex gap-x-5 items-center pl-10 font-medium px-4 py-3 rounded-[10px] transition-all duration-200 cursor-pointer capitalize ${
+                  `text-base flex gap-x-5 items-center py-3.5 font-medium  px-4.5 rounded-[10px] transition-all ease-in-out duration-200 cursor-pointer capitalize ${
                     isActive
                       ? "bg-[#051345] text-white"
                       : "text-[#051345] hover:text-white hover:bg-[#051345]"
@@ -53,7 +47,10 @@ const StudentSidebar = ({ navLinks = studentNavLinks, showSidebar, setShowSideba
                 }
               >
                 {link.icon}
-                <span className="text-sm font-medium">{link.title}</span>
+                <div className="flex justify-between items-center w-full">
+                  <span className="text-sm font-medium">{link.title}</span>
+                  {activeLink === link.id && <DotSvg />}
+                </div>
               </NavLink>
             ))}
           </nav>
@@ -74,4 +71,4 @@ const StudentSidebar = ({ navLinks = studentNavLinks, showSidebar, setShowSideba
   );
 };
 
-export default StudentSidebar;
+export default Sidebar;
