@@ -3,8 +3,7 @@ import TutorDashboardPage from "./TutorDashboard/TutorDashboardPage";
 
 
 
-// 🔧 Replace this with dynamic logic later (e.g., from login or context)
-const role: "student" | "tutor" = "student"; // Example role, can be "student" or "tutor"
+const role: "student" | "tutor" = "student"; 
 
 const DashboardPage = () => {
   if (role === "student") return <StudentDashboardPage />;

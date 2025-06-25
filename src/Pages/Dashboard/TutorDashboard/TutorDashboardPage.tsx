@@ -1,9 +1,9 @@
-import TNavbar from "../TNavbar";
+import TNavbar from "../Shared/DashboardNavbar";
 import clsx from "clsx";
 import { FaBookOpen } from "react-icons/fa";
-import Heading from "../../components/Tags/Heading/Heading";
-import Paragraph from "../../components/Tags/Paragraph/Paragraph";
-import DashboardFooter from "../DashboardFooter";
+import Heading from "../../../components/Tags/Heading/Heading";
+import Paragraph from "../../../components/Tags/Paragraph/Paragraph";
+import DashboardFooter from "../Shared/DashboardFooter";
 
 const cardStyles = {
   "Active Students": "bg-[#4D6BFF]",
@@ -35,7 +35,7 @@ const TutorDashboardPage = () => {
             Txt="Here’s a quick overview of your teaching dashboard"
           />
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-            {cards.map((card) => (
+            {cards.map(card => (
               <div
                 key={card.title}
                 className={clsx(
@@ -47,7 +47,9 @@ const TutorDashboardPage = () => {
                   <FaBookOpen className="w-6 h-6" />
                   <div className="flex flex-col">
                     <span className="text-sm">{card.title}</span>
-                    <span className="text-2xl font-bold mt-1">{card.value}</span>
+                    <span className="text-2xl font-bold mt-1">
+                      {card.value}
+                    </span>
                   </div>
                 </div>
               </div>
