@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function TutorSignUp() {
   const [role, setRole] = useState<"student" | "tutor">("student");
+  // Removed unused 'user' constant; use 'role' state for navigation logic
 
   const {
     register,
@@ -146,13 +147,14 @@ export default function TutorSignUp() {
                 You must agree before submitting.
               </p>
             )}
-
+            <Link to={role === "student" ? "/student-on-boarding" : "/onbording"}   >
             <button
               type="submit"
               className="w-full  bg-[#272f4d] py-[14px] text-sm cursor-pointer text-white rounded-[4px] hover:bg-[#000000] duration-500"
             >
               Create Account
             </button>
+            </Link>
           </form>
 
           <p className="text-center text-sm mt-4 py-8">
