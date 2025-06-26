@@ -34,7 +34,7 @@ const StudentDashboardPage = () => {
 
         {/* Stat Cards */}
         <div
-          data-aos="fade-up"
+          
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8"
         >
           {statCards.map((card) => (
@@ -58,7 +58,7 @@ const StudentDashboardPage = () => {
           {/* Upcoming Lessons */}
           <div className="bg-white border border-[var(--color-alt-border)] rounded-xl p-8">
             <div
-              data-aos="fade-up"
+              
               className="flex justify-between items-center mb-4 bg-[var(--color-primary-blue)] text-[var(--color-secondary-white)] p-4 rounded-lg"
             >
               <Heading
@@ -70,7 +70,7 @@ const StudentDashboardPage = () => {
             </div>
             {["Ronald Richards", "Ronald Richards"].map((name, i) => (
               <div
-                data-aos="fade-up"
+                
                 key={i}
                 className={`flex justify-between items-center p-4 rounded-lg mb-3 ${
                   i === 0
@@ -79,7 +79,7 @@ const StudentDashboardPage = () => {
                 }`}
               >
                 <div className="">
-                  <div data-aos="fade-up" className="flex items-center gap-3">
+                  <div  className="flex items-center gap-3">
                     <img
                       src={`https://randomuser.me/api/portraits/${
                         i === 0 ? "men/32" : "women/44"
@@ -112,7 +112,7 @@ const StudentDashboardPage = () => {
                     </div>
                   </div>
                 </div>
-                <div data-aos="fade-up" className="flex gap-3">
+                <div  className="flex gap-3">
                   <button className="border border-[var(--color-alt-border)] gap-3 cursor-pointer duration-700 hover:text-white hover:bg-[var(--button-bg-blue)] bg-white rounded-[8px] px-6 py-2 text-sm flex items-center">
                     <MessageButtonSvg /> Message
                   </button>
@@ -127,7 +127,7 @@ const StudentDashboardPage = () => {
           {/* Quick Messages */}
           <div className="bg-white border border-[var(--color-alt-border)] rounded-xl p-8">
             <div
-              data-aos="fade-up"
+              
               className="flex justify-between items-center mb-4 bg-[var(--color-primary-blue)] text-[var(--color-secondary-white)] p-4 rounded-lg"
             >
               <Heading
@@ -141,7 +141,7 @@ const StudentDashboardPage = () => {
               {["Darrell Steward", "Arlene McCoy", "Robert Fox"].map(
                 (name, i) => (
                   <div
-                    data-aos="fade-up"
+                    
                     key={i}
                     className={`flex items-start gap-3 p-3  rounded-md ${
                       i === 0 ? "bg-blue-50" : "hover:bg-gray-50"
@@ -167,7 +167,7 @@ const StudentDashboardPage = () => {
                 )
               )}
             </div>
-            <div data-aos="fade-up" className="">
+            <div  className="">
               <button className="w-full mt-4 md:mt-0 px-4 py-[14px] border border-primary-blue text-primary-blue rounded hover:bg-primary-blue hover:text-white transition-all text-sm font-medium cursor-pointer duration-500">
                 View all Message
               </button>
@@ -185,50 +185,49 @@ const StudentDashboardPage = () => {
               </h3>
               <PreviousLessonSvg />
             </div>
-{[1, 2, 3].map((i) => (
-  <div key={i} className="flex justify-between items-center py-3">
-    {/* User Info Section */}
-    <div className="flex items-center gap-3">
-      <img
-        src="https://randomuser.me/api/portraits/women/45.jpg"
-        className="w-12 h-12 rounded-full"
-        alt="avatar"
-      />
-      <div>
-        <div className="font-medium mb-2">Cameron Williamson</div>
-        <div className="text-sm text-[var(--color-text-gray)]">
-          English Conversation <br />
-          Yesterday, 2:00 PM · 50 min
-        </div>
-      </div>
-    </div>
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="flex justify-between items-center py-3">
+                {/* User Info Section */}
+                <div className="flex items-center gap-3">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/45.jpg"
+                    className="w-12 h-12 rounded-full"
+                    alt="avatar"
+                  />
+                  <div>
+                    <div className="font-medium mb-2">Cameron Williamson</div>
+                    <div className="text-sm text-[var(--color-text-gray)]">
+                      English Conversation <br />
+                      Yesterday, 2:00 PM · 50 min
+                    </div>
+                  </div>
+                </div>
 
-    {/* Action Buttons Section */}
-    <div className="flex gap-2">
-      {/* Conditional Render for Rate or Star Rating */}
-      {i === 1 ? (
-        <Button
-          Txt="Rate"
-          className="border border-[var(--color-alt-border)] cursor-pointer px-3 py-1 rounded text-sm font-medium"
-        />
-      ) : (
-        <div className="flex items-center gap-1">
-          <BsStarFill className="text-yellow-500 w-4 h-4" />
-          4.9
-        </div>
-      )}
+                {/* Action Buttons Section */}
+                <div className="flex gap-2">
+                  {/* Conditional Render for Rate or Star Rating */}
+                  {i === 1 ? (
+                    <Button
+                      Txt="Rate"
+                      className="border border-[var(--color-alt-border)] cursor-pointer px-3 py-1 rounded text-sm font-medium"
+                    />
+                  ) : (
+                    <div className="flex items-center gap-1">
+                      <BsStarFill className="text-yellow-500 w-4 h-4" />
+                      4.9
+                    </div>
+                  )}
 
-      {/* Review Lesson Button */}
-      <button className="border border-[var(--color-alt-border)] cursor-pointer px-3 py-1 rounded text-sm font-medium flex items-center">
-        <span className="mr-2">
-          <ReviewLessonButtonSvg />
-        </span>
-        Review Lesson
-      </button>
-    </div>
-  </div>
-))}
-
+                  {/* Review Lesson Button */}
+                  <button className="border border-[var(--color-alt-border)] cursor-pointer px-3 py-1 rounded text-sm font-medium flex items-center">
+                    <span className="mr-2">
+                      <ReviewLessonButtonSvg />
+                    </span>
+                    Review Lesson
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Lesson Package */}
