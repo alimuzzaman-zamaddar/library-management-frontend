@@ -1,9 +1,7 @@
-import TNavbar from "../Shared/DashboardNavbar";
 import clsx from "clsx";
 import { FaBookOpen } from "react-icons/fa";
 import Heading from "../../../components/Tags/Heading/Heading";
 import Paragraph from "../../../components/Tags/Paragraph/Paragraph";
-import DashboardFooter from "../Shared/DashboardFooter";
 
 const cardStyles = {
   "Active Students": "bg-[#4D6BFF]",
@@ -23,7 +21,6 @@ const TutorDashboardPage = () => {
   return (
     <div className="flex flex-col justify-between min-h-[calc(100vh-64px)]">
       <div>
-        <TNavbar />
         <div className="space-y-6 p-6">
           <Heading
             className="text-2xl font-bold text-[var(--color-primary-blue)]"
@@ -57,8 +54,6 @@ const TutorDashboardPage = () => {
           </div>
         </div>
       </div>
-
-      <DashboardFooter />
     </div>
   );
 };
