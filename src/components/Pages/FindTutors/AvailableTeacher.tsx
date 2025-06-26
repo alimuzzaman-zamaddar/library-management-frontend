@@ -11,10 +11,6 @@ import Button from "../../Tags/Button/Button";
 import Heading from "../../Tags/Heading/Heading";
 import Paragraph from "../../Tags/Paragraph/Paragraph";
 
-
-
-
-
 const isAdminRoute =
   typeof window !== "undefined" &&
   window.location.pathname.startsWith("/dashboard");
