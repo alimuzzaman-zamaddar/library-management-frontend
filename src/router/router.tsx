@@ -10,6 +10,8 @@ import BecomeTutor from "../Pages/PulicRoutes/BecomeTutor";
 import CommonDashboardLayout from "../Layout/CommonDashboardLayout";
 import FindTutor from "../Pages/Dashboard/StudentDashboard/FindTutor";
 import { MyLessons } from "../Pages/Dashboard/StudentDashboard/MyLessons";
+import { RescheduleLesson } from "../Pages/Dashboard/StudentDashboard/RescheduleLesson";
+import { CancelLesson } from "../Pages/Dashboard/StudentDashboard/CancelLesson";
 
 
 const router = createBrowserRouter([
@@ -46,6 +48,14 @@ const router = createBrowserRouter([
       {
         path: "my-lessons",
         element: <MyLessons />,
+      },
+      {
+        path: "my-lessons/reschedule",
+        element: <RescheduleLesson />,
+      },
+      {
+        path: "my-lessons/cancel",
+        element: <CancelLesson />,
       },
     ],
   },
