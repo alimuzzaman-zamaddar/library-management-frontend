@@ -4,7 +4,9 @@ import { GiClassicalKnowledge } from "react-icons/gi";
 import DashboardFooter from "../Pages/Dashboard/Shared/DashboardFooter";
 import DashboardNavbar from "../Pages/Dashboard/Shared/DashboardNavbar";
 import Sidebar from "../Pages/Dashboard/Shared/Sidebar";
-import { HomeSvg, SearchIconSmall } from "../components/SvgContainer/SVgContainer";
+import { HomeSvg } from "../components/SvgContainer/SVgContainer";
+import { FaCalculator } from "react-icons/fa";
+import { FiSearch } from "react-icons/fi";
 
 const tutorNavLinks = [
   { id: 1, icon: HomeSvg, path: "/dashboard", title: "Dashboard" },
@@ -45,14 +47,14 @@ const studentNavLinks = [
   { id: 1, icon: HomeSvg, path: "/dashboard", title: "Dashboard" },
   {
     id: 2,
-    icon: SearchIconSmall,
+    icon: FiSearch,
     path: "/dashboard/find-tutors",
     title: "Find Tutors",
   },
   {
     id: 3,
-    icon: GiClassicalKnowledge,
-    path: "/lessons",
+    icon: FaCalculator ,
+    path: "my-lessons",
     title: "My Lessons",
   },
   {

@@ -9,6 +9,7 @@ import StudentOnboarding from "../Pages/Auth/Student/StudentOnboarding";
 import BecomeTutor from "../Pages/PulicRoutes/BecomeTutor";
 import CommonDashboardLayout from "../Layout/CommonDashboardLayout";
 import FindTutor from "../Pages/Dashboard/StudentDashboard/FindTutor";
+import { MyLessons } from "../Pages/Dashboard/StudentDashboard/MyLessons";
 
 
 const router = createBrowserRouter([
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "find-tutors",
         element: <FindTutor />,
+      },
+      {
+        path: "my-lessons",
+        element: <MyLessons />,
       },
     ],
   },

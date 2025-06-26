@@ -907,3 +907,50 @@ export const ReviewLessonButtonSvg = () => {
 </svg>
   );
 };
+export const MyLessonsSvg = () => {
+  return (
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+  <path d="M14.9997 1.66602H4.99967C4.0792 1.66602 3.33301 2.41221 3.33301 3.33268V16.666C3.33301 17.5865 4.0792 18.3327 4.99967 18.3327H14.9997C15.9201 18.3327 16.6663 17.5865 16.6663 16.666V3.33268C16.6663 2.41221 15.9201 1.66602 14.9997 1.66602Z" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M7.5 18.3333V15H12.5V18.3333" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M6.66699 5H6.67533" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M13.333 5H13.3413" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M10 5H10.0083" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M10 8.33398H10.0083" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M10 11.666H10.0083" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M13.333 8.33398H13.3413" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M13.333 11.666H13.3413" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M6.66699 8.33398H6.67533" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M6.66699 11.666H6.67533" stroke="white" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+  );
+};
+export const MyLocationSvg = () => {
+  return (
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+  <g clip-path="url(#clip0_35379_4746)">
+    <path d="M8.00032 0.5C4.74121 0.5 2.08984 3.15137 2.08984 6.41047C2.08984 7.4834 2.57103 8.63733 2.59119 8.68601C2.7466 9.05489 3.05325 9.62786 3.27437 9.96371L7.32687 16.104C7.49271 16.3557 7.73817 16.5 8.00032 16.5C8.26246 16.5 8.50792 16.3557 8.67376 16.1043L12.7266 9.96371C12.9481 9.62786 13.2544 9.05489 13.4098 8.68601C13.43 8.63768 13.9108 7.48375 13.9108 6.41047C13.9108 3.15137 11.2594 0.5 8.00032 0.5ZM12.7687 8.41621C12.63 8.74685 12.3445 9.27983 12.146 9.58092L8.09315 15.7216C8.01318 15.8429 7.9878 15.8429 7.90784 15.7216L3.85499 9.58092C3.65647 9.27983 3.37103 8.7465 3.2323 8.41586C3.22639 8.40161 2.78519 7.33946 2.78519 6.41047C2.78519 3.53485 5.1247 1.19535 8.00032 1.19535C10.8759 1.19535 13.2154 3.53485 13.2154 6.41047C13.2154 7.34085 12.7732 8.40578 12.7687 8.41621Z" fill="#5C5C5C"/>
+    <path d="M8.00017 3.28125C6.27466 3.28125 4.87109 4.68516 4.87109 6.41032C4.87109 8.13549 6.27466 9.5394 8.00017 9.5394C9.72568 9.5394 11.1292 8.13549 11.1292 6.41032C11.1292 4.68516 9.72568 3.28125 8.00017 3.28125ZM8.00017 8.84405C6.65849 8.84405 5.56644 7.75235 5.56644 6.41032C5.56644 5.0683 6.65849 3.9766 8.00017 3.9766C9.34185 3.9766 10.4339 5.0683 10.4339 6.41032C10.4339 7.75235 9.34185 8.84405 8.00017 8.84405Z" fill="#5C5C5C"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_35379_4746">
+      <rect width="16" height="16" fill="white" transform="translate(0 0.5)"/>
+    </clipPath>
+  </defs>
+</svg>
+  );
+};
+export const MyThreeDots = () => {
+  return (
+    <div className="flex items-center gap-[2px]">
+      <svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4" fill="none">
+        <circle cx="2" cy="2" r="2" fill="#051345" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4" fill="none">
+        <circle cx="2" cy="2" r="2" fill="#051345" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="4" height="4" viewBox="0 0 4 4" fill="none">
+        <circle cx="2" cy="2" r="2" fill="#051345" />
+      </svg>
+    </div>
+  );
+};
