@@ -26,7 +26,7 @@ export default function TutorSignUp() {
     <div className="min-h-screen container w-auto  flex items-center justify-center py-12 rounded-[12px] ">
       <div className=" grid grid-cols-1 xl:grid-cols-[55%_45%] ">
         {/* Image Section */}
-        <div className="hidden xl:block">
+        <div data-aos="fade-right" className="hidden xl:block">
           <img
             src={signupimg}
             alt="Tutor working on laptop"
@@ -37,17 +37,17 @@ export default function TutorSignUp() {
         {/* Form Section */}
         <div className="p-8 border border-[var(--color-secondry-gray)] rounded-r-[12px] shadow-md">
           <Heading Txt="Create Your Account" className="text-center text-[22px] xl:text-[32px] leading-[150%] font-bold text-[var(--color-primary-blue)] mb-4" Variant="h1" />
-          <p className="text-center text-sm text-[var(--color-text-gray)] mb-6">
+          <p data-aos="fade-up" className="text-center text-sm text-[var(--color-text-gray)] mb-6">
             Join Syntax Master today
           </p>
 
-          <div className="flex justify-center gap-2 my-8 bg-[#F1F5F9] rounded-lg px-3 py-[6px] ">
+          <div data-aos="fade-up" className="flex justify-center gap-2 my-8 bg-[#F1F5F9] rounded-lg px-3 py-[6px] ">
             <button
               type="button"
-              className={`w-full py-2 text-[16px] font-semibold rounded-md ${
+              className={`w-full py-2 text-[16px] cursor-pointer hover:bg-[var(--button-bg-blue)] hover:text-white duration-700 font-semibold rounded-md ${
                 role === "student"
-                  ? "text-[#333] bg-white"
-                  : "text-[#333] bg-[#F1F5F9]"
+                  ? "text-[var(--color-primary-gray)] bg-white"
+                  : "text-[var(--color-primary-gray)] bg-[#F1F5F9]"
               }`}
               onClick={() => setRole("student")}
             >
@@ -55,10 +55,10 @@ export default function TutorSignUp() {
             </button>
             <button
               type="button"
-              className={`w-full py-2 text-[16px] font-semibold  rounded-md ${
+              className={`w-full py-2 text-[16px] cursor-pointer hover:bg-[var(--button-bg-blue)] hover:text-white duration-700 font-semibold  rounded-md ${
                 role === "tutor"
-                  ? "text-[#333] bg-white"
-                  : "text-[#333] bg-[#F1F5F9]"
+                  ? "text-[var(--color-primary-gray)] bg-white"
+                  : "text-[var(--color-primary-gray)] bg-[#F1F5F9]"
               }`}
               onClick={() => setRole("tutor")}
             >
@@ -67,10 +67,10 @@ export default function TutorSignUp() {
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            <div>
+            <div data-aos="fade-up"  >
               <label
                 htmlFor="text"
-                className="text-sm text-[#333] font-semibold leading-[142.857%] mb-3"
+                className="text-sm text-[var(--color-primary-gray)] font-semibold leading-[142.857%] mb-3"
               >
                 Full Name
               </label>
@@ -87,10 +87,10 @@ export default function TutorSignUp() {
               )}
             </div>
 
-            <div>
+            <div data-aos="fade-up">
               <label
                 htmlFor="email"
-                className="text-sm text-[#333] font-semibold leading-[142.857%] mb-3"
+                className="text-sm text-[var(--color-primary-gray)] font-semibold leading-[142.857%] mb-3"
               >
                 Email
               </label>
@@ -105,10 +105,10 @@ export default function TutorSignUp() {
               )}
             </div>
 
-            <div>
+            <div data-aos="fade-up">
               <label
                 htmlFor="email"
-                className="text-sm text-[#333] font-semibold leading-[142.857%] mb-3"
+                className="text-sm text-[var(--color-primary-gray)] font-semibold leading-[142.857%] mb-3"
               >
                 Password
               </label>
@@ -125,7 +125,7 @@ export default function TutorSignUp() {
               )}
             </div>
 
-            <div className="flex items-start py-8">
+            <div data-aos="fade-up" className="flex items-start py-8">
               <input
                 type="checkbox"
                 {...register("terms", { required: true })}
@@ -148,12 +148,14 @@ export default function TutorSignUp() {
               </p>
             )}
             <Link to={role === "student" ? "/student-on-boarding" : "/onbording"}   >
+            <div            data-aos="fade-up" className="">
             <button
               type="submit"
-              className="w-full  bg-[#272f4d] py-[14px] text-sm cursor-pointer text-white rounded-[4px] hover:bg-[#000000] duration-500"
+              className="w-full  bg-[var(--button-bg-blue)] border border-[var(--button-bg-blue)] hover:border-[var(--color-secondry-gray)] hover:bg-white hover:text-[var(--button-bg-blue)] py-[14px] transition duration-700 text-sm cursor-pointer text-white rounded-[4px] "
             >
               Create Account
             </button>
+            </div>
             </Link>
           </form>
 
@@ -169,16 +171,16 @@ export default function TutorSignUp() {
 
           <div className="flex items-center justify-center my-4">
             <span className="border-b border-b-[var(--color-secondry-gray)] w-1/4"></span>
-            <span className="text-sm text-[#333] px-2">Or Sign up With</span>
+            <span className="text-sm text-[var(--color-primary-gray)] px-2">Or Sign up With</span>
             <span className="border-b border-b-[var(--color-secondry-gray)] w-1/4"></span>
           </div>
 
           <div className="flex gap-4 justify-center py-8">
-            <button className="border border-[var(--color-secondry-gray)] cursor-pointer text-sm font-semibold px-4 py-[14px] rounded-md w-1/2 flex items-center justify-center gap-2">
+            <button className="border border-[var(--color-secondry-gray)] hover:bg-[var(--button-bg-blue)] hover:text-white duration-700 cursor-pointer text-sm font-semibold px-4 py-[14px] rounded-md w-1/2 flex items-center justify-center gap-2">
               <FaGoogle />
               Google
             </button>
-            <button className="border border-[var(--color-secondry-gray)] cursor-pointer text-sm font-semibold px-4 py-[14px] rounded-md w-1/2 flex items-center justify-center gap-2">
+            <button className="border border-[var(--color-secondry-gray)] hover:bg-[var(--button-bg-blue)] hover:text-white duration-700 cursor-pointer text-sm font-semibold px-4 py-[14px] rounded-md w-1/2 flex items-center justify-center gap-2">
               <FaFacebookF />
               Facebook
             </button>

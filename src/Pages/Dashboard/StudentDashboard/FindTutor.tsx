@@ -1,14 +1,16 @@
+
 import { useEffect } from "react";
 import AvailableTeacher from "../../../components/Pages/FindTutors/AvailableTeacher";
 import TutorsOrigin from "../../../components/Pages/Home/TutorsOrigin";
 import Aos from "aos";
 import Heading from "../../../components/Tags/Heading/Heading";
 import { SearchIconSvg } from "../../../components/SvgContainer/SVgContainer";
+import AvailableTeacher from "../../../components/Pages/FindTutors/AvailableTeacher";
+import TutorsOrigin from "../../../components/Pages/Home/TutorsOrigin";
+
 
 const FindTutor = () => {
-  useEffect(() => {
-    Aos.refresh();
-  }, []);
+
 
   const trendingSubjects = [
     { id: 1, label: "Web Development" },
