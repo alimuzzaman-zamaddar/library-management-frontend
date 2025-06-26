@@ -7,16 +7,19 @@ import { DotSvg } from "../../../components/SvgContainer/SVgContainer";
 import { useState } from "react";
 
 const Sidebar = ({ navLinks, showSidebar, setShowSidebar }: any) => {
-  const [activeLink, setactiveLink] = useState(navLinks[0].id);
+  const [isActive, setisActive] = useState<string | null>(
+    navLinks[0].id
+  );
+
+
 
   return (
     <aside
       className={clsx(
-        "fixed xl:relative top-0 left-0 h-screen  w-64 bg-white z-40 shadow-md transition-transform duration-300 ease-in-out",
+        "fixed xl:relative top-0 left-0 h-screen w-64 bg-white z-40 shadow-md transition-transform duration-300 ease-in-out",
         showSidebar ? "translate-x-0" : "-translate-x-full xl:translate-x-0"
       )}
     >
-      {/* Close button for mobile */}
       <div className="xl:hidden flex justify-end p-4">
         <button onClick={() => setShowSidebar(false)}>
           <IoClose size={24} className="text-gray-700 hover:text-red-500" />
@@ -25,34 +28,36 @@ const Sidebar = ({ navLinks, showSidebar, setShowSidebar }: any) => {
 
       <div className="p-6 pt-0 xl:pt-6 flex flex-col justify-between h-full">
         <div>
-          {/* Logo */}
           <Image Alt="Logo" Src={logoimg} className="mb-10" />
 
-          {/* Navigation */}
           <nav className="flex flex-col gap-2">
             {navLinks.map((link: any) => {
-           const Icon = link.icon;
-              
+              const Icon = link.icon;
+
               return (
                 <NavLink
                   key={link.id}
                   to={link.path}
+                  end={link.path === "/dashboard"}
+                  
                   onClick={() => {
                     setShowSidebar(false);
-                    setactiveLink(link.id);
+                    setisActive(link.id)
                   }}
                   className={({ isActive }) =>
-                    `text-base flex gap-x-5 items-center py-3.5 font-medium  px-4.5 rounded-[10px] transition-all ease-in-out duration-200 cursor-pointer capitalize ${
+                    clsx(
+                      "text-base flex gap-x-5 items-center py-3.5 font-medium px-4.5 rounded-[10px] transition-all ease-in-out duration-200 cursor-pointer capitalize",
                       isActive
                         ? "bg-[#051345] text-white"
                         : "text-[#051345] hover:text-white hover:bg-[#051345]"
-                    }`
+                    )
                   }
                 >
-                  <Icon/>
+                  <Icon   />
+
                   <div className="flex justify-between items-center w-full">
                     <span className="text-sm font-medium">{link.title}</span>
-                    {activeLink === link.id && <DotSvg />}
+                    {isActive && <DotSvg />}
                   </div>
                 </NavLink>
               );
@@ -60,7 +65,6 @@ const Sidebar = ({ navLinks, showSidebar, setShowSidebar }: any) => {
           </nav>
         </div>
 
-        {/* Profile Preview */}
         <div className="flex items-center gap-3 pl-10 mt-8">
           <div className="w-10 h-10 bg-[#051345] text-white flex items-center justify-center rounded-full font-bold">
             JD

@@ -1,5 +1,9 @@
 import React from "react";
 
+const isAdminRoute =
+  typeof window !== "undefined" &&
+  window.location.pathname.startsWith("/dashboard");
+
 interface ImageProps {
   Src: string;
   Alt: string;
@@ -10,12 +14,14 @@ interface ImageProps {
 const Image: React.FC<ImageProps> = ({ Src, Alt, className, onClick }) => {
   return (
     <img
-      data-aos="fade-up"
-      data-aos-delay="100"
       src={Src}
       alt={Alt}
       className={className}
       onClick={onClick}
+      {...(!isAdminRoute && {
+        "data-aos": "fade-up",
+        "data-aos-delay": "100",
+      })}
     />
   );
 };

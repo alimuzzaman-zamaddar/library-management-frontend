@@ -14,14 +14,17 @@ const Heading: React.FC<HeadingProps> = ({
 }) => {
   const Component = Variant;
 
+  const isAdminRoute =
+    typeof window !== "undefined" &&
+    window.location.pathname.startsWith("/dashboard");
+
   return (
     <Component
-      data-aos="fade-up"
-      data-aos-delay="100"
-      className={cn(
-        "defaut-design",
-        className
-      )}
+      {...(!isAdminRoute && {
+        "data-aos": "fade-up",
+        "data-aos-delay": "100",
+      })}
+      className={cn("defaut-design", className)}
     >
       {Txt}
     </Component>
