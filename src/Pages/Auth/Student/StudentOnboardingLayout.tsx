@@ -50,7 +50,7 @@ export const StudentOnboardingLayout: React.FC<StudentSignUpLayoutProps> = ({
     <div className=" min-h-screen container flex items-center justify-center px-4 my-10  ">
       <div className="w-auto  shadow-md flex flex-col xl:flex-row rounded-[12px] border  border-[var(--color-secondry-gray)]">
       {/* Left Image Section */}
-      <div className="hidden xl:block xl:w-2/5   ">
+      <div data-aos="fade-up" className="hidden xl:block xl:w-2/5   ">
         <Image
           Src ={student}
           Alt={"Student Onboarding"}
@@ -61,11 +61,11 @@ export const StudentOnboardingLayout: React.FC<StudentSignUpLayoutProps> = ({
       {/* Right Form Section */}
       <div className="w-full xl:w-3/5 p-10 ">
         {/* Heading */}
-          <Heading Variant='h2' Txt={current.title} className='text-[22px] xl:text-[32px] leading-[150%] font-bold text-gray-900 mb-4'  />
-          <Paragraph Txt={current.description} className='text-sm text-gray-500 mb-10'  />
+          <Heading data-aos="fade-up" Variant='h2' Txt={current.title} className='text-[22px] xl:text-[32px] leading-[150%] font-bold text-gray-900 mb-4'  />
+          <Paragraph data-aos="fade-up" Txt={current.description} className='text-sm text-gray-500 mb-10'  />
 
         {/* Progress Bar */}
-        <div className="mb-6">
+        <div data-aos="fade-up" className="mb-6">
           <div className="text-sm text-gray-600 mb-1">
             Step {step} of {totalSteps}
           </div>

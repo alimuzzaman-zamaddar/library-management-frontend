@@ -84,7 +84,7 @@ export default function Onboarding() {
         >
           {step === 1 && (
             <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div data-aos="fade-up" className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* First Name */}
                 <div className="flex flex-col">
                   <label
@@ -117,7 +117,7 @@ export default function Onboarding() {
                   />
                 </div>
               </div>
-              <div className="flex flex-col">
+              <div data-aos="fade-up"  className="flex flex-col">
                 <label
                   htmlFor="Country/Region"
                   className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3"
@@ -137,7 +137,7 @@ export default function Onboarding() {
                   ))}
                 </select>
               </div>
-              <div className="flex flex-col">
+              <div data-aos="fade-up" className="flex flex-col">
                 <label
                   htmlFor="Timezone"
                   className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3"
@@ -156,7 +156,7 @@ export default function Onboarding() {
                   ))}
                 </select>
               </div>
-              <div className="flex flex-col">
+              <div data-aos="fade-up" className="flex flex-col">
                 <label
                   htmlFor="Languages you speak"
                   className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3"
@@ -174,7 +174,7 @@ export default function Onboarding() {
 
           {step === 2 && (
             <>
-              <div className="flex flex-col">
+              <div data-aos="fade-up" className="flex flex-col">
                 <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3">
                   Subjects You Teach
                 </label>
@@ -229,7 +229,7 @@ export default function Onboarding() {
                 />
               </div>
 
-              <div className="flex flex-col">
+              <div data-aos="fade-up" className="flex flex-col">
                 <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3">
                   Experience
                 </label>
@@ -244,7 +244,7 @@ export default function Onboarding() {
                 </select>
               </div>
 
-              <div className="flex flex-col">
+              <div data-aos="fade-up" className="flex flex-col">
                 <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3">
                   Education Background
                 </label>
@@ -270,7 +270,7 @@ export default function Onboarding() {
 
           {step === 3 && (
             <>
-              <div className="flex flex-col">
+              <div data-aos="fade-up" className="flex flex-col">
                 <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3">
                   About Me
                 </label>
@@ -283,7 +283,7 @@ export default function Onboarding() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
                 {/* Upload Photo */}
-                <div className="flex flex-col">
+                <div data-aos="fade-up" className="flex flex-col">
                   <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3">
                     Upload Photo
                   </label>
@@ -318,7 +318,7 @@ export default function Onboarding() {
                 </div>
 
                 {/* Upload Video */}
-                <div className="flex flex-col">
+                <div data-aos="fade-up" className="flex flex-col">
                   <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3">
                     Upload Intro Video
                   </label>
@@ -355,7 +355,7 @@ export default function Onboarding() {
 
           {step === 4 && (
             <>
-              <div className="flex flex-col">
+              <div data-aos="fade-up" className="flex flex-col">
                 <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3">
                   Choose your timezone
                 </label>
@@ -371,7 +371,7 @@ export default function Onboarding() {
                 </select>
               </div>
 
-              <div className="flex flex-col">
+              <div data-aos="fade-up" className="flex flex-col">
                 <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3">
                   Set your 50 minute lesson price
                 </label>
@@ -383,7 +383,7 @@ export default function Onboarding() {
               </div>
 
               {/* Weekly Availability */}
-              <div>
+              <div data-aos="fade-up">
                 <label className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-4 block">
                   Set your availability
                 </label>
@@ -463,7 +463,7 @@ export default function Onboarding() {
             </>
           )}
 
-          <div className="flex justify-between">
+          <div data-aos="fade-up" className="flex justify-between">
             {step > 1 && (
               <button
                 type="button"

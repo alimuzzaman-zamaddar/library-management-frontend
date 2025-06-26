@@ -30,29 +30,33 @@ const Sidebar = ({ navLinks, showSidebar, setShowSidebar }: any) => {
 
           {/* Navigation */}
           <nav className="flex flex-col gap-2">
-            {navLinks.map((link: any) => (
-              <NavLink
-                key={link.id}
-                to={link.path}
-                onClick={() => {
-                  setShowSidebar(false);
-                  setactiveLink(link.id);
-                }}
-                className={({ isActive }) =>
-                  `text-base flex gap-x-5 items-center py-3.5 font-medium  px-4.5 rounded-[10px] transition-all ease-in-out duration-200 cursor-pointer capitalize ${
-                    isActive
-                      ? "bg-[#051345] text-white"
-                      : "text-[#051345] hover:text-white hover:bg-[#051345]"
-                  }`
-                }
-              >
-                {link.icon}
-                <div className="flex justify-between items-center w-full">
-                  <span className="text-sm font-medium">{link.title}</span>
-                  {activeLink === link.id && <DotSvg />}
-                </div>
-              </NavLink>
-            ))}
+            {navLinks.map((link: any) => {
+           const Icon = link.icon;
+              
+              return (
+                <NavLink
+                  key={link.id}
+                  to={link.path}
+                  onClick={() => {
+                    setShowSidebar(false);
+                    setactiveLink(link.id);
+                  }}
+                  className={({ isActive }) =>
+                    `text-base flex gap-x-5 items-center py-3.5 font-medium  px-4.5 rounded-[10px] transition-all ease-in-out duration-200 cursor-pointer capitalize ${
+                      isActive
+                        ? "bg-[#051345] text-white"
+                        : "text-[#051345] hover:text-white hover:bg-[#051345]"
+                    }`
+                  }
+                >
+                  <Icon/>
+                  <div className="flex justify-between items-center w-full">
+                    <span className="text-sm font-medium">{link.title}</span>
+                    {activeLink === link.id && <DotSvg />}
+                  </div>
+                </NavLink>
+              );
+            })}
           </nav>
         </div>
 

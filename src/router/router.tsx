@@ -8,6 +8,8 @@ import DashboardPage from "../Pages/Dashboard/DashboardPage";
 import StudentOnboarding from "../Pages/Auth/Student/StudentOnboarding";
 import BecomeTutor from "../Pages/PulicRoutes/BecomeTutor";
 import CommonDashboardLayout from "../Layout/CommonDashboardLayout";
+import FindTutor from "../Pages/Dashboard/StudentDashboard/FindTutor";
+
 
 const router = createBrowserRouter([
   {
@@ -32,9 +34,15 @@ const router = createBrowserRouter([
   { path: "/student-on-boarding", element: <StudentOnboarding /> },
 
   {
-    path: "/dashboard",
+    path: "/dashboard/",
     element: <CommonDashboardLayout role="student" />,
-    children: [{ index: true, element: <DashboardPage /> }],
+    children: [
+      { index: true, element: <DashboardPage /> },
+      {
+        path: "find-tutors",
+        element: <FindTutor />,
+      },
+    ],
   },
 
   {
