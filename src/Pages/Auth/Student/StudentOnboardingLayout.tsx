@@ -65,7 +65,7 @@ export const StudentOnboardingLayout: React.FC<StudentSignUpLayoutProps> = ({
           <Paragraph Txt={current.description} className='text-sm text-gray-500 mb-10'  />
 
         {/* Progress Bar */}
-        <div className="mb-6">
+        <div data-aos="fade-up" className="mb-6">
           <div className="text-sm text-gray-600 mb-1">
             Step {step} of {totalSteps}
           </div>
