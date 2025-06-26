@@ -27,7 +27,7 @@ const FindaTutor = () => {
         authenticCount={100}
         descreption="Connect with professional tutors in languages, arts, photography, music and more. Start your learning journey today."
       />
-      <AvailableTeacher />
+      <AvailableTeacher isHome={true} />
       <SyntaxMaster />
       <TestimonialSection />
       <MasterWork />

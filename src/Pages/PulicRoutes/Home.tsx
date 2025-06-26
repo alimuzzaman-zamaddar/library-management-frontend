@@ -35,7 +35,7 @@ const Home = () => {
         variant={"home"}
         descreption="Connect with professional tutors in languages, arts, photography, music and more. Start your learning journey today."
       />
-      <TutorsOrigin />
+      <TutorsOrigin isHome={true} />
       <Skillsset />
       <TrendingTutors />
       <HowItWorkSection />
