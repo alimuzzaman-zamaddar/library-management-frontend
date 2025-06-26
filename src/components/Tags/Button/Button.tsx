@@ -1,5 +1,9 @@
 import React from "react";
 
+const isAdminRoute =
+  typeof window !== "undefined" &&
+  window.location.pathname.startsWith("/dashboard");
+
 type ButtonProps = {
   type?: "reset" | "submit" | "button";
   Txt: string | React.ReactNode;
@@ -14,7 +18,12 @@ const Button: React.FC<ButtonProps> = ({
   className,
 }) => {
   return (
-    <div  data-aos="fade-up" data-aos-delay="100">
+    <div
+      {...(!isAdminRoute && {
+        "data-aos": "fade-up",
+        "data-aos-delay": "100",
+      })}
+    >
       <button className={className} onClick={onClick} type={type}>
         {Txt}
       </button>
@@ -23,7 +32,3 @@ const Button: React.FC<ButtonProps> = ({
 };
 
 export default Button;
-
-
-
-

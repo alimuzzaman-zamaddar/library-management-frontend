@@ -10,6 +10,10 @@ import BecomeTutor from "../Pages/PulicRoutes/BecomeTutor";
 import CommonDashboardLayout from "../Layout/CommonDashboardLayout";
 import FindTutor from "../Pages/Dashboard/StudentDashboard/FindTutor";
 
+import TutorProfile from "../Pages/Dashboard/StudentDashboard/TutorProfile";
+import { MyLessons } from "../Pages/Dashboard/StudentDashboard/MyLessons";
+import { RescheduleLesson } from "../Pages/Dashboard/StudentDashboard/RescheduleLesson";
+import { CancelLesson } from "../Pages/Dashboard/StudentDashboard/CancelLesson";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +32,14 @@ const router = createBrowserRouter([
       </Layout>
     ),
   },
+  {
+    path: "/become-tutor",
+    element: (
+      <Layout>
+        <BecomeTutor />
+      </Layout>
+    ),
+  },
 
   { path: "/sign-up", element: <TutorSignUp /> },
   { path: "/onbording", element: <Onboarding /> },
@@ -42,19 +54,28 @@ const router = createBrowserRouter([
         path: "find-tutors",
         element: <FindTutor />,
       },
+      {
+        path: "tutors/:id",
+        element: <TutorProfile />,
+      },
+      {
+        path: `/dashboard/book/tutor/:id`,
+        element: "",
+      },
+      {
+        path: "my-lessons",
+        element: <MyLessons />,
+      },
+      {
+        path: "my-lessons/reschedule",
+        element: <RescheduleLesson />,
+      },
+      {
+        path: "my-lessons/cancel",
+        element: <CancelLesson />,
+      },
     ],
   },
-
-  {
-    path: "/become-tutor",
-    element: (
-      <Layout>
-        <BecomeTutor />
-      </Layout>
-    ),
-  },
-  { path: "/sign-up", element: <TutorSignUp /> },
-  { path: "/onbording", element: <Onboarding /> },
 ]);
 
 export default router;

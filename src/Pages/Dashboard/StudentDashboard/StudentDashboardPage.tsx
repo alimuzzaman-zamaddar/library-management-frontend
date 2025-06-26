@@ -1,16 +1,16 @@
 import Paragraph from "../../../components/Tags/Paragraph/Paragraph";
-import {
-  FaBookOpen,
-  FaClock,
-  FaCalendarAlt,
-  FaRegComments,
-} from "react-icons/fa";
-import { FiMessageSquare } from "react-icons/fi";
+import { FaBookOpen, FaClock, FaCalendarAlt } from "react-icons/fa";
 import { HiOutlineVideoCamera } from "react-icons/hi";
 import { BsStarFill } from "react-icons/bs";
 import Button from "../../../components/Tags/Button/Button";
 import Heading from "../../../components/Tags/Heading/Heading";
-import { CalenderIcon } from "../../../components/SvgContainer/SVgContainer";
+import {
+  LessonSvg,
+  MessageButtonSvg,
+  PreviousLessonSvg,
+  QuickMessageSvg,
+  ReviewLessonButtonSvg,
+} from "../../../components/SvgContainer/SVgContainer";
 
 const statCards = [
   { title: "Total Lessons", value: 24, bg: "bg-[#4D6BFF]" },
@@ -33,8 +33,11 @@ const StudentDashboardPage = () => {
         />
 
         {/* Stat Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-          {statCards.map(card => (
+        <div
+          
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8"
+        >
+          {statCards.map((card) => (
             <div
               key={card.title}
               className={`rounded-lg p-8 text-white ${card.bg}`}
@@ -54,37 +57,48 @@ const StudentDashboardPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
           {/* Upcoming Lessons */}
           <div className="bg-white border border-[var(--color-alt-border)] rounded-xl p-8">
-            <div className="flex justify-between items-center mb-4 bg-[var(--color-primary-blue)] text-[var(--color-secondary-white)] p-4 rounded-lg">
+            <div
+              
+              className="flex justify-between items-center mb-4 bg-[var(--color-primary-blue)] text-[var(--color-secondary-white)] p-4 rounded-lg"
+            >
               <Heading
                 Txt="Upcoming Lessons"
                 className="text-[16px] font-semibold leading-[150%]"
                 Variant="h3"
               />
-              <CalenderIcon />
+              <LessonSvg />
             </div>
             {["Ronald Richards", "Ronald Richards"].map((name, i) => (
               <div
+                
                 key={i}
                 className={`flex justify-between items-center p-4 rounded-lg mb-3 ${
                   i === 0
-                    ? "bg-gray-100"
-                    : "bg-white border border-[var(--color-alt-border)]"
+                    ? "bg-[rgba(5,19,69,0.10)]"
+                    : "bg-[#F9FAFB] border border-[var(--color-alt-border)]"
                 }`}
               >
-                <div className="flex items-center gap-3">
-                  <img
-                    src={`https://randomuser.me/api/portraits/${
-                      i === 0 ? "men/32" : "women/44"
-                    }.jpg`}
-                    className="w-10 h-10 rounded-full"
-                    alt="avatar"
-                  />
-                  <div>
-                    <div className="flex items-center gap-2 font-medium">
-                      {name} <BsStarFill className="text-yellow-500 w-4 h-4" />{" "}
-                      4.9
+                <div className="">
+                  <div  className="flex items-center gap-3">
+                    <img
+                      src={`https://randomuser.me/api/portraits/${
+                        i === 0 ? "men/32" : "women/44"
+                      }.jpg`}
+                      className="w-12 h-12 rounded-full"
+                      alt="avatar"
+                    />
+                    <div>
+                      <div className="flex flex-col gap-2 font-medium">
+                        {name}
+                        <div className="flex items-center gap-1">
+                          <BsStarFill className="text-yellow-500 w-4 h-4" />
+                          4.9
+                        </div>
+                      </div>
                     </div>
-                    <p className="text-sm text-[var(--color-text-gray)]">
+                  </div>
+                  <div className="mt-4">
+                    <p className="text-sm text-[var(--color-text-gray)] mb-2">
                       English Conversation
                     </p>
                     <div className="flex gap-4 text-xs text-gray-500 mt-1">
@@ -98,11 +112,11 @@ const StudentDashboardPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex gap-2">
-                  <button className="border border-[var(--color-alt-border)] rounded px-3 py-1 text-sm flex items-center gap-1">
-                    <FiMessageSquare /> Message
+                <div  className="flex gap-3">
+                  <button className="border border-[var(--color-alt-border)] gap-3 cursor-pointer duration-700 hover:text-white hover:bg-[var(--button-bg-blue)] bg-white rounded-[8px] px-6 py-2 text-sm flex items-center">
+                    <MessageButtonSvg /> Message
                   </button>
-                  <button className="bg-[#051345] text-white px-3 py-1 rounded flex items-center gap-1">
+                  <button className="bg-[#051345] hover:bg-white hover:text-[var(--button-bg-blue)] duration-700 text-white px-6 py-2 cursor-pointer rounded-[8px] flex items-center gap-3">
                     <HiOutlineVideoCamera /> Join
                   </button>
                 </div>
@@ -112,44 +126,52 @@ const StudentDashboardPage = () => {
 
           {/* Quick Messages */}
           <div className="bg-white border border-[var(--color-alt-border)] rounded-xl p-8">
-            <div className="flex justify-between items-center mb-4 bg-[var(--color-primary-blue)] text-[var(--color-secondary-white)] p-4 rounded-lg">
+            <div
+              
+              className="flex justify-between items-center mb-4 bg-[var(--color-primary-blue)] text-[var(--color-secondary-white)] p-4 rounded-lg"
+            >
               <Heading
                 Txt="Quick Messages"
                 className="text-[16px] font-semibold leading-[150%]"
                 Variant="h3"
               />
-              <FaRegComments />
+              <QuickMessageSvg />
             </div>
-            {["Darrell Steward", "Arlene McCoy", "Robert Fox"].map(
-              (name, i) => (
-                <div
-                  key={i}
-                  className={`flex items-start gap-3 p-3 rounded-md ${
-                    i === 0 ? "bg-blue-50" : "hover:bg-gray-50"
-                  }`}
-                >
-                  <img
-                    src={`https://randomuser.me/api/portraits/men/${
-                      30 + i
-                    }.jpg`}
-                    className="w-10 h-10 rounded-full"
-                    alt="avatar"
-                  />
-                  <div className="flex-1">
-                    <div className="flex justify-between text-sm font-medium">
-                      {name}
-                      <span className="text-xs text-gray-500">5 min ago</span>
+            <div className="border p-6 rounded-md border-[var(--color-alt-border)] mb-5">
+              {["Darrell Steward", "Arlene McCoy", "Robert Fox"].map(
+                (name, i) => (
+                  <div
+                    
+                    key={i}
+                    className={`flex items-start gap-3 p-3  rounded-md ${
+                      i === 0 ? "bg-blue-50" : "hover:bg-gray-50"
+                    }`}
+                  >
+                    <img
+                      src={`https://randomuser.me/api/portraits/men/${
+                        30 + i
+                      }.jpg`}
+                      className="w-12 h-12 rounded-full"
+                      alt="avatar"
+                    />
+                    <div className="flex-1">
+                      <div className="flex justify-between text-sm mb-2 font-medium">
+                        {name}
+                        <span className="text-xs text-gray-500">5 min ago</span>
+                      </div>
+                      <p className="text-sm text-[var(--color-text-gray)]">
+                        Great progress in today’s lesson! Keep practicing...
+                      </p>
                     </div>
-                    <p className="text-sm text-[var(--color-text-gray)]">
-                      Great progress in today’s lesson! Keep practicing...
-                    </p>
                   </div>
-                </div>
-              )
-            )}
-            <button className="w-full border border-[var(--color-alt-border)] mt-4 py-2 rounded text-sm font-medium hover:bg-gray-100">
-              View all Message
-            </button>
+                )
+              )}
+            </div>
+            <div  className="">
+              <button className="w-full mt-4 md:mt-0 px-4 py-[14px] border border-primary-blue text-primary-blue rounded hover:bg-primary-blue hover:text-white transition-all text-sm font-medium cursor-pointer duration-500">
+                View all Message
+              </button>
+            </div>
           </div>
         </div>
 
@@ -158,40 +180,51 @@ const StudentDashboardPage = () => {
           {/* Previous Lessons */}
           <div className="bg-white border border-[var(--color-alt-border)] rounded-xl p-8">
             <div className="flex justify-between items-center mb-4 bg-[var(--color-primary-blue)] text-white p-4 rounded-lg">
-              <Heading
-                Txt="Previous Lesson"
-                className="text-[16px] font-semibold leading-[150%]"
-                Variant="h3"
-              />
-              <FaBookOpen />
+              <h3 className="text-[16px] font-semibold leading-[150%]">
+                Previous Lesson
+              </h3>
+              <PreviousLessonSvg />
             </div>
-            {[1, 2, 3].map(i => (
+            {[1, 2, 3].map((i) => (
               <div key={i} className="flex justify-between items-center py-3">
+                {/* User Info Section */}
                 <div className="flex items-center gap-3">
                   <img
                     src="https://randomuser.me/api/portraits/women/45.jpg"
-                    className="w-10 h-10 rounded-full"
+                    className="w-12 h-12 rounded-full"
                     alt="avatar"
                   />
                   <div>
-                    <div className="font-medium">Cameron Williamson</div>
+                    <div className="font-medium mb-2">Cameron Williamson</div>
                     <div className="text-sm text-[var(--color-text-gray)]">
                       English Conversation <br />
                       Yesterday, 2:00 PM · 50 min
                     </div>
                   </div>
                 </div>
+
+                {/* Action Buttons Section */}
                 <div className="flex gap-2">
-                  {i === 1 && (
+                  {/* Conditional Render for Rate or Star Rating */}
+                  {i === 1 ? (
                     <Button
                       Txt="Rate"
-                      className="border px-3 py-1 rounded text-sm font-medium"
+                      className="border border-[var(--color-alt-border)] cursor-pointer px-3 py-1 rounded text-sm font-medium"
                     />
+                  ) : (
+                    <div className="flex items-center gap-1">
+                      <BsStarFill className="text-yellow-500 w-4 h-4" />
+                      4.9
+                    </div>
                   )}
-                  <Button
-                    Txt="Review Lesson"
-                    className="border px-3 py-1 rounded text-sm font-medium"
-                  />
+
+                  {/* Review Lesson Button */}
+                  <button className="border border-[var(--color-alt-border)] cursor-pointer px-3 py-1 rounded text-sm font-medium flex items-center">
+                    <span className="mr-2">
+                      <ReviewLessonButtonSvg />
+                    </span>
+                    Review Lesson
+                  </button>
                 </div>
               </div>
             ))}
@@ -200,26 +233,35 @@ const StudentDashboardPage = () => {
           {/* Lesson Package */}
           <div className="bg-white border border-[var(--color-alt-border)] rounded-xl p-8">
             <div className="flex justify-between items-center mb-4 bg-[var(--color-primary-blue)] text-white p-4 rounded-lg">
-              <Heading
-                Txt="Lesson Package"
-                className="text-[16px] font-semibold leading-[150%]"
-                Variant="h3"
-              />
-              <FaBookOpen />
+              <h3 className="text-[16px] font-semibold leading-[150%]">
+                Lesson Package
+              </h3>
+              <PreviousLessonSvg />
             </div>
-            <p>
-              Total lessons bought: <strong>10</strong>
-            </p>
-            <p className="text-sm text-[var(--color-text-gray)] mt-1">
-              Completed: 4
-            </p>
-            <p className="text-sm text-[var(--color-text-gray)]">
-              Remaining: 6
-            </p>
-            <p className="text-sm mt-2">
-              Progress <strong>4/10</strong>
-            </p>
-            <div className="w-full bg-gray-200 h-2 rounded mt-1">
+            <div className="flex justify-between mb-[23px]">
+              <p className="text-sm text-[var(--color-text-gray)]">
+                <strong> Total lessons bought: </strong>
+              </p>
+              <p> 10 </p>
+            </div>
+            <div className="flex justify-between mb-[23px]">
+              <p className="text-sm text-[var(--color-text-gray)]">
+                Completed:
+              </p>
+              <p>4</p>
+            </div>
+            <div className="flex justify-between mb-[23px]">
+              <p className="text-sm text-[var(--color-text-gray)]">
+                {" "}
+                Remaining:
+              </p>
+              <p>4</p>
+            </div>
+            <div className="flex justify-between mb-[14px]">
+              <p className="text-sm text-[var(--color-text-gray)]">Progress</p>
+              <p>4/10</p>
+            </div>
+            <div className="w-full bg-gray-200 h-2 rounded mt-[32px]">
               <div className="bg-[#0053CF] h-2 rounded w-[40%]"></div>
             </div>
             <div className="mt-3 bg-yellow-100 text-yellow-800 p-2 rounded text-sm">

@@ -62,7 +62,7 @@ const StudentOnboarding = () => {
         >
           {step === 1 && (
             <>
-              <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+              <div data-aos="fade-up" className="grid grid-cols-1 xl:grid-cols-2 gap-4">
                 {/* First Name */}
                 <div className="flex flex-col">
                   <label
@@ -95,7 +95,7 @@ const StudentOnboarding = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-col">
+              <div data-aos="fade-up" className="flex flex-col">
                 <label
                   htmlFor="Country/Region"
                   className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3"
@@ -115,7 +115,7 @@ const StudentOnboarding = () => {
                   ))}
                 </select>
               </div>
-              <div className="flex flex-col">
+              <div data-aos="fade-up" className="flex flex-col">
                 <label
                   htmlFor="Timezone"
                   className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3"
@@ -134,7 +134,7 @@ const StudentOnboarding = () => {
                   ))}
                 </select>
               </div>
-              <div>
+              <div data-aos="fade-up">
                 <label
                   htmlFor="Timezone"
                   className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3"
@@ -155,7 +155,7 @@ const StudentOnboarding = () => {
 
           {step === 2 && (
             <>
-              <div className="grid grid-cols-2 gap-4">
+              <div data-aos="fade-up" className="grid grid-cols-2 gap-4">
                 {[
                   "English",
                   "French",
@@ -184,7 +184,7 @@ const StudentOnboarding = () => {
                   </label>
                 ))}
               </div>
-              <div className="">
+              <div data-aos="fade-up" className="">
                 <label
                   htmlFor="Timezone"
                   className="text-sm text-[var(--color-text-blue)] font-semibold leading-[142.857%] mb-3"
@@ -197,7 +197,7 @@ const StudentOnboarding = () => {
                   className="px-4 py-[14px] border cursor-pointer border-[var(--color-secondry-gray)] my-3 rounded-md focus:outline-none focus:ring-2 focus:border-[#9fa7ac] w-full"
                 />
               </div>
-              <div className="space-y-3">
+              <div data-aos="fade-up" className="space-y-3">
                 {["Beginner", "Intermediate", "Advanced"].map((lvl) => (
                   <label
                     key={lvl}
@@ -220,13 +220,14 @@ const StudentOnboarding = () => {
           {step === 3 && (
             <>
               <textarea
+              data-aos="fade-up"
                 {...methods.register("learningGoals")}
                 placeholder="Enter your learning goals"
                 className="border p-3 rounded-md w-full min-h-[100px]"
               />
 
               {/* Preferred learning style */}
-              <div className="space-y-2">
+              <div data-aos="fade-up" className="space-y-2">
                 <div className="text-[16px] font-semibold leading-[125%] mb-3">
                   What's your preferred learning style?
                 </div>
@@ -252,7 +253,7 @@ const StudentOnboarding = () => {
               </div>
 
               {/* Learning Experience */}
-              <div className="space-y-2">
+              <div data-aos="fade-up" className="space-y-2">
                 <div className="text-[16px] font-semibold leading-[125%] mb-3">
                   Previous learning experience
                 </div>
@@ -283,7 +284,7 @@ const StudentOnboarding = () => {
           {step === 4 && (
             <>
               {/* Availability checkboxes */}
-              <div className="grid grid-cols-2 gap-4">
+              <div data-aos="fade-up" className="grid grid-cols-2 gap-4">
                 {[
                   "Weekday mornings",
                   "Weekday afternoons",
@@ -309,7 +310,7 @@ const StudentOnboarding = () => {
               </div>
 
               {/* Lesson Frequency */}
-              <div className="space-y-2">
+              <div data-aos="fade-up" className="space-y-2">
                 <div className="text-[16px] font-semibold leading-[125%] mb-3">
                   How often do you plan to take lessons?
                 </div>
@@ -333,7 +334,7 @@ const StudentOnboarding = () => {
               </div>
 
               {/* Preferred Lesson Duration */}
-              <div className="space-y-2">
+              <div data-aos="fade-up" className="space-y-2">
                 <div className="text-[16px] font-semibold leading-[125%] mb-3">
                   Preferred lesson duration
                 </div>
@@ -356,7 +357,7 @@ const StudentOnboarding = () => {
             </>
           )}
 
-          <div className="flex justify-between">
+          <div data-aos="fade-up" className="flex justify-between">
             {step > 1 && (
               <button
                 type="button"

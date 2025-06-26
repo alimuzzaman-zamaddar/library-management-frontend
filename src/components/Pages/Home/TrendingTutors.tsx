@@ -10,12 +10,12 @@ import TrendingTutorsCard from "../../Cards/TrendingTutorsCard";
 
 const trendingOption: string[] = [
   "All",
-  "Language",
-  "Drawing",
+  "Art",
   "Music",
-  "Photography",
-  "Mediation",
+  "Chess",
   "Yoga",
+  "Wrinting",
+  "Martial Arts & Fitness",
 ];
 
 interface terndingTutorsCardScheam {
