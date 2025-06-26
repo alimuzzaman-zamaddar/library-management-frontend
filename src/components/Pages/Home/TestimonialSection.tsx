@@ -15,7 +15,7 @@ const testimonialArr = [
     location: "Mandarin with Sarah",
     authorName: "Jenny Wilson",
     descreption:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.",
+      "Sarah is an amazing teacher! Her lessons are well-structured, and she makes learning Mandarin enjoyable. I've seen a huge improvement in my speaking and listening skills in just a few weeks.",
   },
   {
     bgImgUrl: sunglass,
@@ -23,23 +23,23 @@ const testimonialArr = [
     location: "Mandarin with Sarah",
     authorName: "Darrell Steward",
     descreption:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.",
+      "Sarah is very patient and passionate about teaching. Sometimes I struggle with pronunciation, but she always finds ways to help me understand. Highly recommend!",
   },
   {
     bgImgUrl: hijablady,
-    ratingCount: 2,
+    ratingCount: 3,
     location: "Mandarin with Sarah",
     authorName: "Annette Black",
     descreption:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.",
+      "The lessons were helpful overall, but I felt we could have spent more time practicing conversation. Sarah is very friendly and supportive, though!",
   },
   {
     bgImgUrl: yellowglass,
-    ratingCount: 3.5,
+    ratingCount: 4,
     location: "Mandarin with Sarah",
     authorName: "Leslie Alexander",
     descreption:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.",
+      "Sarah is very enthusiastic and makes learning fun. The lessons have a good balance between grammar, conversation, and listening practice. Will continue studying with her!",
   },
   {
     bgImgUrl: silkgirl,
@@ -47,7 +47,7 @@ const testimonialArr = [
     location: "Mandarin with Sarah",
     authorName: "Theresa Webb",
     descreption:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.",
+      "Excellent teacher! I started as a complete beginner, and now I can hold basic conversations in Mandarin. Sarah is patient and knows how to break down complex topics.",
   },
   {
     bgImgUrl: russian,
@@ -55,9 +55,10 @@ const testimonialArr = [
     location: "Mandarin with Sarah",
     authorName: "Busola Dakolo",
     descreption:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.",
+      "I really enjoy my classes with Sarah. She is very organized and gives constructive feedback. The lessons feel tailored to my needs, making it much more effective for learning Mandarin quickly.",
   },
 ];
+
 
 const TestimonialSection = () => {
   return (

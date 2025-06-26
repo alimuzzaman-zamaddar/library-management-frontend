@@ -15,8 +15,6 @@ import { MyLessons } from "../Pages/Dashboard/StudentDashboard/MyLessons";
 import { RescheduleLesson } from "../Pages/Dashboard/StudentDashboard/RescheduleLesson";
 import { CancelLesson } from "../Pages/Dashboard/StudentDashboard/CancelLesson";
 
-
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -62,7 +60,9 @@ const router = createBrowserRouter([
       },
       {
         path: `/dashboard/book/tutor/:id`,
-        element: '',},{
+        element: "",
+      },
+      {
         path: "my-lessons",
         element: <MyLessons />,
       },
