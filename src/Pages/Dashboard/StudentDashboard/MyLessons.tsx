@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { FaBookOpen, FaStar } from "react-icons/fa";
 import {
   MessageButtonSvg,
@@ -18,8 +18,8 @@ const statCards = [
 
 export const MyLessons = () => {
   const [activeTab, setActiveTab] = useState("upcoming");
-  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
-  const [modal, setModal] = useState<"refund" | "report" | null>(null);
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null); 
+ const [modal, setModal] = useState<"refund" | "report" | null>(null); 
 
   const upcomingLessons = [1, 2, 3];
   const pastLessons = [1, 2];
@@ -32,26 +32,6 @@ export const MyLessons = () => {
     setModal("report");
   };
 
-  // Inside your component
-  const dropdownRef = useRef<HTMLDivElement | null>(null);
-
-  // Close dropdown on outside click
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setOpenDropdown(null);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
       {/* Page Title */}
@@ -61,10 +41,7 @@ export const MyLessons = () => {
       {/* Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
         {statCards.map((card) => (
-          <div
-            key={card.title}
-            className={`rounded-lg p-8 text-white ${card.bg}`}
-          >
+          <div key={card.title} className={`rounded-lg p-8 text-white ${card.bg}`}>
             <div className="flex justify-center items-center gap-6">
               <FaBookOpen className="text-white w-6 h-6 mb-2" />
               <div className="flex flex-col gap-4">
@@ -81,9 +58,7 @@ export const MyLessons = () => {
         <button
           onClick={() => setActiveTab("upcoming")}
           className={`pb-2 font-medium ${
-            activeTab === "upcoming"
-              ? "border-b-2 border-black text-black"
-              : "text-gray-500"
+            activeTab === "upcoming" ? "border-b-2 border-black text-black" : "text-gray-500"
           }`}
         >
           Upcoming ({upcomingLessons.length})
@@ -91,9 +66,7 @@ export const MyLessons = () => {
         <button
           onClick={() => setActiveTab("past")}
           className={`pb-2 font-medium ${
-            activeTab === "past"
-              ? "border-b-2 border-black text-black"
-              : "text-gray-500"
+            activeTab === "past" ? "border-b-2 border-black text-black" : "text-gray-500"
           }`}
         >
           Past Lessons ({pastLessons.length})
@@ -104,107 +77,89 @@ export const MyLessons = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left: Lessons List */}
         <div className="lg:col-span-2">
-          {(activeTab === "upcoming" ? upcomingLessons : pastLessons).map(
-            (_, i) => (
-              <div
-                key={i}
-                className="bg-white border border-[var(--color-alt-border)] rounded-lg p-8 mb-4 shadow-sm"
-              >
-                {/* Header */}
-                <div className="flex justify-between items-end mb-3">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src="https://randomuser.me/api/portraits/women/45.jpg"
-                      className="w-12 h-12 rounded-full"
-                      alt="avatar"
-                    />
-                    <div className="flex flex-col gap-3">
-                      <h2 className="font-medium">
-                        English Conversation Practice
-                      </h2>
-                      <div className="text-sm text-gray-600 flex items-center gap-3">
-                        Sarah Johnson·
-                        <FaStar className="text-yellow-500" />
-                        4.9 · 1247 lessons
-                      </div>
-                      <div className="text-sm text-gray-500 mt-1 flex items-center gap-1">
-                        <span>
-                          <MyLocationSvg />
-                        </span>{" "}
-                        Today at 3:00 PM{" "}
-                        <span>
-                          <MyLocationSvg />
-                        </span>{" "}
-                        60 min ·
-                        <span className="ml-1 bg-gray-100 text-gray-700 px-2 py-0.5 rounded text-xs">
-                          Lesson 12
-                        </span>
-                      </div>
+          {(activeTab === "upcoming" ? upcomingLessons : pastLessons).map((_, i) => (
+            <div
+              key={i}
+              className="bg-white border border-[var(--color-alt-border)] rounded-lg p-8 mb-4 shadow-sm "
+            >
+              {/* Header */}
+              <div className="flex justify-between items-end mb-3 perspective-none backface-visibility: none" > 
+                <div className="flex items-center gap-3">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/45.jpg"
+                    className="w-12 h-12 rounded-full"
+                    alt="avatar"
+                  />
+                  <div className="flex flex-col gap-3">
+                    <h2 className="font-medium">English Conversation Practice</h2>
+                    <div className="text-sm text-gray-600 flex items-center gap-3">
+                      Sarah Johnson·
+                      <FaStar className="text-yellow-500" />
+                      4.9 · 1247 lessons
                     </div>
-                  </div>
-                  <div className="font-bold text-lg">
-                    <div className="flex items-center gap-5">
-                      <p>$25</p>
-                      <div className="relative z-10" ref={dropdownRef}>
-                        <button
-                          onClick={() =>
-                            setOpenDropdown(openDropdown === i ? null : i)
-                          }
-                          className="cursor-pointer"
-                        >
-                          <MyThreeDots />
-                        </button>
-
-                        {openDropdown === i && (
-                          <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg z-9999">
-                            <Link to="reschedule">
-                              <button className="w-full text-left px-4 py-2 hover:bg-gray-100 text-sm">
-                                Reschedule
-                              </button>
-                            </Link>
-                            <Link to="cancel">
-                              <button className="w-full text-left px-4 py-2 hover:bg-gray-100 text-sm">
-                                Cancel
-                              </button>
-                            </Link>
-                            <button
-                              onClick={openRefundModal}
-                              className="w-full text-left px-4 py-2 hover:bg-gray-100 text-sm"
-                            >
-                              Request Refund
-                            </button>
-                            <button
-                              onClick={openReportModal}
-                              className="w-full text-left px-4 py-2 hover:bg-gray-100 text-sm"
-                            >
-                              Report User
-                            </button>
-                          </div>
-                        )}
-                      </div>
+                    <div className="text-sm text-gray-500 mt-1 flex items-center gap-1">
+                      <span><MyLocationSvg /></span> Today at 3:00 PM <span><MyLocationSvg /></span> 60 min ·
+                      <span className="ml-1 bg-gray-100 text-gray-700 px-2 py-0.5 rounded text-xs">
+                        Lesson 12
+                      </span>
                     </div>
                   </div>
                 </div>
+                <div className="font-bold text-lg">
+                  <div className="flex items-center gap-5">
+                    <p>$25</p>
+                    <div className="relative">
+                      <button
+                        onClick={() => setOpenDropdown(i)}
+                        className="cursor-pointer"
+                      >
+                        <MyThreeDots />
+                      </button>
 
-                {/* Active lesson banner only for first upcoming */}
-                {activeTab === "upcoming" && i === 0 ? (
-                  <div className="rounded-[12px] z-0 border border-[rgba(37,99,235,0.4)] bg-[#EFF6FF] p-6 flex justify-between items-center">
-                    <div className="text-sm text-gray-700">
-                      Your lesson is ready to start! <br />
-                      <span className="text-gray-500 text-xs">
-                        Join now or wait for your tutor
-                      </span>
-                    </div>
-                    <div className="flex justify-end gap-3">
-                      <button className="border border-[var(--color-alt-border)] gap-3 cursor-pointer duration-700 hover:text-white hover:bg-[var(--button-bg-blue)] bg-white rounded-[8px] px-6 py-2 text-sm flex items-center">
-                        <MessageButtonSvg /> Message
-                      </button>
-                      <button className="bg-[#051345] border hover:border-[var(--color-alt-border)] hover:bg-white hover:text-[var(--button-bg-blue)] duration-700 text-white px-6 py-2 cursor-pointer rounded-[8px] flex items-center gap-3">
-                        <HiOutlineVideoCamera /> Join
-                      </button>
+                      {openDropdown === i && (
+                        <div className="absolute right-0 mt-2 w-40 bg-white border rounded-md shadow-md">
+                          <Link to="reschedule" >
+                          <button
+                            className="w-full text-left px-4 py-2 hover:bg-gray-100 text-sm"
+                          >
+                            Reschedule
+                          </button>
+                          </Link>
+                          <Link to="cancel" >
+                                                    <button
+                            className="w-full text-left px-4 py-2 hover:bg-gray-100 text-sm"
+                          >
+                            Cancel
+                          </button>
+                          </Link>
+                          <button
+                            onClick={openRefundModal}
+                            className="w-full text-left px-4 py-2 hover:bg-gray-100 text-sm"
+                          >
+                            Request Refund
+                          </button>
+                          <button
+                            onClick={openReportModal}
+                            className="w-full text-left px-4 py-2 hover:bg-gray-100 text-sm"
+                          >
+                            Report User
+                          </button>
+                        </div>
+                      )}
                     </div>
                   </div>
-                ) : (
+                </div>
+              </div>
+
+              {/* Active lesson banner only for first upcoming */}
+              {activeTab === "upcoming" && i === 0 ? (
+                <div className="rounded-[12px] border border-[rgba(37,99,235,0.4)] bg-[#EFF6FF] p-6 flex justify-between items-center">
+                  <div className="text-sm text-gray-700">
+                    Your lesson is ready to start! <br />
+                    <span className="text-gray-500 text-xs">
+                      Join now or wait for your tutor
+                    </span>
+                  </div>
                   <div className="flex justify-end gap-3">
                     <button className="border border-[var(--color-alt-border)] gap-3 cursor-pointer duration-700 hover:text-white hover:bg-[var(--button-bg-blue)] bg-white rounded-[8px] px-6 py-2 text-sm flex items-center">
                       <MessageButtonSvg /> Message
@@ -213,14 +168,23 @@ export const MyLessons = () => {
                       <HiOutlineVideoCamera /> Join
                     </button>
                   </div>
-                )}
-              </div>
-            )
-          )}
+                </div>
+              ) : (
+                <div className="flex justify-end gap-3">
+                  <button className="border border-[var(--color-alt-border)] gap-3 cursor-pointer duration-700 hover:text-white hover:bg-[var(--button-bg-blue)] bg-white rounded-[8px] px-6 py-2 text-sm flex items-center">
+                    <MessageButtonSvg /> Message
+                  </button>
+                  <button className="bg-[#051345] border hover:border-[var(--color-alt-border)] hover:bg-white hover:text-[var(--button-bg-blue)] duration-700 text-white px-6 py-2 cursor-pointer rounded-[8px] flex items-center gap-3">
+                    <HiOutlineVideoCamera /> Join
+                  </button>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
 
         {/* Right Sidebar: Summary Card */}
-        <div className="bg-white z-0 border border-[var(--color-alt-border)] rounded-lg p-8 shadow-sm self-start">
+        <div className="bg-white border border-[var(--color-alt-border)] rounded-lg p-8 shadow-sm self-start">
           <div className="flex justify-between text-sm mb-1">
             <h3 className="font-semibold mb-3">Total lessons bought:</h3>
             <p>10</p>
