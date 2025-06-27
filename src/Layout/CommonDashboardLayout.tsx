@@ -124,7 +124,7 @@ const CommonDashboardLayout: React.FC<CommonDashboardLayoutProps> = ({
           <Outlet />
         </div>
         {/* Fixed Footer aligned to content area only */}
-        <div className="flex-0 container mb-6  ">
+        <div className="flex-0 container mb-6   ">
           <DashboardFooter />
         </div>
       </div>
