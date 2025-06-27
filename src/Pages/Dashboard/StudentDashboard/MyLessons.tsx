@@ -306,5 +306,8 @@ export const MyLessons = () => {
       {modal === "refund" && <RefundModal onClose={() => setModal(null)} />}
       {modal === "report" && <ReportModal onClose={() => setModal(null)} />}
     </div>
+
+
+
   );
 };
