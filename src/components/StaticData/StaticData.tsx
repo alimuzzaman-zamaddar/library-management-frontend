@@ -65,6 +65,10 @@ export const teacherDetials = [
         date: "1 Month ago",
       },
     ],
+    lessonsType:
+      Number(Math.random() * 100) > Number(Math.random() * 100)
+        ? "Regular lessons"
+        : "Trial lessons",
   },
   {
     id: 2,
@@ -97,6 +101,7 @@ export const teacherDetials = [
         institutionName: "University of Washington, 2015",
       },
     ],
+
     specialities: ["Grammar", "Conversation", "DELE Preparation"],
     subjects: ["Spanis", "english", "spanish grammer"],
     review: [
@@ -122,6 +127,10 @@ export const teacherDetials = [
         date: "1 Month ago",
       },
     ],
+    lessonsType:
+      Number(Math.random() * 100) > Number(Math.random() * 100)
+        ? "Regular lessons"
+        : "Trial lessons",
   },
   {
     id: 3,
@@ -179,6 +188,10 @@ export const teacherDetials = [
         date: "1 Month ago",
       },
     ],
+    lessonsType:
+      Number(Math.random() * 100) > Number(Math.random() * 100)
+        ? "Regular lessons"
+        : "Trial lessons",
   },
   {
     id: 4,
@@ -236,6 +249,10 @@ export const teacherDetials = [
         date: "1 Month ago",
       },
     ],
+    lessonsType:
+      Number(Math.random() * 100) > Number(Math.random() * 100)
+        ? "Regular lessons"
+        : "Trial lessons",
   },
   {
     id: 5,
@@ -293,5 +310,9 @@ export const teacherDetials = [
         date: "1 Month ago",
       },
     ],
+    lessonsType:
+      Number(Math.random() * 100) > Number(Math.random() * 100)
+        ? "Regular lessons"
+        : "Trial lessons",
   },
 ];
