@@ -119,13 +119,13 @@ export const MyLessons = () => {
                       {openDropdown === i && (
                         <div className="absolute right-0 mt-2 w-40 bg-white border border-[var(--color-alt-border)] rounded-md shadow-md z-50">
                           <Link to="reschedule">
-                            <button className="w-full text-left px-4 py-2 hover:bg-[var(--color-off-white)] text-sm rounded-md">Reschedule</button>
+                            <button className="w-full cursor-pointer text-left px-4 py-2 hover:bg-[var(--color-off-white)] text-sm rounded-md">Reschedule</button>
                           </Link>
                           <Link to="cancel">
-                            <button className="w-full text-left px-4 py-2 hover:bg-[var(--color-off-white)] text-sm rounded-md">Cancel</button>
+                            <button className="w-full cursor-pointer text-left px-4 py-2 hover:bg-[var(--color-off-white)] text-sm rounded-md">Cancel</button>
                           </Link>
-                          <button onClick={openRefundModal} className="w-full text-left px-4 py-2 hover:bg-[var(--color-off-white)] text-sm rounded-md">Request Refund</button>
-                          <button onClick={openReportModal} className="w-full text-left px-4 py-2 hover:bg-[var(--color-off-white)] text-sm rounded-md">Report User</button>
+                          <button onClick={openRefundModal} className="w-full cursor-pointer text-left px-4 py-2 hover:bg-[var(--color-off-white)] text-sm rounded-md">Request Refund</button>
+                          <button onClick={openReportModal} className="w-full cursor-pointer text-left px-4 py-2 hover:bg-[var(--color-off-white)] text-sm rounded-md">Report User</button>
                         </div>
                       )}
                     </div>
