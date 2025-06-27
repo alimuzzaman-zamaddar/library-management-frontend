@@ -15,27 +15,27 @@ const trendingSubjectArr: trendingSubjectSchema[] = [
   },
   {
     Icon: GlobeSvgIcon ,
-    label: "Drawing",
+    label: "Art",
   },
   {
     Icon: GlobeSvgIcon ,
-    label: "Photography",
+    label: "Music",
   },
   {
     Icon: GlobeSvgIcon ,
-    label: "Musical instruments",
+    label: "Chess",
   },
   {
     Icon: GlobeSvgIcon ,
-    label: "Mediation ",
+    label: "Yoga",
   },
   {
     Icon: GlobeSvgIcon ,
-    label: "Pilates Lessons",
+    label: "Writing",
   },
   {
     Icon: GlobeSvgIcon ,
-    label: "Yoga & Pilates",
+    label: "Music instruments",
   },
   {
     Icon: GlobeSvgIcon ,

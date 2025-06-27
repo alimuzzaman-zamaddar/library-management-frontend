@@ -13,7 +13,7 @@ const WhySyntaxMaster = () => {
     {
       title: "Career Growth",
       description:
-        "Earn $15-80 per hour based on your expertise and experience",
+        "Earn $10-80 per hour based on your expertise and experience",
       features: [
         "Professional development",
         "Career workshops",
@@ -25,7 +25,7 @@ const WhySyntaxMaster = () => {
     {
       title: "Professional Support",
       description:
-        "Earn $15-80 per hour based on your expertise and experience",
+        "Earn $10-80 per hour based on your expertise and experience",
       features: ["24/7 assistance", "Resource library", "Mentorship programs"],
       bgColor: "#4A90E2",
       icon: <Certificate />,
@@ -33,7 +33,7 @@ const WhySyntaxMaster = () => {
     {
       title: "Complete Flexibility",
       description:
-        "Earn $15-80 per hour based on your expertise and experience",
+        "Earn $10-80 per hour based on your expertise and experience",
       features: ["Set your hours", "Remote options", "Flexible contracts"],
       bgColor: "#333333",
       icon: <BombSvg />,
@@ -41,7 +41,7 @@ const WhySyntaxMaster = () => {
     {
       title: "Excellent Earnings",
       description:
-        "Earn $15-80 per hour based on your expertise and experience",
+        "Earn $10-80 per hour based on your expertise and experience",
       features: [
         "Set your own rates",
         "Weekly payments",

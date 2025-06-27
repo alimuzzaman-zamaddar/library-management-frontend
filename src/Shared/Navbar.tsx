@@ -1,15 +1,15 @@
 "use client";
-import { NavLink, useNavigate ,Link} from "react-router-dom";
+import { NavLink, useNavigate, Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import Image from "../components/Tags/Image/Image";
 import Button from "../components/Tags/Button/Button";
 
-type navLinksScheam = {
+type NavLinkSchema = {
   label: string;
   redirectLink: string;
 };
 
-const redirectLinkArr: navLinksScheam[] = [
+const redirectLinkArr: NavLinkSchema[] = [
   {
     label: "Home",
     redirectLink: "/",
@@ -28,41 +28,40 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <nav className="w-full h-auto container flex flex-row justify-between items-center py-5 ">
-      <Image
-        onClick={() => {
-          navigate("/");
-        }}
-        Src={logo}
-        Alt="not found"
-        className="w-[232px] cursor-pointer h-[54px] object-cover  "
-      />
-      <ul className="flex flex-row gap-x-8 items-center ">
-        {redirectLinkArr.map((item, idx) => {
-          return (
+    <nav className="w-full sticky top-0 z-50 bg-white h-auto  py-5">
+      <div className="container flex flex-row justify-between items-center">
+        <Image
+          onClick={() => {
+            navigate("/");
+          }}
+          Src={logo}
+          Alt="not found"
+          className="w-[232px] cursor-pointer h-[54px] object-cover"
+        />
+        <ul className="flex flex-row gap-x-8 items-center">
+          {redirectLinkArr.map((item, idx) => (
             <li data-aos="fade-up" data-aos-delay="100" key={idx}>
               <NavLink
                 className={({ isActive }) =>
                   `nav-link-label ${
                     isActive
-                      ? "border-solid border-primary-gray  "
+                      ? "border-solid border-primary-gray"
                       : "border-transparent"
                   }`
                 }
                 to={item.redirectLink}
               >
-                {" "}
-                {item.label}{" "}
+                {item.label}
               </NavLink>
             </li>
-          );
-        })}
-      </ul>
-      <Link to="/sign-up">
-      <div className="flex flex-row items-center justify-between gap-x-4 ">
-        <Button className="primary-btn" Txt={"Login"} />
+          ))}
+        </ul>
+        <Link to="/sign-up">
+          <div className="flex flex-row items-center justify-between gap-x-4">
+            <Button className="primary-btn" Txt={"Login"} />
+          </div>
+        </Link>
       </div>
-      </Link>
     </nav>
   );
 };

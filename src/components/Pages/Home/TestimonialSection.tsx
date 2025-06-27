@@ -12,52 +12,54 @@ const testimonialArr = [
   {
     bgImgUrl: oldwoman,
     ratingCount: 5,
-    location: "Mandarin with Sarah",
-    authorName: "Jenny Wilson",
+    location: "Syntax Master",
+    authorName: "Sarah Thompson",
     descreption:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.",
+      "Syntax Master has been a game changer for me. The tutors are patient, extremely skilled, and always available when I get stuck. I've learned more in a few weeks than I have in months of trying to self-study.",
   },
   {
     bgImgUrl: sunglass,
-    ratingCount: 4,
-    location: "Mandarin with Sarah",
-    authorName: "Darrell Steward",
+    ratingCount: 4.5,
+    location: "Syntax Master",
+    authorName: "David Kim",
     descreption:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.",
+      "I was struggling with JavaScript concepts for a long time until I found Syntax Master. The lessons were well-structured, and the personalized approach helped me understand tough topics clearly.",
   },
   {
     bgImgUrl: hijablady,
-    ratingCount: 2,
-    location: "Mandarin with Sarah",
-    authorName: "Annette Black",
+    ratingCount: 4,
+    location: "Syntax Master",
+    authorName: "Amira Ali",
     descreption:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.",
+      "A great resource for learning coding! The support team was responsive, and my tutor was very patient. I've gained a lot of confidence in writing clean, readable code.",
   },
   {
     bgImgUrl: yellowglass,
-    ratingCount: 3.5,
-    location: "Mandarin with Sarah",
-    authorName: "Leslie Alexander",
+    ratingCount: 5,
+    location: "Syntax Master",
+    authorName: "Michael Lee",
     descreption:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.",
+      "Syntax Master delivers what it promises. The tutors break down complicated programming concepts in a simple way, making it easy to learn. Highly recommended for anyone starting out or looking to level up.",
   },
   {
     bgImgUrl: silkgirl,
     ratingCount: 5,
-    location: "Mandarin with Sarah",
-    authorName: "Theresa Webb",
+    location: "Syntax Master",
+    authorName: "Anna Garcia",
     descreption:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.",
+      "I went from being completely lost in coding to building my own projects thanks to Syntax Master. Their approach is hands-on and very practical. The best investment I've made in myself.",
   },
   {
     bgImgUrl: russian,
     ratingCount: 4.5,
-    location: "Mandarin with Sarah",
-    authorName: "Busola Dakolo",
+    location: "Syntax Master",
+    authorName: "John Miller",
     descreption:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.",
+      "The team at Syntax Master is truly passionate about teaching. They’ve made coding approachable for me and gave me the tools and feedback I needed to move forward in my career. I’m very grateful for their help.",
   },
 ];
+
+
 
 const TestimonialSection = () => {
   return (

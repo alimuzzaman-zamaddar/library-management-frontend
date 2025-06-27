@@ -11,6 +11,7 @@ import {
 } from "../SvgContainer/SVgContainer";
 import Heading from "../Tags/Heading/Heading";
 import Paragraph from "../Tags/Paragraph/Paragraph";
+import { useNavigate } from "react-router-dom";
 
 interface TeacherDetailsSchema {
   id: number;
@@ -65,12 +66,20 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
     setIsPlaying(!isPlaying);
   };
 
+  const isAdminRoute =
+    typeof window !== "undefined" &&
+    window.location.pathname.startsWith("/dashboard");
+
+  const navigate = useNavigate();
+
   return (
     <div data-name={id} className="flex flex-row gap-x-5  ">
       <div
-        data-aos="fade-up"
-        data-aos-delay="100"
-        className="flex h-auto w-auto p-8 bg-white border-[1px] border-solid border-secondry-gray rounded-[12px] flex-row gap-x-4  "
+        {...(!isAdminRoute && {
+          "data-aos": "fade-up",
+          "data-aos-delay": "100",
+        })}
+        className="flex h-auto w-auto p-8  border-[1px] border-solid border-secondry-gray rounded-[12px] flex-row gap-x-4  "
       >
         <Image
           Src={bgImgUrl}
@@ -105,8 +114,10 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
                   if (starNumber <= Math.floor(ratingCount)) {
                     return (
                       <span
-                        data-aos="fade-up"
-                        data-aos-delay="100"
+                        {...(!isAdminRoute && {
+                          "data-aos": "fade-up",
+                          "data-aos-delay": "100",
+                        })}
                         key={i}
                         className=" text-lg text-yellow-500"
                       >
@@ -119,8 +130,10 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
                   ) {
                     return (
                       <span
-                        data-aos="fade-up"
-                        data-aos-delay="100"
+                        {...(!isAdminRoute && {
+                          "data-aos": "fade-up",
+                          "data-aos-delay": "100",
+                        })}
                         key={i}
                         className="  text-lg text-yellow-500"
                       >
@@ -130,8 +143,10 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
                   } else {
                     return (
                       <span
-                        data-aos="fade-up"
-                        data-aos-delay="100"
+                        {...(!isAdminRoute && {
+                          "data-aos": "fade-up",
+                          "data-aos-delay": "100",
+                        })}
                         key={i}
                         className=" text-lg text-gray-400"
                       >
@@ -154,8 +169,10 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
             />
             <div className="flex items-center flex-row gap-x-4 ">
               <div
-                data-aos="fade-up"
-                data-aos-delay="100"
+                {...(!isAdminRoute && {
+                  "data-aos": "fade-up",
+                  "data-aos-delay": "100",
+                })}
                 className="flex flex-row items-center gap-x-1"
               >
                 <LocationSvgIcon />
@@ -165,8 +182,10 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
                 />
               </div>
               <div
-                data-aos="fade-up"
-                data-aos-delay="100"
+                {...(!isAdminRoute && {
+                  "data-aos": "fade-up",
+                  "data-aos-delay": "100",
+                })}
                 className="flex flex-row items-center gap-x-1"
               >
                 <LocationSvgIcon />
@@ -176,8 +195,10 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
                 />
               </div>
               <div
-                data-aos="fade-up"
-                data-aos-delay="100"
+                {...(!isAdminRoute && {
+                  "data-aos": "fade-up",
+                  "data-aos-delay": "100",
+                })}
                 className="flex flex-row items-center gap-x-1"
               >
                 <LocationSvgIcon />
@@ -191,8 +212,10 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
               {expertise.map((item, idx) => {
                 return (
                   <div
-                    data-aos="fade-up"
-                    data-aos-delay="100"
+                    {...(!isAdminRoute && {
+                      "data-aos": "fade-up",
+                      "data-aos-delay": "100",
+                    })}
                     key={idx}
                     className="bg-off-white rounded-[8px] text-base  font-normal text-shadow-black h-auto w-auto py-1.5 px-3 shadow-sm "
                   >
@@ -217,8 +240,10 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
                   className="text-[32px] font-bold text-secondary-black"
                 />
                 <div
-                  data-aos="fade-up"
-                  data-aos-delay="100"
+                  {...(!isAdminRoute && {
+                    "data-aos": "fade-up",
+                    "data-aos-delay": "100",
+                  })}
                   className="h-auto w-auto cursor-pointer border-[1px] p-[6.54px]  border-solid border-secondry-gray rounded-[8px] "
                 >
                   <HeartSvg />
@@ -232,7 +257,7 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
               <div className="px-4 bg-light-pink rounded-[8px] py-1">
                 <Heading
                   Variant="h6"
-                  Txt={`Trail:${trialRate}`}
+                  Txt={`Trail: $${trialRate}`}
                   className="text-base font-normal text-secondary-black"
                 />
               </div>
@@ -241,15 +266,19 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
               <Button Txt={"Book Trail"} className="primary-btn !w-full" />
               <div className="flex flex-row gap-x-2.5 ">
                 <div
-                  data-aos="fade-up"
-                  data-aos-delay="100"
+                  {...(!isAdminRoute && {
+                    "data-aos": "fade-up",
+                    "data-aos-delay": "100",
+                  })}
                   className="h-auto w-auto cursor-pointer border-[1px] px-[34px] py-2.5 border-solid border-secondry-gray rounded-[8px] "
                 >
                   <MsgSvgPlane />
                 </div>
                 <div
-                  data-aos="fade-up"
-                  data-aos-delay="100"
+                  {...(!isAdminRoute && {
+                    "data-aos": "fade-up",
+                    "data-aos-delay": "100",
+                  })}
                   className="h-auto cursor-pointer w-auto border-[1px] px-[34px] py-2.5 border-solid border-secondry-gray rounded-[8px] "
                 >
                   <BookMarkSvg />
@@ -262,8 +291,10 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
       <div className="flex flex-col justify-between ">
         <div className="relative w-[494px] h-[80%] rounded-[12px] overflow-hidden">
           <video
-            data-aos="fade-up"
-            data-aos-delay="100"
+            {...(!isAdminRoute && {
+              "data-aos": "fade-up",
+              "data-aos-delay": "100",
+            })}
             ref={videoRef}
             src={introductionVideo}
             className="w-full h-full object-cover rounded-[12px]"
@@ -273,8 +304,10 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
           />
           {!isPlaying && (
             <div
-              data-aos="fade-up"
-              data-aos-delay="100"
+              {...(!isAdminRoute && {
+                "data-aos": "fade-up",
+                "data-aos-delay": "100",
+              })}
               className="absolute inset-0 flex items-center justify-center cursor-pointer"
               onClick={handlePlayPause}
             >
@@ -283,6 +316,9 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
           )}
         </div>
         <Button
+          onClick={() => {
+            navigate(`/dashboard/tutors/${id}`);
+          }}
           className="text-lg  primary-btn !w-full "
           Txt={`View Full Schedule`}
         />

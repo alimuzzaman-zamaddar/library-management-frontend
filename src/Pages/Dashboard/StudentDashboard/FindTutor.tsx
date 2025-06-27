@@ -1,64 +1,65 @@
+
 import AvailableTeacher from "../../../components/Pages/FindTutors/AvailableTeacher";
 import TutorsOrigin from "../../../components/Pages/Home/TutorsOrigin";
+import Heading from "../../../components/Tags/Heading/Heading";
+import { SearchIconSvg } from "../../../components/SvgContainer/SVgContainer";
+
+
 
 const FindTutor = () => {
-  return (
-    <section className="flex flex-col h-auto w-auto container ">
-      <section className="bg-[#07123A] rounded-xl px-6 py-10 mt-5 text-white">
-        <div className="flex flex-col lg:flex-row justify-between items-center mx-20 gap-6">
-          {/* Left Text */}
-          <div className="flex-1 text-center lg:text-left">
-            <h2 className="text-2xl lg:text-[32px] font-semibold leading-snug">
-              There are <span className="font-bold">3,785 tutors</span> ready to
-              help you
-              <br />
-              succeed at work
-            </h2>
-          </div>
 
-          {/* Right Search Box + Tags */}
-          <div className="flex flex-1 flex-col gap-3 w-full">
-            {/* Search Bar */}
-            <div className="flex items-center bg-white rounded-md px-4 py-[14px]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-gray-500 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z"
-                />
-              </svg>
+
+  const trendingSubjects = [
+    { id: 1, label: "Web Development" },
+    { id: 2, label: "Data Science" },
+    { id: 3, label: "Machine Learning" },
+    { id: 4, label: "Cybersecurity" },
+  ];
+
+  return (
+    <section className="flex flex-col h-auto w-auto     ">
+      <div className="h-auto w-auto container">
+        <div className="h-auto rounded-[12px]  w-full flex flex-row py-[111px]  bg-primary-blue px-[150px]  ">
+          <Heading
+            Variant="h4"
+            className="text-[32px] text-white font-bold max-w-[673px]"
+            Txt={`There are 3,785 tutors ready to help you succeed at work`}
+          />
+
+          <div className="flex flex-col gap-y-2.5 con ">
+            <div className="relative ">
               <input
                 type="text"
                 placeholder="What would you like to learn"
-                className="w-full focus:outline-none text-gray-700"
+                className=" bg-white outline-none py-2.5 rounded-[8px] border-[1px] border-solid text-lg pl-12 pr-4 text-alt-gray max-w-[610px] w-full "
               />
+              <div className="absolute top-0 left-0 z-5 transform translate-y-1/2 mx-4 ">
+                <SearchIconSvg />
+              </div>
             </div>
-
-            {/* Trending Tags */}
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-sm font-medium text-white">Trending:</span>
-              {["language", "Drawing", "Photography", "Artist"].map((tag) => (
-                <span
-                  key={tag}
-                  className="bg-white text-[#07123A] text-sm px-3 py-1 rounded-md cursor-pointer hover:bg-gray-100"
-                >
-                  {tag}
-                </span>
-              ))}
+            <div className="flex flex-row gap-x-3  items-center font-normal ">
+              <Heading
+                Txt={"Trending:"}
+                className="text-lg text-white font-[600]  "
+              />
+              <ul className="flex flex-row gap-x-2 ">
+                {trendingSubjects?.map(item => {
+                  return (
+                    <li key={item.id}>
+                      <div className="text-sm hover:bg-transparent ease-in-out duration-300 hover:text-white hover:border-white border-[1px] hover:border-solid cursor-pointer text-primary-gray font-normal py-1 px-2 bg-white rounded-[4px] ">
+                        {" "}
+                        {item.label}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </div>
         </div>
-      </section>
-
-      <TutorsOrigin/>
-      <AvailableTeacher/>
+      </div>
+      <TutorsOrigin isHome={false} />
+      <AvailableTeacher isHome={false} />
     </section>
   );
 };
