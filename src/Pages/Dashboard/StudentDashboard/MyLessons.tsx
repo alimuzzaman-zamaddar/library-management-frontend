@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaBookOpen, FaStar } from "react-icons/fa";
 import {
   MessageButtonSvg,
@@ -18,27 +18,32 @@ const statCards = [
 
 export const MyLessons = () => {
   const [activeTab, setActiveTab] = useState("upcoming");
-  const [openDropdown, setOpenDropdown] = useState<number | null>(null); 
- const [modal, setModal] = useState<"refund" | "report" | null>(null); 
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+  const [modal, setModal] = useState<"refund" | "report" | null>(null);
+  const dropdownRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const upcomingLessons = [1, 2, 3];
   const pastLessons = [1, 2];
 
-  const openRefundModal = () => {
-    setModal("refund");
-  };
+  const openRefundModal = () => setModal("refund");
+  const openReportModal = () => setModal("report");
 
-  const openReportModal = () => {
-    setModal("report");
-  };
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const isOutside = dropdownRefs.current.every(
+        (ref) => !ref || !ref.contains(event.target as Node)
+      );
+      if (isOutside) setOpenDropdown(null);
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
-      {/* Page Title */}
       <h1 className="text-2xl font-semibold mb-1">My Lessons</h1>
       <p className="text-sm text-gray-500 mb-6">Manage your learning journey</p>
 
-      {/* Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
         {statCards.map((card) => (
           <div key={card.title} className={`rounded-lg p-8 text-white ${card.bg}`}>
@@ -53,7 +58,6 @@ export const MyLessons = () => {
         ))}
       </div>
 
-      {/* Tabs */}
       <div className="flex gap-6 mb-4 border-b border-[var(--color-alt-border)]">
         <button
           onClick={() => setActiveTab("upcoming")}
@@ -73,17 +77,14 @@ export const MyLessons = () => {
         </button>
       </div>
 
-      {/* Content */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left: Lessons List */}
         <div className="lg:col-span-2">
           {(activeTab === "upcoming" ? upcomingLessons : pastLessons).map((_, i) => (
             <div
               key={i}
-              className="bg-white border border-[var(--color-alt-border)] rounded-lg p-8 mb-4 shadow-sm "
+              className="bg-white border border-[var(--color-alt-border)] rounded-lg p-8 mb-4 shadow-sm"
             >
-              {/* Header */}
-              <div className="flex justify-between items-end mb-3 perspective-none backface-visibility: none" > 
+              <div className="flex justify-between items-end mb-3">
                 <div className="flex items-center gap-3">
                   <img
                     src="https://randomuser.me/api/portraits/women/45.jpg"
@@ -108,42 +109,23 @@ export const MyLessons = () => {
                 <div className="font-bold text-lg">
                   <div className="flex items-center gap-5">
                     <p>$25</p>
-                    <div className="relative">
+                    <div className="relative" ref={el => { dropdownRefs.current[i] = el; }}>
                       <button
-                        onClick={() => setOpenDropdown(i)}
+                        onClick={() => setOpenDropdown(openDropdown === i ? null : i)}
                         className="cursor-pointer"
                       >
                         <MyThreeDots />
                       </button>
-
                       {openDropdown === i && (
-                        <div className="absolute right-0 mt-2 w-40 bg-white border rounded-md shadow-md">
-                          <Link to="reschedule" >
-                          <button
-                            className="w-full text-left px-4 py-2 hover:bg-gray-100 text-sm"
-                          >
-                            Reschedule
-                          </button>
+                        <div className="absolute right-0 mt-2 w-40 bg-white border border-[var(--color-alt-border)] rounded-md shadow-md z-50">
+                          <Link to="reschedule">
+                            <button className="w-full text-left px-4 py-2 hover:bg-[var(--color-off-white)] text-sm rounded-md">Reschedule</button>
                           </Link>
-                          <Link to="cancel" >
-                                                    <button
-                            className="w-full text-left px-4 py-2 hover:bg-gray-100 text-sm"
-                          >
-                            Cancel
-                          </button>
+                          <Link to="cancel">
+                            <button className="w-full text-left px-4 py-2 hover:bg-[var(--color-off-white)] text-sm rounded-md">Cancel</button>
                           </Link>
-                          <button
-                            onClick={openRefundModal}
-                            className="w-full text-left px-4 py-2 hover:bg-gray-100 text-sm"
-                          >
-                            Request Refund
-                          </button>
-                          <button
-                            onClick={openReportModal}
-                            className="w-full text-left px-4 py-2 hover:bg-gray-100 text-sm"
-                          >
-                            Report User
-                          </button>
+                          <button onClick={openRefundModal} className="w-full text-left px-4 py-2 hover:bg-[var(--color-off-white)] text-sm rounded-md">Request Refund</button>
+                          <button onClick={openReportModal} className="w-full text-left px-4 py-2 hover:bg-[var(--color-off-white)] text-sm rounded-md">Report User</button>
                         </div>
                       )}
                     </div>
@@ -151,7 +133,6 @@ export const MyLessons = () => {
                 </div>
               </div>
 
-              {/* Active lesson banner only for first upcoming */}
               {activeTab === "upcoming" && i === 0 ? (
                 <div className="rounded-[12px] border border-[rgba(37,99,235,0.4)] bg-[#EFF6FF] p-6 flex justify-between items-center">
                   <div className="text-sm text-gray-700">
@@ -183,13 +164,11 @@ export const MyLessons = () => {
           ))}
         </div>
 
-        {/* Right Sidebar: Summary Card */}
         <div className="bg-white border border-[var(--color-alt-border)] rounded-lg p-8 shadow-sm self-start">
           <div className="flex justify-between text-sm mb-1">
             <h3 className="font-semibold mb-3">Total lessons bought:</h3>
             <p>10</p>
           </div>
-
           <div className="flex justify-between text-sm mb-[23px]">
             <span>Completed:</span>
             <span>4</span>
@@ -211,7 +190,6 @@ export const MyLessons = () => {
         </div>
       </div>
 
-      {/* Modals */}
       {modal === "refund" && <RefundModal onClose={() => setModal(null)} />}
       {modal === "report" && <ReportModal onClose={() => setModal(null)} />}
     </div>

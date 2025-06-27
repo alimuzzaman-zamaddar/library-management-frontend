@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 
 interface RefundModalProps {
@@ -11,37 +11,40 @@ interface FormData {
 
 export const RefundModal = ({ onClose }: RefundModalProps) => {
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
+  const modalRef = useRef<HTMLDivElement>(null);
 
-  // Disable background scroll when modal is open
+  // Lock background scroll
   useEffect(() => {
-    // Disable scroll
     document.body.style.overflow = "hidden";
-
-    // Cleanup the effect to restore scrolling once the modal is closed
     return () => {
       document.body.style.overflow = "auto";
     };
   }, []);
 
+  // Close on outside click
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
+        onClose();
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [onClose]);
+
   const onSubmit = (data: FormData) => {
     console.log(data);
-    // Handle refund request logic (send to API or update state)
-    onClose(); // Close the modal after submitting
-  };
-
-  const handleBackdropClick = (e: React.MouseEvent) => {
-    // Close modal if the backdrop (area outside the modal) is clicked
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
+    onClose();
   };
 
   return (
-    <div
-      className="fixed inset-0 flex items-center justify-center bg-black/50"
-      onClick={handleBackdropClick} // Close modal when clicking outside
-    >
-      <div className="bg-white p-6 rounded-lg w-96 relative">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
+      <div
+        ref={modalRef}
+        className="bg-white p-6 rounded-lg max-w-[450px] relative"
+      >
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -55,7 +58,9 @@ export const RefundModal = ({ onClose }: RefundModalProps) => {
 
         {/* Important Note */}
         <div className="bg-[#FFEEF0] text-[#FF6F61] p-3 mb-4 rounded-md">
-          <p className="text-sm">Refunds are only available within 48 hours if no complaints are made against the tutor.</p>
+          <p className="text-sm">
+            Refunds are only available within 48 hours if no complaints are made against the tutor.
+          </p>
         </div>
 
         {/* Lesson Details */}
@@ -65,7 +70,7 @@ export const RefundModal = ({ onClose }: RefundModalProps) => {
           <p className="text-gray-500">Yesterday</p>
         </div>
 
-        {/* Refund Reason */}
+        {/* Refund Reason Form */}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4">
             <label htmlFor="refundReason" className="block text-sm text-gray-600 mb-2">
