@@ -41,7 +41,7 @@ export const MyLessons = () => {
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
-      <h1 className="text-2xl font-semibold mb-1">My Lessons</h1>
+      <h1 className="text-[32px] font-semibold mb-1">My Lessons</h1>
       <p className="text-sm text-gray-500 mb-6">Manage your learning journey</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">

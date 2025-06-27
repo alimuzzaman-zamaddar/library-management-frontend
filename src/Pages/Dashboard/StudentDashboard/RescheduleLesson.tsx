@@ -94,7 +94,7 @@ export const RescheduleLesson = () => {
               <input
                 type="date"
                 {...register("date", { required: true })}
-                className="w-full mb-4 px-4 py-2 border border-[var(--color-alt-border)] rounded-md"
+                className="w-full mb-4 px-4 py-2 border cursor-pointer border-[var(--color-alt-border)] rounded-md"
               />
               {errors.date && (
                 <p className="text-red-500 text-sm">Date is required.</p>
@@ -109,7 +109,7 @@ export const RescheduleLesson = () => {
                     type="button"
                     key={slot}
                     onClick={() => setValue("time", slot)}
-                    className={`px-3 py-3 rounded-md hover:border-[#0053CF] hover:bg-[rgba(5,19,69,0.1)] transition-colors duration-300 ${
+                    className={`px-3 py-3 rounded-md hover:border-[#0053CF] cursor-pointer hover:bg-[rgba(5,19,69,0.1)] transition-colors duration-300 ${
                       selectedTime === slot
                         ? "bg-[rgba(5,19,69,0.1)] border border-[#0053CF] text-[#0053CF]"
                         : "bg-white border border-[var(--color-alt-border)]"
@@ -153,7 +153,7 @@ export const RescheduleLesson = () => {
               <div className="flex gap-4">
                 <button
                   type="button"
-                  className="px-4 py-2 border border-[var(--color-alt-border)] hover:bg-[var(--button-bg-blue)] hover:text-white  duration-700 text-gray-700 rounded-md"
+                  className="px-4 py-2 border cursor-pointer border-[var(--color-alt-border)] hover:bg-[var(--button-bg-blue)] hover:text-white  duration-700 text-gray-700 rounded-md"
                 >
                   Cancel
                 </button>

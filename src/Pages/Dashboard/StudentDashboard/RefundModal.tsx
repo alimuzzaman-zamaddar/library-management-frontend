@@ -58,13 +58,14 @@ export const RefundModal = ({ onClose }: RefundModalProps) => {
 
         {/* Important Note */}
         <div className="bg-[#FFEEF0] text-[#FF6F61] p-3 mb-4 rounded-[12px]">
+          <p className="font-semibold mb-1">Important:</p>
           <p className="text-sm">
             Refunds are only available within 48 hours if no complaints are made against the tutor.
           </p>
         </div>
 
         {/* Lesson Details */}
-        <div className="mb-6">
+        <div className="mb-6 bg-[var(--color-off-white)] p-4 rounded-[12px]">
           <p className="font-medium text-gray-800">Lesson Details:</p>
           <p className="text-gray-600">Conversation Practice with Maria Garcia</p>
           <p className="text-gray-500">Yesterday</p>
