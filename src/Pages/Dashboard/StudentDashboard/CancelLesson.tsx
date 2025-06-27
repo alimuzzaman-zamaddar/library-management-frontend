@@ -1,85 +1,153 @@
-import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import Button from "../../../components/Tags/Button/Button";
+
+interface FormValues {
+  reason: string;
+  otherReason?: string;
+  confirm: boolean;
+}
 
 export const CancelLesson = () => {
-useEffect(() => {
-  const el = document.getElementById("main-scroll") as HTMLElement | null;
-  if (el) {
-    el.scrollTo({ top: 0, behavior: "smooth" });
-  } else {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-}, []);
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<FormValues>();
+  const [submitting, setSubmitting] = useState(false);
 
-  const [selectedReason, setSelectedReason] = useState("");
-  const [additionalDetails, setAdditionalDetails] = useState("");
+  const selectedReason = watch("reason");
 
-  const handleSubmit = () => {
-    // e.preventDefault();
-    // Handle cancel logic (update state or send to API)
+  const onSubmit = (data: FormValues) => {
+    setSubmitting(true);
+    console.log("Cancel Data:", data);
+    // API call here
+    setTimeout(() => setSubmitting(false), 1500);
   };
+
   return (
-    <div className="p-6 bg-gray-50 ">
-      {/* Page Title */}
-      <h1 className="text-2xl font-semibold mb-6">Cancel Lesson</h1>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div>
-          <h3 className="font-medium mb-2">Lesson Details</h3>
-          <p className="text-sm text-gray-500">English Conversation Practice</p>
-          <p className="text-sm text-gray-500">With Sarah Johnson (4.9 stars)</p>
-          <p className="text-sm text-gray-500">Scheduled for Today at 3:00 PM</p>
-        </div>
-        <div>
-          <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="flex p-6 gap-20">
+      <div className="">
+        <Button     onClick={() => window.history.back()} Txt="Back to Search" className="bg-[#051345] border hover:border-[var(--color-alt-border)] hover:bg-white hover:text-[var(--button-bg-blue)] duration-700 text-white px-6 py-2 cursor-pointer rounded-[8px] flex items-center gap-3" />
+      </div> 
+    <form onSubmit={handleSubmit(onSubmit)} className="px-4 py-8">
+      <h1 className="text-2xl font-bold mb-2">Cancel Lesson</h1>
+      <p className="text-gray-400 mb-6">We're sorry to see you cancel your lesson</p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
+        {/* Lesson Details */}
+        <div className="border border-[var(--color-alt-border)] rounded-xl p-6 bg-white">
+          <h3 className="font-semibold text-[24px] mb-4">Lesson Details</h3>
+          <div className="flex items-center gap-4 mb-3">
+            <div className="w-12 h-12 rounded-full bg-gray-300" />
             <div>
-              <label className="block text-sm font-medium">Reason for Cancellation</label>
-              <select
-                value={selectedReason}
-                onChange={(e) => setSelectedReason(e.target.value)}
-                className="w-full border p-2 rounded"
-                required
-              >
-                <option value="">Select Reason</option>
-                <option value="scheduleConflict">Schedule conflict</option>
-                <option value="personalEmergency">Personal emergency</option>
-                <option value="feelingUnwell">Feeling unwell</option>
-                <option value="technicalIssues">Technical issues</option>
-                <option value="noLongerNeedLesson">No longer need the lesson</option>
-                <option value="other">Other</option>
-              </select>
+              <p className="font-medium">Sarah Johnson</p>
+              <p className="text-yellow-500 text-sm">⭐ 4.9</p>
             </div>
+          </div>
+          <p className="font-medium mb-1">English Conversation Practice</p>
+          <p className="text-sm text-gray-600">Today at 3:00 PM · 60 min</p>
+          <span className="text-xs bg-gray-100 text-gray-700 px-2 py-0.5 rounded inline-block my-3">
+            Lesson 12
+          </span>
 
-            {selectedReason === "other" && (
-              <div>
-                <label className="block text-sm font-medium">Additional Details</label>
-                <textarea
-                  value={additionalDetails}
-                  onChange={(e) => setAdditionalDetails(e.target.value)}
-                  className="w-full border p-2 rounded"
-                  placeholder="Provide additional details..."
+          <div className="border border-red-400 text-red-600 bg-red-50 p-3 rounded-md text-sm mb-3">
+            <strong className="block font-medium">No refund</strong>
+            Cancellations within 4 hours are not eligible for refund
+          </div>
+
+          <div className="border border-yellow-300 text-yellow-800 bg-yellow-50 p-3 rounded-md text-sm">
+            <strong className="block font-medium">Late Cancellation</strong>
+            This lesson starts in 2 hours. Consider rescheduling instead of cancelling.
+          </div>
+        </div>
+
+        {/* Cancellation Form */}
+        <div className="border border-[var(--color-alt-border)] rounded-xl p-6 bg-white">
+          <h3 className="font-semibold text-[24px] mb-4">Cancellation Details</h3>
+          <p className="text-sm text-gray-600 mb-4">Help us understand why you're cancelling</p>
+
+          <div className="space-y-3 mb-4">
+                            <div className="text-[16px] font-semibold leading-[125%] mb-3">
+                  Reason for Cancellation
+                </div>
+            {[
+              "Schedule conflict",
+              "Personal emergency",
+              "Feeling unwell",
+              "Technical issues",
+              "No longer need the lesson",
+              "Other (please specify)",
+            ].map((label) => (
+              <label key={label} className="flex items-start gap-2">
+                <input
+                  type="radio"
+                  value={label}
+                  {...register("reason", { required: true })}
+                  className="mt-1 sr-only peer cursor-pointer"
                 />
-              </div>
-            )}
-
-            <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                className="h-4 w-4"
-                required
+                 <div className="w-4 h-4 rounded-full border border-[var(--button-bg-blue)] cursor-pointer peer-checked:bg-[var(--button-bg-blue)] peer-checked:border-[var(--button-bg-blue)] transition-colors duration-300" />
+                <span className="text-sm">{label}</span>
+              </label>
+            ))}
+            {selectedReason === "Other (please specify)" && (
+              <textarea
+                {...register("otherReason")}
+                cols={40} rows={8}
+                className="w-full mt-2 p-2 lin border border-[var(--color-alt-border)] rounded-md text-sm"
+                placeholder="Please provide more details"
               />
-              <span className="text-sm">
-                I understand the cancellation policy and confirm I want to cancel this lesson.
-              </span>
-            </div>
+            )}
+            {errors.reason && <p className="text-red-500 text-sm">Please select a reason</p>}
+          </div>
 
-            <button
-              type="submit"
-              className="bg-red-500 text-white py-2 px-6 rounded-md"
-            >
-              Cancel Lesson
-            </button>
-          </form>
+          <label className="flex items-start gap-2">
+            <input
+              type="checkbox"
+              {...register("confirm", { required: true })}
+              className="mt-1 cursor-pointer"
+            />
+            <span className="text-sm">
+              I understand the cancellation policy and confirm I want to cancel this lesson
+            </span>
+          </label>
+          {errors.confirm && (
+            <p className="text-red-500 text-sm mt-1">You must confirm before proceeding</p>
+          )}
         </div>
       </div>
+
+      {/* Footer Buttons */}
+      <div className="mt-8 border border-[var(--color-alt-border)] p-6 rounded-xl bg-white ">
+        <p className="text-md font-semibold mb-3">Ready to cancel?</p>
+        <p className="text-sm text-gray-500 mb-5">
+          This action cannot be undone. Consider rescheduling if you just need a different time.
+        </p>
+        <div className="flex flex-wrap gap-4">
+          <button
+            type="button"
+            className="border border-[var(--color-alt-border)] cursor-pointer text-sm px-5 py-2 rounded-md text-gray-700 bg-white hover:bg-[var(--button-bg-blue)] hover:text-white duration-700"
+          >
+            Keep Lesson
+          </button>
+          <button
+            type="button"
+            className="border border-[var(--color-alt-border)] cursor-pointer text-sm px-5 py-2 rounded-md text-black bg-gray-100 hover:text-white duration-700 hover:bg-[var(--button-bg-blue)]"
+          >
+            Reschedule Instead
+          </button>
+          <button
+            type="submit"
+            disabled={submitting}
+            className="bg-red-600 text-white cursor-pointer text-sm px-5 py-2 rounded-md hover:bg-red-700 disabled:opacity-50"
+          >
+            X Cancel Lesson
+          </button>
+        </div>
+      </div>
+    </form>
+
     </div>
   );
 };

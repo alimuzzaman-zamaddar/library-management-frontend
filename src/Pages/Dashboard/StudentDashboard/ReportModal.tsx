@@ -92,7 +92,8 @@ export const ReportModal = ({ onClose }: ReportModalProps) => {
             <label className="text-sm text-gray-600 mb-2 block">Description</label>
             <textarea
               {...register("description", { required: "Please provide a description" })}
-              className="w-full px-3  py-3 border border-gray-300 rounded-[12px]"
+              className="w-full px-3  py-3 border border-[var(--color-alt-border)] rounded-[12px]"
+
               placeholder="Provide details about the violation..."
             />
             {errors.description && (

@@ -40,7 +40,7 @@ export const RefundModal = ({ onClose }: RefundModalProps) => {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
+    <div  className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
       <div
         ref={modalRef}
         className="bg-white p-6 rounded-lg max-w-[450px] relative"
@@ -57,14 +57,15 @@ export const RefundModal = ({ onClose }: RefundModalProps) => {
         <h3 className="text-lg font-semibold mb-4 text-gray-900">Request Refund</h3>
 
         {/* Important Note */}
-        <div className="bg-[#FFEEF0] text-[#FF6F61] p-3 mb-4 rounded-md">
+        <div className="bg-[#FFEEF0] text-[#FF6F61] p-3 mb-4 rounded-[12px]">
+          <p className="font-semibold mb-1">Important:</p>
           <p className="text-sm">
             Refunds are only available within 48 hours if no complaints are made against the tutor.
           </p>
         </div>
 
         {/* Lesson Details */}
-        <div className="mb-6">
+        <div className="mb-6 bg-[var(--color-off-white)] p-4 rounded-[12px]">
           <p className="font-medium text-gray-800">Lesson Details:</p>
           <p className="text-gray-600">Conversation Practice with Maria Garcia</p>
           <p className="text-gray-500">Yesterday</p>
@@ -79,7 +80,7 @@ export const RefundModal = ({ onClose }: RefundModalProps) => {
             <select
               id="refundReason"
               {...register("refundReason", { required: "This field is required" })}
-              className="w-full p-2 border border-gray-300 rounded-md"
+              className="w-full px-3 py-3 border border-gray-300 rounded-[12px]"
             >
               <option value="">Select a reason</option>
               <option value="qualityIssue">Quality issue with the lesson</option>
@@ -92,17 +93,17 @@ export const RefundModal = ({ onClose }: RefundModalProps) => {
           </div>
 
           {/* Buttons */}
-          <div className="flex justify-between">
+          <div className="flex justify-between gap-5">
             <button
               type="button"
               onClick={onClose}
-              className="bg-gray-300 text-gray-800 py-2 px-4 rounded-md"
+              className="bg-[var(--color-off-white)] flex-1 text-[var(--button-bg-blue)] py-3 px-4 rounded-[12px] hover:bg-[var(--button-bg-blue)] border border-[var(--color-alt-border)] hover:text-white transition duration-700"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="bg-[#041345] text-white py-2 px-4 rounded-md"
+              className="bg-[var(--button-bg-blue)] flex-1 text-white py-3 px-4 rounded-[12px] hover:bg-white border border-[var(--color-alt-border)] hover:text-[var(--button-bg-blue)] transition duration-700"
             >
               Submit Request
             </button>
