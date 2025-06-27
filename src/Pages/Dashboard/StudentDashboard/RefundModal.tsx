@@ -40,7 +40,7 @@ export const RefundModal = ({ onClose }: RefundModalProps) => {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
+    <div  className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
       <div
         ref={modalRef}
         className="bg-white p-6 rounded-lg max-w-[450px] relative"

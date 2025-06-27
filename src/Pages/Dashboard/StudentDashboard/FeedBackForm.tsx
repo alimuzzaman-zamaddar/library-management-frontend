@@ -1,21 +1,21 @@
 import { useForm, Controller, useWatch } from "react-hook-form";
 import {
-  FaSmile,
-  FaClock,
-  FaHandsHelping,
-  FaChalkboardTeacher,
-  FaHeart,
+  FaRegHandshake,
   FaStar,
 } from "react-icons/fa";
 import { MyLocationSvg } from "../../../components/SvgContainer/SVgContainer";
 import { useEffect } from "react";
+import { LiaHandPointLeftSolid } from "react-icons/lia";
+import { HiOutlineBookOpen } from "react-icons/hi";
+import { GoClock } from "react-icons/go";
+import { TbCalendarClock } from "react-icons/tb";
 
 const options = [
-  { label: "Great Teaching", icon: FaChalkboardTeacher },
-  { label: "Very Patient", icon: FaSmile },
-  { label: "Always On Time", icon: FaClock },
-  { label: "Very Helpful", icon: FaHandsHelping },
-  { label: "Engaging Lessons", icon: FaHeart },
+  { label: "Great Teaching", icon: HiOutlineBookOpen },
+  { label: "Very Patient", icon: LiaHandPointLeftSolid  },
+  { label: "Always On Time", icon: GoClock },
+  { label: "Very Helpful", icon: TbCalendarClock },
+  { label: "Engaging Lessons", icon: FaRegHandshake  },
 ];
 
 interface FeedbackFormData {
