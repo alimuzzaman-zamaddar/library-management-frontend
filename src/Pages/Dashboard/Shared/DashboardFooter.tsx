@@ -28,7 +28,7 @@ const navLink: navLinksSchema[] = [
 
 const DashboardFooter = () => {
   return (
-    <footer className="h-auto w-auto shadow-md  bg-white py-4 container rounded-[8px] border-[1px] border-solid border-alt-border  ">
+    <footer className="h-auto   shadow-md    py-4      rounded-[8px] border-[1px] border-solid border-alt-border  ">
       <div className="  flex flex-row justify-between items-center px-10  ">
         <p
           className="text-lg font-normal leading-[150%] text-primary-gray "
