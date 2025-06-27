@@ -19,7 +19,6 @@ const TutorDetails = () => {
 
   const activeTutor = teacherDetials.find(tutor => tutor.id === tutorId);
 
-  console.log(activeTutor);
 
 
   return (

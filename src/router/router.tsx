@@ -14,6 +14,7 @@ import TutorProfile from "../Pages/Dashboard/StudentDashboard/TutorProfile";
 import { MyLessons } from "../Pages/Dashboard/StudentDashboard/MyLessons";
 import { RescheduleLesson } from "../Pages/Dashboard/StudentDashboard/RescheduleLesson";
 import { CancelLesson } from "../Pages/Dashboard/StudentDashboard/CancelLesson";
+import BookATutor from "../Pages/Dashboard/StudentDashboard/BookATutor";
 
 const router = createBrowserRouter([
   {
@@ -60,7 +61,7 @@ const router = createBrowserRouter([
       },
       {
         path: `/dashboard/book/tutor/:id`,
-        element: "",
+        element: <BookATutor/>,
       },
       {
         path: "my-lessons",
