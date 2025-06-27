@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FaBookOpen, FaEye, FaStar } from "react-icons/fa";
+
 import {
   CalenderAndClock,
   MessageButtonSvg,
@@ -44,6 +45,7 @@ export const MyLessons = () => {
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
       <h1 className="text-[32px] font-semibold mb-1">My Lessons</h1>
+      <h1 className="text-2xl font-semibold mb-1">My Lessons</h1>
       <p className="text-sm text-gray-500 mb-6">Manage your learning journey</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
@@ -169,9 +171,60 @@ export const MyLessons = () => {
                           </div>
                         )}
                       </div>
+
+          {(activeTab === "upcoming" ? upcomingLessons : pastLessons).map((_, i) => (
+            <div
+              key={i}
+              className="bg-white border border-[var(--color-alt-border)] rounded-lg p-8 mb-4 shadow-sm"
+            >
+              <div className="flex justify-between items-end mb-3">
+                <div className="flex items-center gap-3">
+                  <img
+                    src="https://randomuser.me/api/portraits/women/45.jpg"
+                    className="w-12 h-12 rounded-full"
+                    alt="avatar"
+                  />
+                  <div className="flex flex-col gap-3">
+                    <h2 className="font-medium">English Conversation Practice</h2>
+                    <div className="text-sm text-gray-600 flex items-center gap-3">
+                      Sarah Johnson·
+                      <FaStar className="text-yellow-500" />
+                      4.9 · 1247 lessons
+                    </div>
+                    <div className="text-sm text-gray-500 mt-1 flex items-center gap-1">
+                      <span><MyLocationSvg /></span> Today at 3:00 PM <span><MyLocationSvg /></span> 60 min ·
+                      <span className="ml-1 bg-gray-100 text-gray-700 px-2 py-0.5 rounded text-xs">
+                        Lesson 12
+                      </span>
                     </div>
                   </div>
                 </div>
+                <div className="font-bold text-lg">
+                  <div className="flex items-center gap-5">
+                    <p>$25</p>
+                    <div className="relative" ref={el => { dropdownRefs.current[i] = el; }}>
+                      <button
+                        onClick={() => setOpenDropdown(openDropdown === i ? null : i)}
+                        className="cursor-pointer"
+                      >
+                        <MyThreeDots />
+                      </button>
+                      {openDropdown === i && (
+                        <div className="absolute right-0 mt-2 w-40 bg-white border border-[var(--color-alt-border)] rounded-md shadow-md z-50">
+                          <Link to="reschedule">
+                            <button className="w-full text-left px-4 py-2 hover:bg-[var(--color-off-white)] text-sm rounded-md">Reschedule</button>
+                          </Link>
+                          <Link to="cancel">
+                            <button className="w-full text-left px-4 py-2 hover:bg-[var(--color-off-white)] text-sm rounded-md">Cancel</button>
+                          </Link>
+                          <button onClick={openRefundModal} className="w-full text-left px-4 py-2 hover:bg-[var(--color-off-white)] text-sm rounded-md">Request Refund</button>
+                          <button onClick={openReportModal} className="w-full text-left px-4 py-2 hover:bg-[var(--color-off-white)] text-sm rounded-md">Report User</button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
 
                 {activeTab === "upcoming" && i === 0 ? (
                   <div className="rounded-[12px] border border-[rgba(37,99,235,0.4)] bg-[#EFF6FF] p-6 flex justify-between items-center">

@@ -95,7 +95,8 @@ const CommonDashboardLayout: React.FC<CommonDashboardLayoutProps> = ({
   const [showSidebar, setShowSidebar] = useState(false);
 
   return (
-    <div className="flex bg-[#F8F8F8]  min-h-screen">
+    <div className="flex h-screen bg-[#F8F8F8]">
+      {/* Sidebar */}
       {role === "student" && (
         <Sidebar
           navLinks={studentNavLinks}
@@ -111,17 +112,22 @@ const CommonDashboardLayout: React.FC<CommonDashboardLayoutProps> = ({
         />
       )}
 
-      <main className="flex flex-col flex-1 h-screen">
-        <div className="shrink-0 fixed top-0 left-0 w-full flex items-center justify-end  z-20 ">
+      {/* Main content */}
+      <div className="flex flex-col flex-1 h-screen ">
+        {/* Fixed Navbar */}
+        <div className="fixed top-0 left-0 right-0 z-20">
           <DashboardNavbar />
         </div>
-        <div className="flex-1 overflow-y-scroll mt-[60px] py-[40px]  h-[10vhpx]   mb-[60px]">
+
+        {/* Scrollable content */}
+        <div className="flex-1 overflow-y-auto mt-[60px] pb-10 px-4 py-10 ">
           <Outlet />
         </div>
-        <div className="shrink-0 fixed bottom-0 left-0 w-full mb-6 z-20">
+        {/* Fixed Footer aligned to content area only */}
+        <div className="flex-0 container mb-6   ">
           <DashboardFooter />
         </div>
-      </main>
+      </div>
     </div>
   );
 };
