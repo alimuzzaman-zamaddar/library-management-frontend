@@ -93,6 +93,7 @@ export const ReportModal = ({ onClose }: ReportModalProps) => {
             <textarea
               {...register("description", { required: "Please provide a description" })}
               className="w-full px-3  py-3 border border-[var(--color-alt-border)] rounded-[12px]"
+
               placeholder="Provide details about the violation..."
             />
             {errors.description && (
