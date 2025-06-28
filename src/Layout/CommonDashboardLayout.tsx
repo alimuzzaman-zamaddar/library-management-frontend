@@ -8,6 +8,7 @@ import { HomeSvg } from "../components/SvgContainer/SVgContainer";
 import { FaCalculator } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { MdOutlineSettings } from "react-icons/md";
+import { ScrollRestoration } from "react-router-dom";
 
 const tutorNavLinks = [
   { id: 1, icon: HomeSvg, path: "/dashboard", title: "Dashboard" },
@@ -61,7 +62,7 @@ const studentNavLinks = [
   {
     id: 4,
     icon: GiClassicalKnowledge,
-    path: "/messages",
+    path: "/dashboard/messages",
     title: "Messages",
   },
   // {
@@ -123,6 +124,7 @@ const CommonDashboardLayout: React.FC<CommonDashboardLayoutProps> = ({
         {/* Scrollable content */}
         <div className="flex-1 overflow-y-auto mt-[60px] pb-10 px-4 py-10 ">
           <Outlet />
+          <ScrollRestoration />
         </div>
         {/* Fixed Footer aligned to content area only */}
         <div className="flex-0 container mb-6   ">

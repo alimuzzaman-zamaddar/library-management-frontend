@@ -20,31 +20,27 @@ import StudentProfileSettings from "../Pages/Dashboard/StudentDashboard/Settings
 import Invoice from "../Pages/Dashboard/StudentDashboard/Settings/Invoice";
 import AddCard from "../Pages/Dashboard/StudentDashboard/Settings/AddCard";
 import AddPaymentMethod from "../Pages/Dashboard/StudentDashboard/Settings/AddPaymentMethod";
+import TutorCredentials from "../Pages/Dashboard/StudentDashboard/TutorCredentials";
+import CommonMessageComponent from "../components/CommonComponents/CommonMessageComponent";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <Layout>
-        <Home />
-      </Layout>
-    ),
-  },
-  {
-    path: "/find-a-tutor",
-    element: (
-      <Layout>
-        <FindaTutor />
-      </Layout>
-    ),
-  },
-  {
-    path: "/become-tutor",
-    element: (
-      <Layout>
-        <BecomeTutor />
-      </Layout>
-    ),
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "find-a-tutor",
+        element: <FindaTutor />,
+      },
+      {
+        path: "become-tutor",
+        element: <BecomeTutor />,
+      },
+    ],
   },
 
   { path: "/sign-up", element: <TutorSignUp /> },
@@ -66,7 +62,7 @@ const router = createBrowserRouter([
       },
       {
         path: `/dashboard/book/tutor/:id`,
-        element: <BookATutor/>,
+        element: <BookATutor />,
       },
       {
         path: "my-lessons",
@@ -99,6 +95,14 @@ const router = createBrowserRouter([
       {
         path: "settings/payment-method",
         element: <AddPaymentMethod />,
+          },
+        {
+        path: "tutors/qulifications/:id",
+        element: <TutorCredentials />,
+      },
+      {
+        path: "messages",
+        element: <CommonMessageComponent />,
       },
     ],
   },
