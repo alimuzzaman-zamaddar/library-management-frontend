@@ -1,16 +1,14 @@
 import Footer from "../Shared/Footer";
 import Navbar from "../Shared/Navbar";
+import { ScrollRestoration, Outlet } from "react-router-dom";
 
-interface LayoutProps {
-  children:React.ReactElement
-}
-
-const Layout:React.FC<LayoutProps> = ({children}) => {
+const Layout = () => {
   return (
     <>
       <Navbar />
-      {children}
+      <Outlet />
       <Footer />
+      <ScrollRestoration />
     </>
   );
 };

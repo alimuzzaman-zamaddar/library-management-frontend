@@ -6,20 +6,18 @@ import {
 } from "../../SvgContainer/SVgContainer";
 import Button from "../../Tags/Button/Button";
 import Paragraph from "../../Tags/Paragraph/Paragraph";
-import {  useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { teacherDetials } from "../../StaticData/StaticData";
 import Heading from "../../Tags/Heading/Heading";
 import Image from "../../Tags/Image/Image";
 
 const TutorDetails = () => {
-
   let { id } = useParams();
 
   const tutorId = id ? Number(id) : undefined;
 
   const activeTutor = teacherDetials.find(tutor => tutor.id === tutorId);
-
-
+  const navigate = useNavigate();
 
   return (
     <section className="h-auto w-auto    flex flex-col container gap-y-10  ">
@@ -166,6 +164,9 @@ const TutorDetails = () => {
                   View verified certificates, diplomas and qualifications
                 </p>
                 <Button
+                  onClick={() => {
+                    navigate(`/dashboard/tutors/qulifications/${id}`)
+                  }}
                   className="primary-btn !text-sm "
                   Txt={`View Certificates & Credentials →`}
                 />
@@ -306,7 +307,6 @@ const TutorDetails = () => {
             </div>
           </div>
         </div>
-        
       </div>
     </section>
   );
