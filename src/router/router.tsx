@@ -17,6 +17,9 @@ import { CancelLesson } from "../Pages/Dashboard/StudentDashboard/CancelLesson";
 import FeedbackForm from "../Pages/Dashboard/StudentDashboard/FeedBackForm";
 import BookATutor from "../Pages/Dashboard/StudentDashboard/BookATutor";
 import StudentProfileSettings from "../Pages/Dashboard/StudentDashboard/Settings/StudentProfileSettings";
+import Invoice from "../Pages/Dashboard/StudentDashboard/Settings/Invoice";
+import AddCard from "../Pages/Dashboard/StudentDashboard/Settings/AddCard";
+import AddPaymentMethod from "../Pages/Dashboard/StudentDashboard/Settings/AddPaymentMethod";
 
 const router = createBrowserRouter([
   {
@@ -84,6 +87,18 @@ const router = createBrowserRouter([
       {
         path: "settings",
         element: <StudentProfileSettings />,
+      },
+      {
+        path: "settings/invoice",
+        element: <Invoice />,
+      },
+      {
+        path: "settings/add-card",
+        element: <AddCard />,
+      },
+      {
+        path: "settings/payment-method",
+        element: <AddPaymentMethod />,
       },
     ],
   },
