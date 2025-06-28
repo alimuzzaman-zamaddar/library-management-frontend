@@ -51,7 +51,7 @@ const AddPaymentMethod: React.FC = () => {
             className="text-text-gray font-normal text-[16px]  leading-[150%] mb-8"
             Txt="Add a new card for lesson payments"
           />
-          <div className=" bg-white p-8 rounded-lg shadow-lg">
+          <div className=" bg-white p-8 border border-alt-border rounded-lg shadow-lg">
             <form onSubmit={handleSubmit}>
               {/* Card Information Section */}
               <section className="mb-8">

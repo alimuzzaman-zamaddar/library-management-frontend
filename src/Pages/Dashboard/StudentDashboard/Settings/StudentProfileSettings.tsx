@@ -120,7 +120,7 @@ const StudentProfileSettings: React.FC = () => {
             {activeTab === "Profile" && (
               <>
                 {/* Form Fields */}
-                <div className=" bg-bg-white mb-4 p-8 rounded-lg shadow-lg">
+                <div className=" bg-bg-white border  border-alt-border mb-4 p-8 rounded-lg shadow-lg">
                   <Heading
                     Txt="Profile Information"
                     Variant="h2"
@@ -403,7 +403,7 @@ const StudentProfileSettings: React.FC = () => {
                 </div>
                 {/* Password Section */}
                 <form onSubmit={handleSubmitPassword(onSubmitPassword)}>
-                  <section className="mt-8 bg-bg-white p-8 rounded-lg shadow-lg">
+                  <section className="mt-8 bg-bg-white p-8 border border-alt-border rounded-lg shadow-lg">
                     <Heading
                       Txt="Change Password"
                       Variant="h2"

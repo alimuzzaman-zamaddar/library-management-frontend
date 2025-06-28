@@ -64,18 +64,18 @@ const studentNavLinks = [
     path: "/messages",
     title: "Messages",
   },
-  {
-    id: 5,
-    icon: GiClassicalKnowledge,
-    path: "/schedule",
-    title: "Schedule",
-  },
-  {
-    id: 6,
-    icon: GiClassicalKnowledge,
-    path: "/subscription",
-    title: "Subscription",
-  },
+  // {
+  //   id: 5,
+  //   icon: GiClassicalKnowledge,
+  //   path: "/schedule",
+  //   title: "Schedule",
+  // },
+  // {
+  //   id: 6,
+  //   icon: GiClassicalKnowledge,
+  //   path: "/subscription",
+  //   title: "Subscription",
+  // },
   {
     id: 7,
     icon: MdOutlineSettings,

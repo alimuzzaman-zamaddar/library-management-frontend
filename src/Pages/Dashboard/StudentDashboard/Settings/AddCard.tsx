@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaAngleLeft } from "react-icons/fa";
 import { GoShieldCheck } from "react-icons/go";
 import { IoCardOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const AddCard: React.FC = () => {
   const [paymentMethods, setPaymentMethods] = useState([
@@ -42,10 +43,12 @@ const AddCard: React.FC = () => {
       <div className="container py-10">
         <div className="w-full max-w-3xl mx-auto ">
           {/* Add Payment Methods Button */}
-          <div className=" text-center p-6 bg-bg-white border border-alt-border mb-4 rounded-[12px]">
+          <div className=" text-center p-6  bg-bg-white border border-alt-border mb-4 rounded-[12px]">
+            <Link to="payment-method">
             <button className="px-6 w-full py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition">
               Add Payment Methods
             </button>
+            </Link>
           </div>
 
           {/* Payment Methods List */}

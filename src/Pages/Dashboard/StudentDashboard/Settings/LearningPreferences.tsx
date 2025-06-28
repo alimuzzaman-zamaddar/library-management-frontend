@@ -41,7 +41,7 @@ const LearningPreferences: React.FC = () => {
 
   return (
     <div className="">
-      <div className="w-full max-w-3xl mx-auto bg-bg-white p-8 rounded-lg shadow-lg">
+      <div className="w-full max-w-3xl mx-auto bg-bg-white border border-alt-border p-8 rounded-lg shadow-lg">
         <Heading
           Txt="Learning Preferences"
           Variant="h2"
