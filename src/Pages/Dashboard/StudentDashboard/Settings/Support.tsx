@@ -74,6 +74,8 @@ const Support: React.FC = () => {
         </p>
       </div>
     </div>
+
+    
   );
 };
 
