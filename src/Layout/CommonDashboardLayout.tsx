@@ -7,6 +7,7 @@ import Sidebar from "../Pages/Dashboard/Shared/Sidebar";
 import { HomeSvg } from "../components/SvgContainer/SVgContainer";
 import { FaCalculator } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
+import { MdOutlineSettings } from "react-icons/md";
 
 const tutorNavLinks = [
   { id: 1, icon: HomeSvg, path: "/dashboard", title: "Dashboard" },
@@ -77,8 +78,8 @@ const studentNavLinks = [
   },
   {
     id: 7,
-    icon: GiClassicalKnowledge,
-    path: "/settings",
+    icon: MdOutlineSettings,
+    path: "/dashboard/settings",
     title: "Settings",
   },
 ];

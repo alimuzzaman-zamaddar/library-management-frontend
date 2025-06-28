@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { use, useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import { StudentOnboardingLayout } from "./StudentOnboardingLayout";
+import { useNavigate } from "react-router-dom";
 
 const timezones = [
   { value: "UTC", label: "UTC (GMT+0)" },
@@ -42,6 +43,7 @@ const countries = [
 ];
 
 const StudentOnboarding = () => {
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const methods = useForm({ mode: "onChange" });
 
@@ -49,6 +51,7 @@ const StudentOnboarding = () => {
   const prev = () => setStep((s) => Math.max(s - 1, 1));
   const onSubmit = (data: any) => {
     console.log("Submitted Data:", data);
+    navigate("/dashboard");
     methods.reset();
     setStep(1);
   };
