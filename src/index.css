@@ -26,8 +26,12 @@
   --color-text-white: #FFFFFF;
   --color-bg-white: #FFFFFF;
   --color-bg-light-green: #DCF1E3;
+  --color-bg-dark-green: #166556;  
+  --color-bg-blue: #041345;
   --color-bg-dark-green: #166556;
   --color-gray-white:#F9FAFB;
+  --color-bg-blue: #041345;
+  --button-bg-blue: #051345;
 
 
   /* Container */
