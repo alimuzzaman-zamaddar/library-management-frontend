@@ -16,31 +16,27 @@ import { RescheduleLesson } from "../Pages/Dashboard/StudentDashboard/Reschedule
 import { CancelLesson } from "../Pages/Dashboard/StudentDashboard/CancelLesson";
 import FeedbackForm from "../Pages/Dashboard/StudentDashboard/FeedBackForm";
 import BookATutor from "../Pages/Dashboard/StudentDashboard/BookATutor";
+import TutorCredentials from "../Pages/Dashboard/StudentDashboard/TutorCredentials";
+import CommonMessageComponent from "../components/CommonComponents/CommonMessageComponent";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <Layout>
-        <Home />
-      </Layout>
-    ),
-  },
-  {
-    path: "/find-a-tutor",
-    element: (
-      <Layout>
-        <FindaTutor />
-      </Layout>
-    ),
-  },
-  {
-    path: "/become-tutor",
-    element: (
-      <Layout>
-        <BecomeTutor />
-      </Layout>
-    ),
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "find-a-tutor",
+        element: <FindaTutor />,
+      },
+      {
+        path: "become-tutor",
+        element: <BecomeTutor />,
+      },
+    ],
   },
 
   { path: "/sign-up", element: <TutorSignUp /> },
@@ -62,7 +58,7 @@ const router = createBrowserRouter([
       },
       {
         path: `/dashboard/book/tutor/:id`,
-        element: <BookATutor/>,
+        element: <BookATutor />,
       },
       {
         path: "my-lessons",
@@ -79,6 +75,14 @@ const router = createBrowserRouter([
       {
         path: "my-lessons/feedback",
         element: <FeedbackForm />,
+      },
+      {
+        path: "tutors/qulifications/:id",
+        element: <TutorCredentials />,
+      },
+      {
+        path: "messages",
+        element: <CommonMessageComponent />,
       },
     ],
   },
