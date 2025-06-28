@@ -7,6 +7,7 @@ import Sidebar from "../Pages/Dashboard/Shared/Sidebar";
 import { HomeSvg } from "../components/SvgContainer/SVgContainer";
 import { FaCalculator } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
+import { MdOutlineSettings } from "react-icons/md";
 import { ScrollRestoration } from "react-router-dom";
 
 const tutorNavLinks = [
@@ -64,22 +65,22 @@ const studentNavLinks = [
     path: "/dashboard/messages",
     title: "Messages",
   },
-  {
-    id: 5,
-    icon: GiClassicalKnowledge,
-    path: "/schedule",
-    title: "Schedule",
-  },
-  {
-    id: 6,
-    icon: GiClassicalKnowledge,
-    path: "/subscription",
-    title: "Subscription",
-  },
+  // {
+  //   id: 5,
+  //   icon: GiClassicalKnowledge,
+  //   path: "/schedule",
+  //   title: "Schedule",
+  // },
+  // {
+  //   id: 6,
+  //   icon: GiClassicalKnowledge,
+  //   path: "/subscription",
+  //   title: "Subscription",
+  // },
   {
     id: 7,
-    icon: GiClassicalKnowledge,
-    path: "/settings",
+    icon: MdOutlineSettings,
+    path: "/dashboard/settings",
     title: "Settings",
   },
 ];

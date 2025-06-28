@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm, FormProvider, Controller } from "react-hook-form";
 import { TutorSignUpLayout } from "./TutorSignUpLayout";
 import Select from "react-select";
+import { useNavigate } from "react-router-dom";
 
 export default function Onboarding() {
   const [step, setStep] = useState(1);
@@ -9,8 +10,9 @@ export default function Onboarding() {
 
   const next = () => setStep(prev => prev + 1);
   const prev = () => setStep(prev => prev - 1);
-
+  const navigate = useNavigate();
   const onSubmit = (data: any) => {
+        navigate("/dashboard");
     const { reset } = methods;
     reset();
     setStep(1);

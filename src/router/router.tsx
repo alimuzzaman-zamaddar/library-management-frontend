@@ -16,6 +16,10 @@ import { RescheduleLesson } from "../Pages/Dashboard/StudentDashboard/Reschedule
 import { CancelLesson } from "../Pages/Dashboard/StudentDashboard/CancelLesson";
 import FeedbackForm from "../Pages/Dashboard/StudentDashboard/FeedBackForm";
 import BookATutor from "../Pages/Dashboard/StudentDashboard/BookATutor";
+import StudentProfileSettings from "../Pages/Dashboard/StudentDashboard/Settings/StudentProfileSettings";
+import Invoice from "../Pages/Dashboard/StudentDashboard/Settings/Invoice";
+import AddCard from "../Pages/Dashboard/StudentDashboard/Settings/AddCard";
+import AddPaymentMethod from "../Pages/Dashboard/StudentDashboard/Settings/AddPaymentMethod";
 import TutorCredentials from "../Pages/Dashboard/StudentDashboard/TutorCredentials";
 import CommonMessageComponent from "../components/CommonComponents/CommonMessageComponent";
 
@@ -77,6 +81,22 @@ const router = createBrowserRouter([
         element: <FeedbackForm />,
       },
       {
+        path: "settings",
+        element: <StudentProfileSettings />,
+      },
+      {
+        path: "settings/invoice",
+        element: <Invoice />,
+      },
+      {
+        path: "settings/add-card",
+        element: <AddCard />,
+      },
+      {
+        path: "settings/payment-method",
+        element: <AddPaymentMethod />,
+          },
+        {
         path: "tutors/qulifications/:id",
         element: <TutorCredentials />,
       },
