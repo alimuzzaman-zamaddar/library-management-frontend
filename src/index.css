@@ -14,12 +14,12 @@
   --color-light-blue: #163f66;
   --color-secondary-black:#060606;
   --color-light-pink:rgba(140, 30, 175, 0.20);
-  --button-bg-blue: #051345;
+  --color-roayl-blue: #051345;
   --color-text-blue: #060606;
   --color-off-white:#F3F4F6;
   --color-primary-green:#21C357;
   --color-light-gray:#DEEEFF;
-  --color-text-light-blue: #3F40B2
+  --color-text-light-blue: #3F40B2;
   --color-bg-light-blue: #EFF6FF;
   --color-secondary-blue:#0053CF;
   --color-bg-light-gray:#F1F5F9;
@@ -27,7 +27,7 @@
   --color-bg-white: #FFFFFF;
   --color-bg-light-green: #DCF1E3;
   --color-bg-dark-green: #166556;
-
+  --color-gray-white:#F9FAFB;
 
 
   /* Container */
@@ -60,6 +60,11 @@
   backface-visibility: hidden;
   perspective: 1000px;
 } */
+
+::-webkit-scrollbar{
+  height: 0;
+  width: 0;
+}
 
 body {
   overflow-x: hidden;
