@@ -51,7 +51,7 @@ const router = createBrowserRouter([
 
   {
     path: "/dashboard/",
-    element: <CommonDashboardLayout  />,
+    element: <CommonDashboardLayout />,
     children: [
       { index: true, element: <DashboardPage /> },
       {
@@ -97,8 +97,8 @@ const router = createBrowserRouter([
       {
         path: "settings/payment-method",
         element: <AddPaymentMethod />,
-          },
-        {
+      },
+      {
         path: "tutors/qulifications/:id",
         element: <TutorCredentials />,
       },
@@ -111,7 +111,7 @@ const router = createBrowserRouter([
         element: <RecentStudents />,
       },
       {
-        path: "schedule-management",
+        path: "/dashboard/schedule",
         element: <ScheduleManagement />,
       },
     ],

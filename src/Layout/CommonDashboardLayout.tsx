@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { GiClassicalKnowledge } from "react-icons/gi";
 import DashboardFooter from "../Pages/Dashboard/Shared/DashboardFooter";
@@ -11,6 +11,7 @@ import { MdOutlineSettings } from "react-icons/md";
 import { ScrollRestoration } from "react-router-dom";
 import { useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
+import { GrSchedule } from "react-icons/gr";
 
 const tutorNavLinks = [
   { id: 1, icon: HomeSvg, path: "/dashboard", title: "Dashboard" },
@@ -20,7 +21,7 @@ const tutorNavLinks = [
   //   path: "/find-tutors",
   //   title: "My Classes",
   // },
-  { id: 3, icon: GiClassicalKnowledge, path: "/lessons", title: "Message" },
+  { id: 3, icon: GrSchedule, path: "/dashboard/schedule", title: "Schedule" },
   {
     id: 4,
     icon: GiClassicalKnowledge,
