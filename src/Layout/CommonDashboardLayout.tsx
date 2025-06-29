@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { GiClassicalKnowledge } from "react-icons/gi";
 import DashboardFooter from "../Pages/Dashboard/Shared/DashboardFooter";
