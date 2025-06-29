@@ -15,7 +15,6 @@ import {
 import { TbMessageCircle } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { MdManageAccounts } from "react-icons/md";
-import { CiVideoOn } from "react-icons/ci";
 
 const cardStyles = {
   "Active Students": "bg-[#4D6BFF]",
