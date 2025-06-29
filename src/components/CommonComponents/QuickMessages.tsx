@@ -36,7 +36,7 @@ const QuickMessages: React.FC<QuickMessagesProps> = ({ title, buttonText, messag
         ))}
       </div>
       <div>
-        <button className="mt-4 w-full border cursor-pointer hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border-[var(--color-alt-border)] rounded py-2 font-medium">
+        <button className="mt-4 w-full border cursor-pointer hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border-[var(--color-alt-border)] rounded-lg py-2 font-medium">
           {buttonText}
         </button>
       </div>

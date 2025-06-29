@@ -3,11 +3,16 @@ import { useForm } from "react-hook-form";
 import signupimg from "../../assets/images/signup/signup-pageimg.png";
 import { FaFacebookF, FaGoogle } from "react-icons/fa";
 import Heading from "../../components/Tags/Heading/Heading";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Button from "../../components/Tags/Button/Button";
+import { useDispatch } from "react-redux";
+import { addRole } from "../../redux/Slices/msgSlice";
 
 export default function TutorSignUp() {
   const [role, setRole] = useState<"student" | "tutor">("student");
-  // Removed unused 'user' constant; use 'role' state for navigation logic
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -17,8 +22,16 @@ export default function TutorSignUp() {
   } = useForm();
 
   const onSubmit = (data: any) => {
+    console.log(data);
+    dispatch(addRole(role));
     const finalData = { ...data, role };
     reset();
+    if (role === "student") {
+      navigate("/onbording");
+    } else if (role === "tutor") {
+      navigate("/student-on-boarding");
+    }
+
     console.log(finalData);
   };
 
@@ -36,12 +49,22 @@ export default function TutorSignUp() {
 
         {/* Form Section */}
         <div className="p-8 border border-[var(--color-secondry-gray)] rounded-r-[12px] shadow-md">
-          <Heading Txt="Create Your Account" className="text-center text-[22px] xl:text-[32px] leading-[150%] font-bold text-[var(--color-primary-blue)] mb-4" Variant="h1" />
-          <p data-aos="fade-up" className="text-center text-sm text-[var(--color-text-gray)] mb-6">
+          <Heading
+            Txt="Create Your Account"
+            className="text-center text-[22px] xl:text-[32px] leading-[150%] font-bold text-[var(--color-primary-blue)] mb-4"
+            Variant="h1"
+          />
+          <p
+            data-aos="fade-up"
+            className="text-center text-sm text-[var(--color-text-gray)] mb-6"
+          >
             Join Syntax Master today
           </p>
 
-          <div data-aos="fade-up" className="flex justify-center gap-2 my-8 bg-[#F1F5F9] rounded-lg px-3 py-[6px] ">
+          <div
+            data-aos="fade-up"
+            className="flex justify-center gap-2 my-8 bg-[#F1F5F9] rounded-lg px-3 py-[6px] "
+          >
             <button
               type="button"
               className={`w-full py-2 text-[16px] cursor-pointer hover:bg-[var(--button-bg-blue)] hover:text-white duration-700 font-semibold rounded-md ${
@@ -67,7 +90,7 @@ export default function TutorSignUp() {
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-            <div data-aos="fade-up"  >
+            <div data-aos="fade-up">
               <label
                 htmlFor="text"
                 className="text-sm text-[var(--color-primary-gray)] font-semibold leading-[142.857%] mb-3"
@@ -147,16 +170,11 @@ export default function TutorSignUp() {
                 You must agree before submitting.
               </p>
             )}
-            <Link to={role === "student" ? "/student-on-boarding" : "/onbording"}   >
-            <div            data-aos="fade-up" className="">
-            <button
-              type="submit"
+            <Button
               className="w-full  bg-[var(--button-bg-blue)] border border-[var(--button-bg-blue)] hover:border-[var(--color-secondry-gray)] hover:bg-white hover:text-[var(--button-bg-blue)] py-[14px] transition duration-700 text-sm cursor-pointer text-white rounded-[4px] "
-            >
-              Create Account
-            </button>
-            </div>
-            </Link>
+              type="submit"
+              Txt={`Create Account`}
+            />
           </form>
 
           <p className="text-center text-sm mt-4 py-8">
@@ -171,7 +189,9 @@ export default function TutorSignUp() {
 
           <div className="flex items-center justify-center my-4">
             <span className="border-b border-b-[var(--color-secondry-gray)] w-1/4"></span>
-            <span className="text-sm text-[var(--color-primary-gray)] px-2">Or Sign up With</span>
+            <span className="text-sm text-[var(--color-primary-gray)] px-2">
+              Or Sign up With
+            </span>
             <span className="border-b border-b-[var(--color-secondry-gray)] w-1/4"></span>
           </div>
 

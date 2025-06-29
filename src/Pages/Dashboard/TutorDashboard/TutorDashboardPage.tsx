@@ -4,6 +4,11 @@ import Heading from "../../../components/Tags/Heading/Heading";
 import Paragraph from "../../../components/Tags/Paragraph/Paragraph";
 import Button from "../../../components/Tags/Button/Button";
 import QuickMessages from "../../../components/CommonComponents/QuickMessages";
+import { QuickMessageSvg } from "../../../components/SvgContainer/SVgContainer";
+import { HiOutlineCurrencyDollar } from "react-icons/hi";
+import { TbMessageCircle } from "react-icons/tb";
+import { Link } from "react-router-dom";
+import { MdManageAccounts } from "react-icons/md";
 
 const cardStyles = {
   "Active Students": "bg-[#4D6BFF]",
@@ -41,7 +46,7 @@ const TutorDashboardPage = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-between min-h-[calc(100vh-64px)]">
+    <div className=" flex flex-col justify-between min-h-[calc(100vh-64px)]">
       <div>
         <div className="space-y-6 p-6">
           <Heading
@@ -108,18 +113,18 @@ const TutorDashboardPage = () => {
                   <div className="flex gap-2">
                     <Button
                       Txt="Message"
-                      className="border cursor-pointer border-[var(--color-alt-border)] px-3 py-1 rounded text-sm"
+                      className="border cursor-pointer border-[var(--color-alt-border)] px-3 py-1 rounded-lg text-sm"
                     />
                     <Button
                       Txt="Join"
-                      className="bg-[#051345] text-white px-3 py-1 rounded text-sm"
+                      className="bg-[#051345] text-white px-3 py-1 rounded-lg text-sm"
                     />
                   </div>
                 </div>
               ))}
               <Button
                 Txt="View Full Schedule"
-                className="mt-4 w-full border cursor-pointer hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border-[var(--color-alt-border)] rounded py-2 font-medium"
+                className="mt-4 w-full border cursor-pointer hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border-[var(--color-alt-border)] rounded-lg py-2 font-medium"
               />
             </div>
 
@@ -143,38 +148,46 @@ const TutorDashboardPage = () => {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[3, 4].map((lessons, i) => (
+                  <div>
                   <div
                     key={i}
-                    className="flex items-center gap-3 border border-[var(--color-alt-border)] rounded-md p-3"
+                    className=" border border-[var(--color-alt-border)] rounded-xl p-5"
                   >
+                    <div className="flex items-center gap-3 mb-5 ">
                     <img
                       src="https://randomuser.me/api/portraits/men/32.jpg"
                       className="w-10 h-10 rounded-full"
                       alt="avatar"
                     />
                     <div>
-                      <p className="font-medium">
+                      <p className="font-medium text-primary-black text-[14px] mb-1">
                         Sarah Kim - English Conversation
                       </p>
-                      <p className="text-sm text-gray-500">
+                      <p className="text-xs text-gray-500">
                         2025-06-16 ,3:00 PM - 4:00 PM
                       </p>
-                      <div className="text-sm mt-1">
-                        <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded">
+
+                    </div>
+                    </div>
+                                                            <div className="text-sm mt-1 flex justify-between items-center">
+                        <span className="bg-bg-light-gray text-xs text-gray-700 px-2 py-1 rounded-[24px]">
                           {lessons} Lessons
                         </span>
                         <span className="ml-4 text-gray-500">
                           Last: 2 days ago
                         </span>
                       </div>
-                    </div>
+
                   </div>
+                      </div>
                 ))}
               </div>
+              <Link to="recent-students">
               <Button
                 Txt="View All Students"
-                className="mt-4 w-full hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border cursor-pointer border-[var(--color-alt-border)] rounded py-2 font-medium"
+                className="mt-4 w-full hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border cursor-pointer border-[var(--color-alt-border)] rounded-lg py-2 font-medium"
               />
+              </Link>
             </div>
 
             <div className="space-y-6 grid grid-cols-1 xl:grid-cols-2 gap-6 xl:col-span-2">
@@ -185,23 +198,23 @@ const TutorDashboardPage = () => {
                     className="text-[16px] font-semibold leading-[150%]"
                     Variant="h3"
                   />
-                  <FaCalendarAlt />
+                  <HiOutlineCurrencyDollar  />
                 </div>
                 <p className="font-medium">This Week</p>
                 <ul className="text-sm text-primary-black mt-2 space-y-1">
-                  <li className="flex justify-between items-center">
+                  <li className="flex  text-[14px] justify-between items-center">
                     Lessons Completed: <strong>12</strong>
                   </li>
-                  <li className="flex justify-between items-center">
+                  <li className="flex  text-[14px] justify-between items-center">
                     Hours Taught: <strong>18</strong>
                   </li>
-                  <li className="flex justify-between items-center">
+                  <li className="flex  text-[14px] justify-between items-center">
                     Earnings: <strong>$360</strong>
                   </li>
                 </ul>
                 <Button
                   Txt="View Details"
-                  className="mt-4 w-full hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border cursor-pointer border-[var(--color-alt-border)] rounded py-2 font-medium"
+                  className="mt-4 w-full hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border cursor-pointer border-[var(--color-alt-border)] rounded-lg py-2 font-medium"
                 />
               </div>
               <div className="bg-white rounded-xl p-6 border border-[var(--color-alt-border)]">
@@ -211,21 +224,28 @@ const TutorDashboardPage = () => {
                     className="text-[16px] font-semibold leading-[150%]"
                     Variant="h3"
                   />
-                  <span>💬</span>
+                  <QuickMessageSvg />
                 </div>
- 
-                <div className="space-y-2">
-                  
 
-                
-                  <Button
-                    Txt="Manage Student"
-                    className="mt-4 w-full hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border cursor-pointer border-[var(--color-alt-border)] rounded py-2 font-medium"
-                  />
-                  <Button
-                    Txt="View Message"
-                    className="mt-4 w-full hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border cursor-pointer border-[var(--color-alt-border)] rounded py-2 font-medium"
-                  />
+                <div className="space-y-2">
+                  <button className="mt-4 w-full hover:bg-secondary-blue hover:text-white duration-700 border cursor-pointer border-[var(--color-alt-border)] rounded-lg py-2  text-[16px] font-medium flex justify-start text-secondary-blue items-center pl-4 gap-4">
+                    <span>
+                      <FaCalendarAlt />
+                    </span>
+                    Set Availability
+                  </button>
+                  <button className="mt-4 w-full hover:bg-secondary-blue hover:text-white text-secondary-blue duration-700 border cursor-pointer border-[var(--color-alt-border)] rounded-lg py-2  text-[16px] font-medium flex justify-start items-center gap-4 pl-4 ">
+                    <span>
+                      <MdManageAccounts />
+                    </span>
+                    Manage Student
+                  </button>
+                  <button className="mt-4 w-full hover:bg-secondary-blue hover:text-white text-secondary-blue duration-700 border cursor-pointer border-[var(--color-alt-border)] rounded-lg py-2 font-medium  text-[16px] flex justify-start items-center gap-4 pl-4 ">
+                    <span>
+                      <TbMessageCircle />
+                    </span>
+                    View Message
+                  </button>
                 </div>
               </div>
             </div>

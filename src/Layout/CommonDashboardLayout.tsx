@@ -9,15 +9,17 @@ import { FaCalculator } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { MdOutlineSettings } from "react-icons/md";
 import { ScrollRestoration } from "react-router-dom";
+import { useSelector } from "react-redux";
+import type { RootState } from "../redux/store";
 
 const tutorNavLinks = [
   { id: 1, icon: HomeSvg, path: "/dashboard", title: "Dashboard" },
-  {
-    id: 2,
-    icon: GiClassicalKnowledge,
-    path: "/find-tutors",
-    title: "My Classes",
-  },
+  // {
+  //   id: 2,
+  //   icon: GiClassicalKnowledge,
+  //   path: "/find-tutors",
+  //   title: "My Classes",
+  // },
   { id: 3, icon: GiClassicalKnowledge, path: "/lessons", title: "Message" },
   {
     id: 4,
@@ -55,7 +57,7 @@ const studentNavLinks = [
   },
   {
     id: 3,
-    icon: FaCalculator ,
+    icon: FaCalculator,
     path: "my-lessons",
     title: "My Lessons",
   },
@@ -85,16 +87,10 @@ const studentNavLinks = [
   },
 ];
 
-type UserRole = "student" | "tutor";
-
-interface CommonDashboardLayoutProps {
-  role: UserRole;
-}
-
-const CommonDashboardLayout: React.FC<CommonDashboardLayoutProps> = ({
-  role,
-}) => {
+const CommonDashboardLayout = () => {
   const [showSidebar, setShowSidebar] = useState(false);
+
+  const role = useSelector((state: RootState) => state.msgReducer.userRole);
 
   return (
     <div className="flex h-screen bg-[#F8F8F8]">

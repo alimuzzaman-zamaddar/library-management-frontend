@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import moment from "moment";
 
+type userRoleSchema = "student" | "tutor";
+
 interface User {
   id: number;
   name: string;
@@ -32,6 +34,7 @@ interface Message {
 interface MsgState {
   users: User[];
   messages: Message[];
+  userRole: userRoleSchema;
 }
 
 const avatars = [
@@ -279,9 +282,15 @@ const generateUsersAndMessages = () => {
 // Initialize users and messages
 const { users, messages } = generateUsersAndMessages();
 
+// Validate role from localStorage or default to 'student'
+const storedRole = localStorage.getItem("role");
+const userRoles: userRoleSchema =
+  storedRole === "student" || storedRole === "tutor" ? storedRole : "student";
+
 const initialState: MsgState = {
   users,
   messages,
+  userRole: userRoles,
 };
 
 const msgSlice = createSlice({
@@ -307,8 +316,13 @@ const msgSlice = createSlice({
         }
       }
     },
+
+    addRole: (state, action: PayloadAction<userRoleSchema>) => {
+      state.userRole = action.payload;
+      localStorage.setItem("role", action.payload);
+    },
   },
 });
 
-export const { addMessage } = msgSlice.actions;
+export const { addMessage, addRole } = msgSlice.actions;
 export default msgSlice.reducer;

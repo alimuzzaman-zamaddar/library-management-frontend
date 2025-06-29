@@ -22,6 +22,8 @@ import AddCard from "../Pages/Dashboard/StudentDashboard/Settings/AddCard";
 import AddPaymentMethod from "../Pages/Dashboard/StudentDashboard/Settings/AddPaymentMethod";
 import TutorCredentials from "../Pages/Dashboard/StudentDashboard/TutorCredentials";
 import CommonMessageComponent from "../components/CommonComponents/CommonMessageComponent";
+import RecentStudents from "../Pages/Dashboard/TutorDashboard/RecentStudents";
+import ScheduleManagement from "../Pages/Dashboard/TutorDashboard/ScheduleManagement";
 
 const router = createBrowserRouter([
   {
@@ -49,7 +51,7 @@ const router = createBrowserRouter([
 
   {
     path: "/dashboard/",
-    element: <CommonDashboardLayout role="student" />,
+    element: <CommonDashboardLayout  />,
     children: [
       { index: true, element: <DashboardPage /> },
       {
@@ -103,6 +105,14 @@ const router = createBrowserRouter([
       {
         path: "messages",
         element: <CommonMessageComponent />,
+      },
+      {
+        path: "recent-students",
+        element: <RecentStudents />,
+      },
+      {
+        path: "schedule-management",
+        element: <ScheduleManagement />,
       },
     ],
   },
