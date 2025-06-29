@@ -1,0 +1,223 @@
+import React, { useState } from "react";
+import Button from "../../../components/Tags/Button/Button";
+import Heading from "../../../components/Tags/Heading/Heading";
+import Paragraph from "../../../components/Tags/Paragraph/Paragraph";
+import { FaAngleLeft } from "react-icons/fa";
+import EarningHistory from "./EarningHistory";
+import TransactionHistory from "./TransactionHistory";
+
+type SummaryCard = {
+  label: string;
+  amount: string;
+  subtext: string;
+  iconColor: string;
+  textColor: string;
+};
+
+type MonthlyEarning = {
+  month: string;
+  lessons: number;
+  hours: number;
+  amount: string;
+};
+
+type PerformanceMetric = {
+  label: string;
+  value: number;
+  color: string;
+};
+
+const Earnings: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<
+    "Overview" | "Earning History" | "Transaction History"
+  >("Overview");
+
+  const summaryCards: SummaryCard[] = [
+    {
+      label: "This Month",
+      amount: "$1,240",
+      subtext: "+15% from last month",
+      iconColor: "bg-green-200 text-green-600",
+      textColor: "text-green-600",
+    },
+    {
+      label: "Total Earned",
+      amount: "$4,240",
+      subtext: "Last 4 Months",
+      iconColor: "bg-blue-200 text-blue-600",
+      textColor: "text-blue-600",
+    },
+    {
+      label: "Pending",
+      amount: "$20",
+      subtext: "3 payments pending",
+      iconColor: "bg-yellow-200 text-yellow-600",
+      textColor: "text-yellow-600",
+    },
+    {
+      label: "Available Balance",
+      amount: "$230",
+      subtext: "Based on 12 lessons",
+      iconColor: "bg-purple-200 text-purple-600",
+      textColor: "text-purple-600",
+    },
+  ];
+
+  const monthlyEarnings: MonthlyEarning[] = [
+    { month: "December 2024", lessons: 31, hours: 31, amount: "$1,240" },
+    { month: "November 2024", lessons: 31, hours: 31, amount: "$1,240" },
+    { month: "October 2024", lessons: 31, hours: 31, amount: "$1,240" },
+  ];
+
+  const performanceMetrics: PerformanceMetric[] = [
+    { label: "Lesson Completion Rate", value: 98, color: "bg-green-500" },
+    { label: "Student Retention", value: 85, color: "bg-blue-500" },
+    { label: "Response Rate", value: 85, color: "bg-purple-500" },
+  ];
+
+  return (
+    <div className="">
+      <div className="mb-6">
+        <button
+          onClick={() => window.history.back()}
+          className=" border border-[var(--color-alt-border)] bg-white hover:bg-bg-blue text-[var(--button-bg-blue)] duration-700 hover:text-text-white px-6 py-2 cursor-pointer rounded-[8px] flex items-center gap-3"
+        >
+          <FaAngleLeft /> Back to Search
+        </button>
+      </div>
+      <div className="mx-[200px]">
+        <div className="bg-primary-blue p-8 rounded-xl mb-8 flex justify-between items-center">
+          <div className="">
+            <Heading
+              Variant="h2"
+              Txt="Schedule Management"
+              className="text-[32px] text-text-white font-semibold mb-1"
+            />
+            <Paragraph
+              className="text-secondary-white font-normal text-[16px]  leading-[150%] "
+              Txt="Manage your teaching schedule and availability"
+            />
+          </div>
+          <div className="">
+            <Button
+              Txt="Withdraw"
+              className="bg-secondary-blue py-[14px] px-15 hover:bg-bg-white duration-500 cursor-pointer hover:text-secondary-blue rounded-md text-text-white"
+            />
+          </div>
+        </div>
+
+        <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+            {summaryCards.map((card, index) => (
+              <div key={index} className="bg-white p-5 rounded-xl shadow-sm">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <p className="text-sm text-gray-500">{card.label}</p>
+                    <h3 className="text-2xl font-bold">{card.amount}</h3>
+                    <p className={`text-sm ${card.textColor}`}>
+                      {card.subtext}
+                    </p>
+                  </div>
+                  <div
+                    className={`w-8 h-8 rounded-full flex items-center justify-center ${card.iconColor}`}
+                  >
+                    <span>$</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Tabs */}
+          <div className="flex gap-4 bg-gray-100 rounded-xl  p-2">
+            {["Overview", "Earning History", "Transaction History"].map(tab => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab as any)}
+                className={`text-sm px-4 py-2 rounded-md cursor-pointer font-medium  ${
+                  activeTab === tab
+                    ? "bg-white shadow text-black"
+                    : "text-gray-500"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          {/* Tab Content */}
+          {activeTab === "Overview" && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Monthly Earnings */}
+              <div className="bg-white p-6 rounded-xl shadow-sm">
+                <h3 className="text-xl font-semibold mb-4">Monthly Earnings</h3>
+                <div className="space-y-4">
+                  {monthlyEarnings.map((entry, index) => (
+                    <div
+                      key={index}
+                      className="flex justify-between bg-gray-50 p-4 rounded-lg"
+                    >
+                      <div>
+                        <p className="font-medium">{entry.month}</p>
+                        <p className="text-sm text-gray-500">
+                          {entry.lessons} lessons • {entry.hours} hours
+                        </p>
+                      </div>
+                      <p className="text-blue-600 font-semibold">
+                        {entry.amount}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Performance Metrics */}
+              <div className="bg-white p-6 rounded-xl shadow-sm">
+                <h3 className="text-xl font-semibold mb-4">
+                  Performance Metrics
+                </h3>
+                <div className="space-y-4">
+                  {performanceMetrics.map((metric, index) => (
+                    <div key={index}>
+                      <div className="flex justify-between mb-1">
+                        <p className="text-sm font-medium">{metric.label}</p>
+                        <p className="text-sm font-semibold">{metric.value}%</p>
+                      </div>
+                      <div className="w-full h-2 bg-gray-200 rounded-full">
+                        <div
+                          className={`${metric.color} h-2 rounded-full`}
+                          style={{ width: `${metric.value}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                  {/* Average Rating */}
+                  <div className="flex justify-between mt-4">
+                    <p className="text-sm font-medium">Average Rating</p>
+                    <p className="text-yellow-500 font-bold flex items-center">
+                      ⭐ 4.9
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === "Earning History" && (
+              <div className="w-3xl">
+                <EarningHistory />
+              </div>
+          )}
+
+          {activeTab === "Transaction History" && (
+            <div className="w-3xl">
+              <TransactionHistory/>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Earnings;

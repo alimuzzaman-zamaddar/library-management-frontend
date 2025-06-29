@@ -4,7 +4,7 @@ import Heading from "../../../components/Tags/Heading/Heading";
 import Paragraph from "../../../components/Tags/Paragraph/Paragraph";
 import Button from "../../../components/Tags/Button/Button";
 import QuickMessages from "../../../components/CommonComponents/QuickMessages";
-import { QuickMessageSvg } from "../../../components/SvgContainer/SVgContainer";
+import { BookSvg, QuickMessageSvg } from "../../../components/SvgContainer/SVgContainer";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
 import { TbMessageCircle } from "react-icons/tb";
 import { Link } from "react-router-dom";
@@ -61,19 +61,19 @@ const TutorDashboardPage = () => {
 
           {/* Stat Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-            {cards.map((card) => (
+            {cards.map(card => (
               <div
                 key={card.title}
                 className={clsx(
-                  "rounded-lg p-4 text-white flex items-center justify-center h-[110px]",
+                  "rounded-lg  text-white flex items-center justify-center p-8",
                   cardStyles[card.title as keyof typeof cardStyles]
                 )}
               >
-                <div className="flex items-center gap-3">
-                  <FaBookOpen className="w-6 h-6" />
-                  <div className="flex flex-col">
-                    <span className="text-sm">{card.title}</span>
-                    <span className="text-2xl font-bold mt-1">
+                <div className="flex items-center gap-6">
+                  <BookSvg  />
+                  <div className="flex flex-col gap-4 ">
+                    <span className="text-[16px] font-normal leading-[150%]">{card.title}</span>
+                    <span className="text-[32px] leading-[150%] font-bold">
                       {card.value}
                     </span>
                   </div>
@@ -113,11 +113,11 @@ const TutorDashboardPage = () => {
                   <div className="flex gap-2">
                     <Button
                       Txt="Message"
-                      className="border cursor-pointer border-[var(--color-alt-border)] px-3 py-1 rounded-lg text-sm"
+                      className="border border-[var(--color-alt-border)] gap-3 cursor-pointer duration-700 hover:text-white hover:bg-[var(--button-bg-blue)] bg-white rounded-[8px] px-6 py-2 text-sm flex items-center"
                     />
                     <Button
                       Txt="Join"
-                      className="bg-[#051345] text-white px-3 py-1 rounded-lg text-sm"
+                      className="bg-[#051345] hover:bg-white hover:text-[var(--button-bg-blue)] duration-700 text-white px-6 py-2 cursor-pointer rounded-[8px] flex items-center gap-3"
                     />
                   </div>
                 </div>
@@ -149,27 +149,26 @@ const TutorDashboardPage = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[3, 4].map((lessons, i) => (
                   <div>
-                  <div
-                    key={i}
-                    className=" border border-[var(--color-alt-border)] rounded-xl p-5"
-                  >
-                    <div className="flex items-center gap-3 mb-5 ">
-                    <img
-                      src="https://randomuser.me/api/portraits/men/32.jpg"
-                      className="w-10 h-10 rounded-full"
-                      alt="avatar"
-                    />
-                    <div>
-                      <p className="font-medium text-primary-black text-[14px] mb-1">
-                        Sarah Kim - English Conversation
-                      </p>
-                      <p className="text-xs text-gray-500">
-                        2025-06-16 ,3:00 PM - 4:00 PM
-                      </p>
-
-                    </div>
-                    </div>
-                                                            <div className="text-sm mt-1 flex justify-between items-center">
+                    <div
+                      key={i}
+                      className=" border border-[var(--color-alt-border)] rounded-xl p-5"
+                    >
+                      <div className="flex items-center gap-3 mb-5 ">
+                        <img
+                          src="https://randomuser.me/api/portraits/men/32.jpg"
+                          className="w-10 h-10 rounded-full"
+                          alt="avatar"
+                        />
+                        <div>
+                          <p className="font-medium text-primary-black text-[14px] mb-1">
+                            Sarah Kim - English Conversation
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            2025-06-16 ,3:00 PM - 4:00 PM
+                          </p>
+                        </div>
+                      </div>
+                      <div className="text-sm mt-1 flex justify-between items-center">
                         <span className="bg-bg-light-gray text-xs text-gray-700 px-2 py-1 rounded-[24px]">
                           {lessons} Lessons
                         </span>
@@ -177,16 +176,15 @@ const TutorDashboardPage = () => {
                           Last: 2 days ago
                         </span>
                       </div>
-
+                    </div>
                   </div>
-                      </div>
                 ))}
               </div>
               <Link to="recent-students">
-              <Button
-                Txt="View All Students"
-                className="mt-4 w-full hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border cursor-pointer border-[var(--color-alt-border)] rounded-lg py-2 font-medium"
-              />
+                <Button
+                  Txt="View All Students"
+                  className="mt-4 w-full hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border cursor-pointer border-[var(--color-alt-border)] rounded-lg py-2 font-medium"
+                />
               </Link>
             </div>
 
@@ -198,7 +196,7 @@ const TutorDashboardPage = () => {
                     className="text-[16px] font-semibold leading-[150%]"
                     Variant="h3"
                   />
-                  <HiOutlineCurrencyDollar  />
+                  <HiOutlineCurrencyDollar />
                 </div>
                 <p className="font-medium">This Week</p>
                 <ul className="text-sm text-primary-black mt-2 space-y-1">

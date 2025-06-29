@@ -5,9 +5,10 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 
 const Schedule = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
+  console.log(selectedDate);
 
   return (
-    <section className="max-w-sm mx-auto bg-white rounded-xl">
+    <section className="  self-start bg-bg-white border border-alt-border rounded-xl p-6">
       <div className="flex items-center space-x-2 mb-5">
         <FaRegCalendarAlt className="text-xl text-gray-700" />
         <h2 className="text-lg font-semibold text-gray-800">Select Date</h2>
