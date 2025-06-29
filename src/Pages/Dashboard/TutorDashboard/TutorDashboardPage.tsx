@@ -1,14 +1,21 @@
 import clsx from "clsx";
-import { FaBookOpen, FaCalendarAlt } from "react-icons/fa";
+import { FaCalendarAlt } from "react-icons/fa";
 import Heading from "../../../components/Tags/Heading/Heading";
 import Paragraph from "../../../components/Tags/Paragraph/Paragraph";
 import Button from "../../../components/Tags/Button/Button";
 import QuickMessages from "../../../components/CommonComponents/QuickMessages";
-import { BookSvg, QuickMessageSvg } from "../../../components/SvgContainer/SVgContainer";
-import { HiOutlineCurrencyDollar } from "react-icons/hi";
+import {
+  BookSvg,
+  CalendarSvg,
+  CameraSvg,
+  EarningsSvg,
+  QuickMessageSvg,
+  StudentSvg,
+} from "../../../components/SvgContainer/SVgContainer";
 import { TbMessageCircle } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { MdManageAccounts } from "react-icons/md";
+import { CiVideoOn } from "react-icons/ci";
 
 const cardStyles = {
   "Active Students": "bg-[#4D6BFF]",
@@ -70,9 +77,11 @@ const TutorDashboardPage = () => {
                 )}
               >
                 <div className="flex items-center gap-6">
-                  <BookSvg  />
+                  <BookSvg />
                   <div className="flex flex-col gap-4 ">
-                    <span className="text-[16px] font-normal leading-[150%]">{card.title}</span>
+                    <span className="text-[16px] font-normal leading-[150%]">
+                      {card.title}
+                    </span>
                     <span className="text-[32px] leading-[150%] font-bold">
                       {card.value}
                     </span>
@@ -90,7 +99,7 @@ const TutorDashboardPage = () => {
                   className="text-[16px] font-semibold leading-[150%]"
                   Variant="h3"
                 />
-                <FaCalendarAlt />
+                <CalendarSvg />
               </div>
               {[1, 2, 3].map((_, i) => (
                 <div
@@ -104,27 +113,34 @@ const TutorDashboardPage = () => {
                       alt="student"
                     />
                     <div>
-                      <p className="font-medium">
+                      <p className="font-semibold text-[14px] leading-[150%] mb-2 text-primary-black">
                         Sarah Kim - English Conversation
                       </p>
-                      <p className="text-sm text-gray-500">3:00 PM - 4:00 PM</p>
+                      <p className="text-xs font-normal text-alt-gray">
+                        3:00 PM - 4:00 PM
+                      </p>
                     </div>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-5">
                     <Button
                       Txt="Message"
-                      className="border border-[var(--color-alt-border)] gap-3 cursor-pointer duration-700 hover:text-white hover:bg-[var(--button-bg-blue)] bg-white rounded-[8px] px-6 py-2 text-sm flex items-center"
+                      className="border border-[var(--color-alt-border)] gap-3 cursor-pointer duration-700 hover:text-white hover:bg-[var(--button-bg-blue)] bg-white rounded-[8px] px-6 py-2 text-sm flex items-center text-[16px] font-normal text-primary-gray"
                     />
                     <Button
-                      Txt="Join"
-                      className="bg-[#051345] hover:bg-white hover:text-[var(--button-bg-blue)] duration-700 text-white px-6 py-2 cursor-pointer rounded-[8px] flex items-center gap-3"
+                      Txt={
+                        <>
+                          <CameraSvg />
+                          Join
+                        </>
+                      }
+                      className="bg-[#051345] hover:bg-white hover:text-[var(--button-bg-blue)] duration-700 text-white px-6 py-2 cursor-pointer rounded-[8px] flex items-center gap-3 text-[16px] font-normal  "
                     />
                   </div>
                 </div>
               ))}
               <Button
                 Txt="View Full Schedule"
-                className="mt-4 w-full border cursor-pointer hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border-[var(--color-alt-border)] rounded-lg py-2 font-medium"
+                className="mt-4 w-full border cursor-pointer hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border-[var(--color-alt-border)] rounded-lg py-2 text-roayl-blue text-[18px] font-semibold"
               />
             </div>
 
@@ -144,7 +160,7 @@ const TutorDashboardPage = () => {
                   className="text-[16px] font-semibold leading-[150%]"
                   Variant="h3"
                 />
-                <FaBookOpen />
+                <StudentSvg />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[3, 4].map((lessons, i) => (
@@ -196,7 +212,7 @@ const TutorDashboardPage = () => {
                     className="text-[16px] font-semibold leading-[150%]"
                     Variant="h3"
                   />
-                  <HiOutlineCurrencyDollar />
+                  <EarningsSvg />
                 </div>
                 <p className="font-medium">This Week</p>
                 <ul className="text-sm text-primary-black mt-2 space-y-1">
@@ -212,11 +228,11 @@ const TutorDashboardPage = () => {
                 </ul>
                 <Button
                   Txt="View Details"
-                  className="mt-4 w-full hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border cursor-pointer border-[var(--color-alt-border)] rounded-lg py-2 font-medium"
+                  className="mt-4 w-full hover:bg-primary-blue hover:text-white duration-700 border cursor-pointer border-alt-border rounded-lg py-[10px] font-medium"
                 />
               </div>
-              <div className="bg-white rounded-xl p-6 border border-[var(--color-alt-border)]">
-                <div className="flex justify-between items-center mb-4 bg-[var(--color-primary-blue)] text-[var(--color-secondary-white)]  p-4 rounded-lg">
+              <div className="bg-white rounded-xl p-6 border border-alt-border">
+                <div className="flex justify-between items-center mb-4 bg-primary-blue text-secondary-white  p-4 rounded-lg">
                   <Heading
                     Txt="Quick Actions"
                     className="text-[16px] font-semibold leading-[150%]"
