@@ -1,8 +1,9 @@
 import clsx from "clsx";
-import { FaBookOpen, FaCalendarAlt, FaRegComments } from "react-icons/fa";
+import { FaBookOpen, FaCalendarAlt } from "react-icons/fa";
 import Heading from "../../../components/Tags/Heading/Heading";
 import Paragraph from "../../../components/Tags/Paragraph/Paragraph";
 import Button from "../../../components/Tags/Button/Button";
+import QuickMessages from "../../../components/CommonComponents/QuickMessages";
 
 const cardStyles = {
   "Active Students": "bg-[#4D6BFF]",
@@ -17,6 +18,26 @@ const TutorDashboardPage = () => {
     { title: "Lessons This Month", value: 24 },
     { title: "Monthly Earnings", value: "$1,240" },
     { title: "Average Rating", value: 4.9 },
+  ];
+  const messages = [
+    {
+      name: "Darrell Steward",
+      time: "5 min ago",
+      message: "Great progress in today’s lesson! Keep practicing...",
+      avatarUrl: "https://randomuser.me/api/portraits/men/30.jpg",
+    },
+    {
+      name: "Arlene McCoy",
+      time: "10 min ago",
+      message: "Nice job, you’re doing well!",
+      avatarUrl: "https://randomuser.me/api/portraits/men/31.jpg",
+    },
+    {
+      name: "Robert Fox",
+      time: "15 min ago",
+      message: "Keep up the hard work!",
+      avatarUrl: "https://randomuser.me/api/portraits/men/32.jpg",
+    },
   ];
 
   return (
@@ -35,7 +56,7 @@ const TutorDashboardPage = () => {
 
           {/* Stat Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-            {cards.map(card => (
+            {cards.map((card) => (
               <div
                 key={card.title}
                 className={clsx(
@@ -102,45 +123,11 @@ const TutorDashboardPage = () => {
               />
             </div>
 
-            <div className="bg-white rounded-xl p-6 border border-[var(--color-alt-border)]">
-              <div className="flex justify-between items-center mb-4 bg-[var(--color-primary-blue)] text-[var(--color-secondary-white)]  p-4 rounded-lg">
-                <Heading
-                  Txt="Quick Messages"
-                  className="text-[16px] font-semibold leading-[150%]"
-                  Variant="h3"
-                />
-                <FaRegComments />
-              </div>
-              {["Darrell Steward", "Arlene McCoy", "Robert Fox"].map(
-                (name, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-3 p-3 rounded-md hover:bg-gray-50"
-                  >
-                    <img
-                      src={`https://randomuser.me/api/portraits/men/${
-                        30 + i
-                      }.jpg`}
-                      className="w-10 h-10 rounded-full"
-                      alt="avatar"
-                    />
-                    <div className="flex-1">
-                      <div className="flex justify-between text-sm font-medium">
-                        {name}{" "}
-                        <span className="text-xs text-gray-500">5 min ago</span>
-                      </div>
-                      <p className="text-sm text-gray-600">
-                        Great progress in today’s lesson! Keep practicing…
-                      </p>
-                    </div>
-                  </div>
-                )
-              )}
-              <Button
-                Txt="View all Message"
-                className="mt-4 w-full border cursor-pointer hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border-[var(--color-alt-border)] rounded py-2 font-medium"
-              />
-            </div>
+            <QuickMessages
+              title="Quick Messages"
+              buttonText="View all Messages"
+              messages={messages}
+            />
           </div>
 
           <div className="grid grid-cols-1 xl:grid-cols-4 gap-6 mt-8">
@@ -201,14 +188,14 @@ const TutorDashboardPage = () => {
                   <FaCalendarAlt />
                 </div>
                 <p className="font-medium">This Week</p>
-                <ul className="text-sm text-gray-600 mt-2 space-y-1">
-                  <li>
+                <ul className="text-sm text-primary-black mt-2 space-y-1">
+                  <li className="flex justify-between items-center">
                     Lessons Completed: <strong>12</strong>
                   </li>
-                  <li>
+                  <li className="flex justify-between items-center">
                     Hours Taught: <strong>18</strong>
                   </li>
-                  <li>
+                  <li className="flex justify-between items-center">
                     Earnings: <strong>$360</strong>
                   </li>
                 </ul>
@@ -226,18 +213,18 @@ const TutorDashboardPage = () => {
                   />
                   <span>💬</span>
                 </div>
+ 
                 <div className="space-y-2">
-                  <Button
-                    Txt="Set Availability"
-                    className="bg-[#0053CF] cursor-pointer text-white w-full py-2 rounded"
-                  />
+                  
+
+                
                   <Button
                     Txt="Manage Student"
-                    className="border cursor-pointer border-[var(--color-alt-border)] w-full py-2 rounded"
+                    className="mt-4 w-full hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border cursor-pointer border-[var(--color-alt-border)] rounded py-2 font-medium"
                   />
                   <Button
                     Txt="View Message"
-                    className="border cursor-pointer border-[var(--color-alt-border)] w-full py-2 rounded"
+                    className="mt-4 w-full hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border cursor-pointer border-[var(--color-alt-border)] rounded py-2 font-medium"
                   />
                 </div>
               </div>

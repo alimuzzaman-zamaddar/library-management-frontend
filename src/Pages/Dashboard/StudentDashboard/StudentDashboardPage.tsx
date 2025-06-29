@@ -8,15 +8,21 @@ import {
   LessonSvg,
   MessageButtonSvg,
   PreviousLessonSvg,
-  QuickMessageSvg,
   ReviewLessonButtonSvg,
 } from "../../../components/SvgContainer/SVgContainer";
+import QuickMessages from "../../../components/CommonComponents/QuickMessages";
 
 const statCards = [
   { title: "Total Lessons", value: 24, bg: "bg-[#4D6BFF]" },
   { title: "Hours Learned", value: 36, bg: "bg-[#5195D8]" },
   { title: "Active Tutors", value: "03", bg: "bg-[#662D91]" },
 ];
+
+  const messages = [
+    { name: "Darrell Steward", time: "5 min ago", message: "Great progress in today’s lesson! Keep practicing...", avatarUrl: "https://randomuser.me/api/portraits/men/30.jpg" },
+    { name: "Arlene McCoy", time: "10 min ago", message: "Nice job, you’re doing well!", avatarUrl: "https://randomuser.me/api/portraits/men/31.jpg" },
+    { name: "Robert Fox", time: "15 min ago", message: "Keep up the hard work!", avatarUrl: "https://randomuser.me/api/portraits/men/32.jpg" }
+  ];
 
 const StudentDashboardPage = () => {
   return (
@@ -125,54 +131,11 @@ const StudentDashboardPage = () => {
           </div>
 
           {/* Quick Messages */}
-          <div className="bg-white border border-[var(--color-alt-border)] rounded-xl p-8">
-            <div
-              
-              className="flex justify-between items-center mb-4 bg-[var(--color-primary-blue)] text-[var(--color-secondary-white)] p-4 rounded-lg"
-            >
-              <Heading
-                Txt="Quick Messages"
-                className="text-[16px] font-semibold leading-[150%]"
-                Variant="h3"
-              />
-              <QuickMessageSvg />
-            </div>
-            <div className="border p-6 rounded-md border-[var(--color-alt-border)] mb-5">
-              {["Darrell Steward", "Arlene McCoy", "Robert Fox"].map(
-                (name, i) => (
-                  <div
-                    
-                    key={i}
-                    className={`flex items-start gap-3 p-3  rounded-md ${
-                      i === 0 ? "bg-blue-50" : "hover:bg-gray-50"
-                    }`}
-                  >
-                    <img
-                      src={`https://randomuser.me/api/portraits/men/${
-                        30 + i
-                      }.jpg`}
-                      className="w-12 h-12 rounded-full"
-                      alt="avatar"
-                    />
-                    <div className="flex-1">
-                      <div className="flex justify-between text-sm mb-2 font-medium">
-                        {name}
-                        <span className="text-xs text-gray-500">5 min ago</span>
-                      </div>
-                      <p className="text-sm text-[var(--color-text-gray)]">
-                        Great progress in today’s lesson! Keep practicing...
-                      </p>
-                    </div>
-                  </div>
-                )
-              )}
-            </div>
-            <div  className="">
-              <button className="w-full mt-4 md:mt-0 px-4 py-[14px] border border-primary-blue text-primary-blue rounded hover:bg-primary-blue hover:text-white transition-all text-sm font-medium cursor-pointer duration-500">
-                View all Message
-              </button>
-            </div>
-          </div>
+      <QuickMessages 
+        title="Quick Messages"
+        buttonText="View all Messages"
+        messages={messages}
+      />
         </div>
 
         {/* Previous Lessons + Lesson Package */}
