@@ -1,5 +1,4 @@
 import {
-  AttachMent,
   Emoji,
   GalleryIcon,
   SearchIcon,
@@ -40,6 +39,7 @@ interface Message {
   time: string;
   profilePic: string;
   userId: number;
+  receiverId?: number;
   isSeen: boolean;
   imgurl?: string;
   audio?: string;
@@ -56,12 +56,16 @@ const CommonMessageComponent = () => {
   const users = useSelector((state: RootState) => state.msgReducer.users);
   const messages = useSelector((state: RootState) => state.msgReducer.messages);
 
-  const [searchedUser, setsearchedUser] = useState<string | null>(null);
-  const [activeUser, setactiveUser] = useState<User | null>(null);
+  const [searchedUser, setSearchedUser] = useState<string | null>(null);
+  const [activeUser, setActiveUser] = useState<User | null>(null);
   const [showPicker, setShowPicker] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   const emojiRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const currentUserId = 2;
 
@@ -83,6 +87,7 @@ const CommonMessageComponent = () => {
   };
 
   useOutsideClick(emojiRef, () => setShowPicker(false));
+  useOutsideClick(modalRef, () => setShowModal(false));
 
   const sanitizedSearchUser = searchedUser?.trim().toLowerCase();
 
@@ -122,7 +127,6 @@ const CommonMessageComponent = () => {
     };
 
     messages.forEach(msg => {
-      // Use msg.date if present, else fallback to msg.time or current date for grouping
       const msgDate = msg.date ? new Date(msg.date) : new Date();
       const dateStr = msgDate.toDateString();
 
@@ -150,11 +154,40 @@ const CommonMessageComponent = () => {
 
   const dispatch = useDispatch();
 
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64String = reader.result as string;
+        setSelectedImage(base64String);
+        dispatch(
+          addMessage({
+            id: Date.now(),
+            sender: "Sender",
+            message: "",
+            time: moment().format("h:mm A"),
+            profilePic: activeUser?.profilePic ?? "/",
+            userId: currentUserId,
+            receiverId: activeUser?.id || 1,
+            isSeen: false,
+            imgurl: base64String,
+          })
+        );
+        setSelectedImage(null);
+        if (fileInputRef.current) {
+          fileInputRef.current.value = "";
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleMessageSend = () => {
-    if (!inputValue) return;
+    if (!inputValue && !selectedImage) return;
     dispatch(
       addMessage({
-        id: currentUserId,
+        id: Date.now(),
         sender: "Sender",
         message: inputValue,
         time: moment().format("h:mm A"),
@@ -162,13 +195,42 @@ const CommonMessageComponent = () => {
         userId: currentUserId,
         receiverId: activeUser?.id || 1,
         isSeen: false,
+        imgurl: selectedImage || undefined,
       })
     );
     setInputValue("");
+    setSelectedImage(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+  };
+
+  const handleGalleryClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleBlockUser = () => {
+    console.log("Block User clicked");
+    setShowModal(false);
+    // Implement block user logic here
+  };
+
+  const handleReportUser = () => {
+    console.log("Report User clicked");
+    setShowModal(false);
+    // Implement report user logic here
+  };
+
+  const handleViewProfile = () => {
+    console.log("View Profile clicked");
+    setShowModal(false);
+    // Implement view profile logic here
   };
 
   return (
-    <section className="h-auto w-auto container">
+    <section className="h-auto overflow-y-hidden max-h-[78vh] w-auto container">
       <div className="h-[77vh] w-auto overflow-y-hidden bg-white rounded-[12px] border-[1px] leading-[140%] border-solid border-secondry-gray flex flex-row">
         <div className="flex flex-col py-4 w-[522px] border-r border-solid border-secondary-white ">
           <div className="flex flex-col gap-y-2 pl-4 pr-2.5">
@@ -179,7 +241,7 @@ const CommonMessageComponent = () => {
             <div className="relative h-auto mb-4.5 bg-off-white py-3 rounded-[6px] w-full">
               <input
                 onChange={e => {
-                  setsearchedUser(e.target.value);
+                  setSearchedUser(e.target.value);
                 }}
                 type="text"
                 placeholder="Search contacts"
@@ -191,10 +253,10 @@ const CommonMessageComponent = () => {
             </div>
           </div>
           <hr className="border-t border-solid border-alt-border" />
-          <div className="flex flex-col overflow-y-scroll max-h-[60vh] ">
+          <div className="flex flex-col overflow-y-scroll  max-h-[65vh] ">
             {filteredSearchData.map((item, idx) => (
               <div
-                onClick={() => setactiveUser(item)}
+                onClick={() => setActiveUser(item)}
                 key={idx}
                 className={`flex flex-col w-full cursor-pointer ${
                   item.id === activeUser?.id ? "bg-off-white" : ""
@@ -205,7 +267,7 @@ const CommonMessageComponent = () => {
                     <Image
                       Src={item.profilePic}
                       Alt="not found"
-                      className="!h-12 !w-12 z-0 rounded-full"
+                      className="!h-12 !w-12 z-0 rounded full"
                     />
                     <div
                       className={`w-3 h-3 rounded-full z-50 absolute bottom-0 mb-1 mr-[-4px] right-0 ${
@@ -264,33 +326,62 @@ const CommonMessageComponent = () => {
               </div>
               <div className="flex gap-y-1 flex-col">
                 <Heading
-                  Txt={activeUser?.name}
+                  Txt={activeUser?.name ?? "Select a user"}
                   className="text-base font-bold text-roayl-blue"
                 />
                 <Paragraph
                   Txt={activeUser?.isOnline ? "Online" : "Offline"}
-                  className="text-xs font-norma text-primary-gray"
+                  className="text-xs font-normal text-primary-gray"
                 />
               </div>
             </div>
-            <div className="cursor-pointer">
-              <Threedot />
+            <div className="relative">
+              <div
+                className="cursor-pointer"
+                onClick={() => setShowModal(!showModal)}
+              >
+                <Threedot />
+              </div>
+              {showModal && (
+                <div
+                  ref={modalRef}
+                  className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-xl z-50 border border-gray-200 overflow-hidden"
+                >
+                  <div className="flex flex-col divide-y divide-gray-100">
+                    <button
+                      onClick={handleBlockUser}
+                      className="px-4 cursor-pointer  py-3 text-sm text-red-600 hover:bg-red-50 text-left transition-colors"
+                    >
+                      🚫 Block User
+                    </button>
+                    <button
+                      onClick={handleReportUser}
+                      className="px-4 py-3 text-sm cursor-pointer  text-yellow-600 hover:bg-yellow-50 text-left transition-colors"
+                    >
+                      ⚠️ Report User
+                    </button>
+                    <button
+                      onClick={handleViewProfile}
+                      className="px-4 py-3 text-sm cursor-pointer  text-blue-600 hover:bg-blue-50 text-left transition-colors"
+                    >
+                      👤 View Profile
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
           <hr className="border-t border-solid border-alt-border w-full" />
-          <div className="w-full  relative h-[60vh] bg-gray-white">
+          <div className="w-full relative h-[60vh] bg-gray-white">
             <ScrollToBottom className="w-full h-full overflow-y-auto">
               <div className="gap-2 xl:gap-5 flex flex-col sm:p-6 p-3 w-full">
                 {groupMessagesByDate(filteredMessages).map(group => (
                   <div key={group.date} className="flex flex-col gap-4">
-                    {/* Date header */}
                     <div className="flex justify-center">
                       <div className="bg-primary-blue text-white px-3 py-1 rounded-full text-sm">
                         {group.date}
                       </div>
                     </div>
-
-                    {/* Messages for this date */}
                     {group.messages.map(msg => (
                       <div
                         key={msg.id}
@@ -307,7 +398,6 @@ const CommonMessageComponent = () => {
                               : "flex-row"
                           }`}
                         >
-                          {/* Profile Picture */}
                           <img
                             src={msg.profilePic}
                             alt={
@@ -319,8 +409,6 @@ const CommonMessageComponent = () => {
                               msg.userId === currentUserId ? "ml-2" : "mr-2"
                             }`}
                           />
-
-                          {/* Message or Image */}
                           <div
                             className={`flex flex-col gap-y-1 ${
                               msg.userId === currentUserId
@@ -355,8 +443,6 @@ const CommonMessageComponent = () => {
                                 </span>
                               )}
                             </div>
-
-                            {/* Timestamp and Status */}
                             <div className="flex flex-row gap-x-2 p-2 items-center">
                               <span className="text-sm text-black font-normal">
                                 {msg.time}
@@ -375,7 +461,6 @@ const CommonMessageComponent = () => {
                 ))}
               </div>
             </ScrollToBottom>
-
             {showPicker && (
               <div
                 ref={emojiRef}
@@ -385,13 +470,22 @@ const CommonMessageComponent = () => {
               </div>
             )}
           </div>
-
           <div className="w-full h-auto">
             <hr className="border-t border-solid border-secondary-white" />
             <div className="h-auto w-full p-4 items-center flex flex-row gap-x-3">
-              <div className="flex flex-row gap-x-4  items-center">
-                <GalleryIcon />
-                <AttachMent />
+              <div className="flex flex-row gap-x-4 items-center">
+                <div className="cursor-pointer relative">
+                  <div onClick={handleGalleryClick}>
+                    <GalleryIcon />
+                  </div>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    ref={fileInputRef}
+                    className="hidden"
+                    onChange={handleImageChange}
+                  />
+                </div>
                 <div
                   className="cursor-pointer"
                   onClick={() => {
@@ -404,7 +498,7 @@ const CommonMessageComponent = () => {
               <input
                 onKeyDown={e => {
                   if (e.key === "Enter") {
-                    e.preventDefault(); 
+                    e.preventDefault();
                     handleMessageSend();
                   }
                 }}
@@ -417,9 +511,7 @@ const CommonMessageComponent = () => {
                 className="w-full text-base px-5 outline-none h-auto py-3 bg-off-white rounded-[6px]"
               />
               <Button
-                onClick={() => {
-                  handleMessageSend();
-                }}
+                onClick={handleMessageSend}
                 className="h-auto cursor-pointer w-auto p-3 bg-primary-blue !rounded-full"
                 Txt={<SendIcon />}
               />
