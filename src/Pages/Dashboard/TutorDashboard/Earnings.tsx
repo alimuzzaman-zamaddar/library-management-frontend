@@ -112,8 +112,12 @@ const Earnings: React.FC = () => {
               <div key={index} className="bg-white p-5 rounded-xl shadow-sm">
                 <div className="flex justify-between items-center">
                   <div>
-                    <p className="text-sm text-gray-500">{card.label}</p>
-                    <h3 className="text-2xl font-bold">{card.amount}</h3>
+                    <p className="text-sm text-secondary-black font-normal">
+                      {card.label}
+                    </p>
+                    <h3 className="text-[32px] text-secondary-black font-bold">
+                      {card.amount}
+                    </h3>
                     <p className={`text-sm ${card.textColor}`}>
                       {card.subtext}
                     </p>
@@ -129,14 +133,14 @@ const Earnings: React.FC = () => {
           </div>
 
           {/* Tabs */}
-          <div className="flex gap-4 bg-gray-100 rounded-xl  p-2">
+          <div className="flex gap-4 bg-bg-light-gray rounded-xl  p-2">
             {["Overview", "Earning History", "Transaction History"].map(tab => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab as any)}
-                className={`text-sm px-4 py-2 rounded-md cursor-pointer font-medium  ${
+                className={`text-[16px] text-secondary-black px-10 py-2 rounded-lg cursor-pointer font-semibold  ${
                   activeTab === tab
-                    ? "bg-white shadow text-black"
+                    ? "bg-white shadow  text-secondary-black"
                     : "text-gray-500"
                 }`}
               >
@@ -150,7 +154,9 @@ const Earnings: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Monthly Earnings */}
               <div className="bg-white p-6 rounded-xl shadow-sm">
-                <h3 className="text-xl font-semibold mb-4">Monthly Earnings</h3>
+                <h3 className="text-[24px] text-secondary-black font-semibold mb-4">
+                  Monthly Earnings
+                </h3>
                 <div className="space-y-4">
                   {monthlyEarnings.map((entry, index) => (
                     <div
@@ -173,7 +179,7 @@ const Earnings: React.FC = () => {
 
               {/* Performance Metrics */}
               <div className="bg-white p-6 rounded-xl shadow-sm">
-                <h3 className="text-xl font-semibold mb-4">
+                <h3 className="text-[24px] text-secondary-black font-semibold mb-4">
                   Performance Metrics
                 </h3>
                 <div className="space-y-4">
@@ -204,14 +210,14 @@ const Earnings: React.FC = () => {
           )}
 
           {activeTab === "Earning History" && (
-              <div className="w-3xl">
-                <EarningHistory />
-              </div>
+            <div className="w-3xl">
+              <EarningHistory />
+            </div>
           )}
 
           {activeTab === "Transaction History" && (
             <div className="w-3xl">
-              <TransactionHistory/>
+              <TransactionHistory />
             </div>
           )}
         </div>

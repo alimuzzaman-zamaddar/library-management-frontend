@@ -12,7 +12,7 @@ const todaysLessons = [
     instructor: "John Doe",
     time: "2:00 PM - 3:00 PM",
     status: "Regular",
-    statusColor: "bg-blue-100 text-blue-600",
+    statusColor: "bg-[rgba(0,83,207,0.1)]  text-secondary-blue",
     joinable: true,
   },
   {
@@ -21,7 +21,7 @@ const todaysLessons = [
     instructor: "John Doe",
     time: "2:00 PM - 3:00 PM",
     status: "Trail",
-    statusColor: "bg-green-100 text-green-600",
+    statusColor: "text-[#0E7615] bg-[rgba(14,118,21,0.2)]",
     joinable: false,
   },
 ];
@@ -33,7 +33,7 @@ const upcomingLessons = [
     instructor: "John Doe",
     time: "Tomorrow • 10:00 AM - 11:00 AM",
     status: "Regular",
-    statusColor: "bg-blue-100 text-blue-600",
+    statusColor: "bg-[rgba(0,83,207,0.1)]  text-secondary-blue",
     joinable: false,
   },
   {
@@ -41,11 +41,11 @@ const upcomingLessons = [
     subject: "English Conversation",
     instructor: "John Doe",
     time: "Dec 18 • 3:00 PM - 4:00 PM",
-    status: "Regular",
-    statusColor: "bg-blue-100 text-blue-600",
+    status: "Trail",
+    statusColor: "text-[#0E7615] bg-[rgba(14,118,21,0.2)]",
     joinable: false,
   },
-]
+];
 
 const upcomingLessonss = [
   {
@@ -54,7 +54,7 @@ const upcomingLessonss = [
     instructor: "John Doe",
     time: "Tomorrow • 10:00 AM - 11:00 AM",
     status: "Regular",
-    statusColor: "bg-blue-100 text-blue-600",
+    statusColor: "bg-[rgba(0,83,207,0.1)]  text-secondary-blue",
     joinable: false,
   },
   {
@@ -63,7 +63,7 @@ const upcomingLessonss = [
     instructor: "John Doe",
     time: "Dec 18 • 3:00 PM - 4:00 PM",
     status: "Regular",
-    statusColor: "bg-blue-100 text-blue-600",
+    statusColor: "bg-[rgba(0,83,207,0.1)]  text-secondary-blue",
     joinable: false,
   },
   {
@@ -72,10 +72,9 @@ const upcomingLessonss = [
     instructor: "John Doe",
     time: "Dec 18 • 3:00 PM - 4:00 PM",
     status: "Regular",
-    statusColor: "bg-blue-100 text-blue-600",
+    statusColor: "bg-[rgba(0,83,207,0.1)]  text-secondary-blue",
     joinable: false,
   },
-
 ];
 
 const ScheduleManagement = () => {
@@ -86,7 +85,7 @@ const ScheduleManagement = () => {
       <div className="">
         <button
           onClick={() => window.history.back()}
-          className=" border border-[var(--color-alt-border)] bg-white hover:bg-bg-blue text-[var(--button-bg-blue)] duration-700 hover:text-text-white px-6 py-2 cursor-pointer rounded-[8px] flex items-center gap-3"
+          className=" border border-[var(--color-alt-border)] bg-white hover:bg-bg-blue text-secondary-black duration-700 hover:text-text-white px-6 py-[14px] cursor-pointer rounded-[8px] text-[14px] font-semibold flex items-center gap-3"
         >
           <FaAngleLeft /> Back to Search
         </button>
@@ -106,22 +105,22 @@ const ScheduleManagement = () => {
         </div>
 
         {/* Tabs */}
-        <div className="flex mb-6 p-2  bg-light-gray rounded-md">
+        <div className="flex mb-6 p-2  bg-bg-light-gray rounded-md">
           <button
-            className={`py-1 px-6 text-[16px] cursor-pointer leading-[150%] font-semibold ${
+            className={`py-1 px-6 text-[16px] cursor-pointer leading-[150%] text-primary-gray font-semibold ${
               activeTab === "today"
-                ? " bg-bg-white  rounded-2xl text-primary-black"
-                : "text-gray-600"
+                ? " bg-bg-white  rounded-lg text-primary-gray"
+                : "text-primary-gray"
             }`}
             onClick={() => setActiveTab("today")}
           >
             Today's Lessons
           </button>
           <button
-            className={`py-1 px-6 text-[16px] cursor-pointer leading-[150%] font-semibold ${
+            className={`py-1 px-6 text-[16px] cursor-pointer leading-[150%] text-primary-gray font-semibold  ${
               activeTab === "calendar"
-                ? "bg-bg-white  rounded-2xl text-primary-black"
-                : "text-gray-600"
+                ? "bg-bg-white  rounded-lg text-primary-gray"
+                : "text-primary-gray"
             }`}
             onClick={() => setActiveTab("calendar")}
           >

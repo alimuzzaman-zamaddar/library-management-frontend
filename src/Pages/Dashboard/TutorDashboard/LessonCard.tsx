@@ -1,4 +1,4 @@
-import { MessageButtonSvg } from "../../../components/SvgContainer/SVgContainer";
+import { CameraSvg, MessageButtonSvg } from "../../../components/SvgContainer/SVgContainer";
 
 export interface Lesson {
   subject: string;
@@ -20,19 +20,19 @@ export const LessonCard = ({ lesson }: LessonCardProps) => (
         <img
           src="https://randomuser.me/api/portraits/men/32.jpg"
           alt="student"
-          className="h-14 w-15 rounded-lg"
+          className="h-15 w-15 rounded"
         />
         <div>
-          <p className="font-semibold text-lg text-gray-800">
+          <p className="font-semibold text-[20px] text-black">
             {lesson.subject}
           </p>
-          <p className="text-sm text-gray-500">{`with ${lesson.instructor}`}</p>
-          <p className="text-sm text-gray-500">{lesson.time}</p>
+          <p className="text-[16px] font-normal text-alt-gray my-2">{`with ${lesson.instructor}`}</p>
+          <p className="text-[16px] font-normal text-alt-gray">{lesson.time}</p>
         </div>
       </div>
       <div className="">
         <span
-          className={`text-sm px-4 py-1 rounded-full ${lesson.statusColor}`}
+          className={`text-[16px] font-semibold px-4 py-1 rounded-full ${lesson.statusColor}`}
         >
           {lesson.status}
         </span>
@@ -44,7 +44,10 @@ export const LessonCard = ({ lesson }: LessonCardProps) => (
           <MessageButtonSvg />
         </div>
         {lesson.joinable && (
-          <button className="bg-[#16A34A] hover:bg-white hover:text-primary-blue duration-700 text-white px-6 py-2 cursor-pointer rounded-[8px] flex items-center gap-3">
+          <button className="bg-[#16A34A] text-[16px] font-semibold border hover:border-alt-border hover:bg-white hover:text-primary-blue duration-700 text-white px-6 py-2 cursor-pointer rounded-[8px] flex items-center gap-3">
+            <span>
+              <CameraSvg />
+            </span>{" "}
             Join
           </button>
         )}

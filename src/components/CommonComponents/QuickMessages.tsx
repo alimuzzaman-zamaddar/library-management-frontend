@@ -18,7 +18,9 @@ const QuickMessages: React.FC<QuickMessagesProps> = ({ title, buttonText, messag
         {messages.map((message, i) => (
           <div
             key={i}
-            className={`flex items-start gap-3 p-3 rounded-md ${i === 0 ? 'bg-blue-50' : 'hover:bg-gray-50'}`}
+            className={`flex items-start gap-3 p-3 rounded-md ${
+              i === 0 ? "bg-blue-50" : "hover:bg-gray-50"
+            }`}
           >
             <img
               src={message.avatarUrl}
@@ -28,15 +30,19 @@ const QuickMessages: React.FC<QuickMessagesProps> = ({ title, buttonText, messag
             <div className="flex-1">
               <div className="flex justify-between text-sm mb-2 font-medium">
                 {message.name}
-                <span className="text-xs text-gray-500">{message.time}</span>
+                <span className="text-[10px] text-gray-500">
+                  {message.time}
+                </span>
               </div>
-              <p className="text-sm text-[var(--color-text-gray)]">{message.message}</p>
+              <p className="text-xs text-[var(--color-text-gray)]">
+                {message.message}
+              </p>
             </div>
           </div>
         ))}
       </div>
       <div>
-        <button className="mt-4 w-full border cursor-pointer hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border-[var(--color-alt-border)] rounded-lg py-2 font-medium">
+        <button className="mt-2 w-full border cursor-pointer hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border-[var(--color-alt-border)] rounded-lg py-2 text-roayl-blue text-[18px] font-semibold">
           {buttonText}
         </button>
       </div>
