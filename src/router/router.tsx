@@ -24,6 +24,7 @@ import TutorCredentials from "../Pages/Dashboard/StudentDashboard/TutorCredentia
 import CommonMessageComponent from "../components/CommonComponents/CommonMessageComponent";
 import RecentStudents from "../Pages/Dashboard/TutorDashboard/RecentStudents";
 import ScheduleManagement from "../Pages/Dashboard/TutorDashboard/ScheduleManagement";
+import  Earnings from "../Pages/Dashboard/TutorDashboard/Earnings";
 
 const router = createBrowserRouter([
   {
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
 
   {
     path: "/dashboard/",
-    element: <CommonDashboardLayout  />,
+    element: <CommonDashboardLayout />,
     children: [
       { index: true, element: <DashboardPage /> },
       {
@@ -97,8 +98,8 @@ const router = createBrowserRouter([
       {
         path: "settings/payment-method",
         element: <AddPaymentMethod />,
-          },
-        {
+      },
+      {
         path: "tutors/qulifications/:id",
         element: <TutorCredentials />,
       },
@@ -111,8 +112,12 @@ const router = createBrowserRouter([
         element: <RecentStudents />,
       },
       {
-        path: "schedule-management",
+        path: "/dashboard/schedule",
         element: <ScheduleManagement />,
+      },
+      {
+        path: "/dashboard/earnings",
+        element: <Earnings />,
       },
     ],
   },
