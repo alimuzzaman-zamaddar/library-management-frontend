@@ -15,29 +15,23 @@ import { GrSchedule } from "react-icons/gr";
 
 const tutorNavLinks = [
   { id: 1, icon: HomeSvg, path: "/dashboard", title: "Dashboard" },
-  // {
-  //   id: 2,
-  //   icon: GiClassicalKnowledge,
-  //   path: "/find-tutors",
-  //   title: "My Classes",
-  // },
   { id: 3, icon: GrSchedule, path: "/dashboard/schedule", title: "Schedule" },
   {
-      id: 4,
-      icon: FaDollarSign,
-      path: "/dashboard/earnings",
-      title: "Earnings",
-    },
+    id: 4,
+    icon: FaDollarSign,
+    path: "/dashboard/earnings",
+    title: "Earnings",
+  },
   {
     id: 5,
     icon: GiClassicalKnowledge,
-    path: "/schedule",
+    path: `/dashboard/tutor/availability`,
     title: "Availability",
   },
   {
     id: 6,
     icon: GiClassicalKnowledge,
-    path: "/subscription",
+    path: "/dashboard/tutor/reviews",
     title: "Reviews",
   },
   {
@@ -94,7 +88,7 @@ const CommonDashboardLayout = () => {
   const role = useSelector((state: RootState) => state.msgReducer.userRole);
 
   return (
-    <div className="flex h-screen bg-[#F8F8F8]">
+    <div className="flex h-screen bg-[#FAFAFA] ">
       {/* Sidebar */}
       {role === "student" && (
         <Sidebar
@@ -112,19 +106,19 @@ const CommonDashboardLayout = () => {
       )}
 
       {/* Main content */}
-      <div className="flex flex-col flex-1 h-screen ">
+      <div className="flex flex-col flex-1 h-screen  ">
         {/* Fixed Navbar */}
         <div className="fixed top-0 left-0 right-0 z-20">
           <DashboardNavbar />
         </div>
 
         {/* Scrollable content */}
-        <div className="flex-1 overflow-y-auto mt-[60px] pb-10 px-4 py-10 ">
+        <div className="flex-1  overflow-y-auto mt-[60px] pb-[250px] h-auto px-4 py-10 ">
           <Outlet />
           <ScrollRestoration />
         </div>
         {/* Fixed Footer aligned to content area only */}
-        <div className="flex-0 container mb-6   ">
+        <div className="flex-0  container mb-6   ">
           <DashboardFooter />
         </div>
       </div>
