@@ -95,7 +95,9 @@ body {
   }
 
   .common-heading {
-    @apply text-primary-gray text-[32px] font-bold;
+    @apply text-primary-gray font-bold;
+  
+    @apply text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px];
   }
 
   .common-sub-heading {
