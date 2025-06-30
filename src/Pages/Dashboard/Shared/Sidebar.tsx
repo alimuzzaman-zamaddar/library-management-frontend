@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
 import clsx from "clsx";
 import logoimg from "../../../assets/images/LogoDashboard.png";
@@ -28,7 +28,9 @@ const Sidebar = ({ navLinks, showSidebar, setShowSidebar }: any) => {
 
       <div className="p-6 pt-0 xl:pt-6 flex flex-col justify-between h-full">
         <div>
+          <Link to="/dashboard">
           <Image Alt="Logo" Src={logoimg} className="mb-10" />
+          </Link>
 
           <nav className="flex flex-col gap-2">
             {navLinks.map((link: any) => {
