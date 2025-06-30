@@ -4,7 +4,7 @@ import { GiClassicalKnowledge } from "react-icons/gi";
 import DashboardFooter from "../Pages/Dashboard/Shared/DashboardFooter";
 import DashboardNavbar from "../Pages/Dashboard/Shared/DashboardNavbar";
 import Sidebar from "../Pages/Dashboard/Shared/Sidebar";
-import { HomeSvg } from "../components/SvgContainer/SVgContainer";
+import { CalendarSvg, EarningsSvg, HomeSvg, ReviewSvg, SettingsSvg } from "../components/SvgContainer/SVgContainer";
 import { FaCalculator, FaDollarSign } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { MdOutlineSettings } from "react-icons/md";
@@ -23,28 +23,28 @@ const tutorNavLinks = [
   // },
   { id: 3, icon: GrSchedule, path: "/dashboard/schedule", title: "Schedule" },
   {
-      id: 4,
-      icon: FaDollarSign,
-      path: "/dashboard/earnings",
-      title: "Earnings",
-    },
+    id: 4,
+    icon: EarningsSvg,
+    path: "/dashboard/earnings",
+    title: "Earnings",
+  },
   {
     id: 5,
-    icon: GiClassicalKnowledge,
+    icon: CalendarSvg,
     path: "/schedule",
     title: "Availability",
   },
   {
     id: 6,
-    icon: GiClassicalKnowledge,
+    icon: ReviewSvg,
     path: "/subscription",
     title: "Reviews",
   },
   {
     id: 7,
-    icon: GiClassicalKnowledge,
+    icon: SettingsSvg,
     path: "tutor-settings",
-    title: "Setting",
+    title: "Settings",
   },
 ];
 
