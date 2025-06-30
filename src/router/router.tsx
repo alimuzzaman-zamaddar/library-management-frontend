@@ -24,7 +24,9 @@ import TutorCredentials from "../Pages/Dashboard/StudentDashboard/TutorCredentia
 import CommonMessageComponent from "../components/CommonComponents/CommonMessageComponent";
 import RecentStudents from "../Pages/Dashboard/TutorDashboard/RecentStudents";
 import ScheduleManagement from "../Pages/Dashboard/TutorDashboard/ScheduleManagement";
-import  Earnings from "../Pages/Dashboard/TutorDashboard/Earnings";
+import Earnings from "../Pages/Dashboard/TutorDashboard/Earnings";
+import Availability from "../Pages/Dashboard/TutorDashboard/Availability";
+
 
 const router = createBrowserRouter([
   {
@@ -118,6 +120,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/earnings",
         element: <Earnings />,
+      },
+      {
+        path: "tutor/availability",
+        element: <Availability />,
       },
     ],
   },

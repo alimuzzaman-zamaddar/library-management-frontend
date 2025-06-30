@@ -15,23 +15,17 @@ import { GrSchedule } from "react-icons/gr";
 
 const tutorNavLinks = [
   { id: 1, icon: HomeSvg, path: "/dashboard", title: "Dashboard" },
-  // {
-  //   id: 2,
-  //   icon: GiClassicalKnowledge,
-  //   path: "/find-tutors",
-  //   title: "My Classes",
-  // },
   { id: 3, icon: GrSchedule, path: "/dashboard/schedule", title: "Schedule" },
   {
-      id: 4,
-      icon: FaDollarSign,
-      path: "/dashboard/earnings",
-      title: "Earnings",
-    },
+    id: 4,
+    icon: FaDollarSign,
+    path: "/dashboard/earnings",
+    title: "Earnings",
+  },
   {
     id: 5,
     icon: GiClassicalKnowledge,
-    path: "/schedule",
+    path: `/dashboard/tutor/availability`,
     title: "Availability",
   },
   {
