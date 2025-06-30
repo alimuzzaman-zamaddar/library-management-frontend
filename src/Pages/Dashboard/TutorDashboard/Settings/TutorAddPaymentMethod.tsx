@@ -41,7 +41,7 @@ const TutorAddPaymentMethod: React.FC = () => {
           </div>
           <div className="text-sm text-gray-500">
             <Link
-              to="payment-method"
+              to="/dashboard/payment-method"
               className=" w-full border text-center border-alt-border gap-3 cursor-pointer duration-700 hover:text-white hover:bg-[var(--button-bg-blue)] bg-white rounded-[8px] px-6 py-2 text-sm flex justify-center items-center"
             >
               Add Payment Methods

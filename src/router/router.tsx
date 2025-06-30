@@ -26,6 +26,9 @@ import RecentStudents from "../Pages/Dashboard/TutorDashboard/RecentStudents";
 import ScheduleManagement from "../Pages/Dashboard/TutorDashboard/ScheduleManagement";
 import  Earnings from "../Pages/Dashboard/TutorDashboard/Earnings";
 import TutorProfileSettings from "../Pages/Dashboard/TutorDashboard/Settings/TutorProfileSettings";
+import PlatformGuidelines from "../components/CommonComponents/PlatformGuidelines";
+import ContactForm from "../components/CommonComponents/ContactForm";
+import ReportProblem from "../components/CommonComponents/ReportProblem";
 
 const router = createBrowserRouter([
   {
@@ -123,6 +126,22 @@ const router = createBrowserRouter([
       {
         path: "tutor-settings",
         element: <TutorProfileSettings />,
+      },
+      {
+        path: "payment-method",
+        element: <AddPaymentMethod />,
+      },
+      {
+        path: "guidelines",
+        element: <PlatformGuidelines />,
+      },
+      {
+        path: "contact",
+        element: <ContactForm />,
+      },
+      {
+        path: "report-a-problem",
+        element: <ReportProblem />,
       },
     ],
   },
