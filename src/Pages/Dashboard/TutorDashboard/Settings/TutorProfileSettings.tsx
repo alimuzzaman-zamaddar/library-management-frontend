@@ -92,16 +92,16 @@ const TutorProfileSettings: React.FC = () => {
           <FaAngleLeft /> Back to Search
         </button>
       </div>
-      <div className=" py-10 mx-auto ml-50">
-        <div>
+      <div className="max-w-[1200px] mx-auto mt-10">
+        <div className="bg-primary-blue p-8 rounded-xl mb-8 ">
           <Heading
-            Txt="Settings"
+            Txt="Tutor Profile"
             Variant="h2"
-            className="text-[32px] font-semibold mb-1"
+            className="text-[32px] text-white font-semibold mb-1"
           />
           <Paragraph
-            className="text-text-gray font-normal text-[16px]  leading-[150%] mb-8"
-            Txt="Manage your account settings and preferences"
+            className="text-white font-normal text-[16px]  leading-[150%]"
+            Txt="Manage your teaching profile and preferences"
           />
         </div>
 
