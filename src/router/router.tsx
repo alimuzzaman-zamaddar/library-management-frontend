@@ -26,6 +26,8 @@ import RecentStudents from "../Pages/Dashboard/TutorDashboard/RecentStudents";
 import ScheduleManagement from "../Pages/Dashboard/TutorDashboard/ScheduleManagement";
 import Earnings from "../Pages/Dashboard/TutorDashboard/Earnings";
 import Availability from "../Pages/Dashboard/TutorDashboard/Availability";
+import TutorReviw from "../Pages/Dashboard/TutorDashboard/TutorReviw";
+import StudentProfile from "../Pages/Dashboard/TutorDashboard/StudentProfile";
 
 
 const router = createBrowserRouter([
@@ -124,6 +126,14 @@ const router = createBrowserRouter([
       {
         path: "tutor/availability",
         element: <Availability />,
+      },
+      {
+        path: "tutor/reviews",
+        element: <TutorReviw />,
+      },
+      {
+        path: "student/profile/:id",
+        element: <StudentProfile />,
       },
     ],
   },

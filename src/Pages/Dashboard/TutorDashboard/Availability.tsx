@@ -2,7 +2,7 @@ import TutorAvailability from "../../../components/Pages/TutorAvailability/Tutor
 
 const Availability = () => {
   return (
-    <section className="">
+    <section >
       <TutorAvailability />
     </section>
   );
