@@ -5,7 +5,7 @@ import DashboardFooter from "../Pages/Dashboard/Shared/DashboardFooter";
 import DashboardNavbar from "../Pages/Dashboard/Shared/DashboardNavbar";
 import Sidebar from "../Pages/Dashboard/Shared/Sidebar";
 import { CalendarSvg, EarningsSvg, HomeSvg, ReviewSvg, SettingsSvg } from "../components/SvgContainer/SVgContainer";
-import { FaCalculator, FaDollarSign } from "react-icons/fa";
+import { FaCalculator } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { MdOutlineSettings } from "react-icons/md";
 import { ScrollRestoration } from "react-router-dom";
