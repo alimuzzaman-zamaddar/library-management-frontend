@@ -29,6 +29,12 @@ import TutorProfileSettings from "../Pages/Dashboard/TutorDashboard/Settings/Tut
 import PlatformGuidelines from "../components/CommonComponents/PlatformGuidelines";
 import ContactForm from "../components/CommonComponents/ContactForm";
 import ReportProblem from "../components/CommonComponents/ReportProblem";
+import Earnings from "../Pages/Dashboard/TutorDashboard/Earnings";
+import Availability from "../Pages/Dashboard/TutorDashboard/Availability";
+import TutorReviw from "../Pages/Dashboard/TutorDashboard/TutorReviw";
+import StudentProfile from "../Pages/Dashboard/TutorDashboard/StudentProfile";
+
+
 
 const router = createBrowserRouter([
   {
@@ -142,6 +148,16 @@ const router = createBrowserRouter([
       {
         path: "report-a-problem",
         element: <ReportProblem />,
+        path: "tutor/availability",
+        element: <Availability />,
+      },
+      {
+        path: "tutor/reviews",
+        element: <TutorReviw />,
+      },
+      {
+        path: "student/profile/:id",
+        element: <StudentProfile />,
       },
     ],
   },
