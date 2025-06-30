@@ -5,12 +5,13 @@ import DashboardFooter from "../Pages/Dashboard/Shared/DashboardFooter";
 import DashboardNavbar from "../Pages/Dashboard/Shared/DashboardNavbar";
 import Sidebar from "../Pages/Dashboard/Shared/Sidebar";
 import { HomeSvg } from "../components/SvgContainer/SVgContainer";
-import { FaCalculator } from "react-icons/fa";
+import { FaCalculator, FaDollarSign } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { MdOutlineSettings } from "react-icons/md";
 import { ScrollRestoration } from "react-router-dom";
 import { useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
+import { GrSchedule } from "react-icons/gr";
 
 const tutorNavLinks = [
   { id: 1, icon: HomeSvg, path: "/dashboard", title: "Dashboard" },
@@ -20,13 +21,13 @@ const tutorNavLinks = [
   //   path: "/find-tutors",
   //   title: "My Classes",
   // },
-  { id: 3, icon: GiClassicalKnowledge, path: "/lessons", title: "Message" },
+  { id: 3, icon: GrSchedule, path: "/dashboard/schedule", title: "Schedule" },
   {
-    id: 4,
-    icon: GiClassicalKnowledge,
-    path: "/messages",
-    title: "Earnings",
-  },
+      id: 4,
+      icon: FaDollarSign,
+      path: "/dashboard/earnings",
+      title: "Earnings",
+    },
   {
     id: 5,
     icon: GiClassicalKnowledge,
