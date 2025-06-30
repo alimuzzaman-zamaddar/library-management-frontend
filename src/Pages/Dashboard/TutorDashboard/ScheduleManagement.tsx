@@ -85,7 +85,7 @@ const ScheduleManagement = () => {
       <div className="">
         <button
           onClick={() => window.history.back()}
-          className=" border border-[var(--color-alt-border)] bg-white hover:bg-bg-blue text-secondary-black duration-700 hover:text-text-white px-6 py-[14px] cursor-pointer rounded-[8px] text-[14px] font-semibold flex items-center gap-3"
+          className="  border border-[var(--color-alt-border)] bg-white hover:bg-bg-blue text-[14px] font-semibold duration-700 hover:text-text-white px-6 py-[14px] cursor-pointer text-secondary-black rounded-[8px] flex items-center gap-3"
         >
           <FaAngleLeft /> Back to Search
         </button>

@@ -43,7 +43,7 @@ const tutorNavLinks = [
   {
     id: 7,
     icon: GiClassicalKnowledge,
-    path: "/settings",
+    path: "tutor-settings",
     title: "Setting",
   },
 ];

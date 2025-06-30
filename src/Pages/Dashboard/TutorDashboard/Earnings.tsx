@@ -25,6 +25,7 @@ type PerformanceMetric = {
   label: string;
   value: number;
   color: string;
+  textColor:string
 };
 
 const Earnings: React.FC = () => {
@@ -70,9 +71,24 @@ const Earnings: React.FC = () => {
   ];
 
   const performanceMetrics: PerformanceMetric[] = [
-    { label: "Lesson Completion Rate", value: 98, color: "bg-green-500" },
-    { label: "Student Retention", value: 85, color: "bg-blue-500" },
-    { label: "Response Rate", value: 85, color: "bg-purple-500" },
+    {
+      label: "Lesson Completion Rate",
+      value: 98,
+      color: "bg-green-500",
+      textColor: "text-green-500",
+    },
+    {
+      label: "Student Retention",
+      value: 85,
+      color: "bg-blue-500",
+      textColor: "text-blue-500",
+    },
+    {
+      label: "Response Rate",
+      value: 85,
+      color: "bg-purple-500",
+      textColor: "text-purple-500",
+    },
   ];
 
   return (
@@ -80,7 +96,7 @@ const Earnings: React.FC = () => {
       <div className="mb-6">
         <button
           onClick={() => window.history.back()}
-          className=" border border-[var(--color-alt-border)] bg-white hover:bg-bg-blue text-[var(--button-bg-blue)] duration-700 hover:text-text-white px-6 py-2 cursor-pointer rounded-[8px] flex items-center gap-3"
+          className="  border border-[var(--color-alt-border)] bg-white hover:bg-bg-blue text-[14px] font-semibold duration-700 hover:text-text-white px-6 py-[14px] cursor-pointer text-secondary-black rounded-[8px] flex items-center gap-3"
         >
           <FaAngleLeft /> Back to Search
         </button>
@@ -101,7 +117,7 @@ const Earnings: React.FC = () => {
           <div className="">
             <Button
               Txt="Withdraw"
-              className="bg-secondary-blue py-[14px] px-15 hover:bg-bg-white duration-500 cursor-pointer hover:text-secondary-blue rounded-md text-text-white"
+              className="bg-secondary-blue py-[14px] font-semibold px-15 hover:bg-bg-white duration-500 cursor-pointer hover:text-secondary-blue rounded-md text-text-white"
             />
           </div>
         </div>
@@ -123,9 +139,9 @@ const Earnings: React.FC = () => {
                     </p>
                   </div>
                   <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center ${card.iconColor}`}
+                    className={`w-10 h-10 rounded-full flex items-center justify-center ${card.iconColor}`}
                   >
-                    <span>$</span>
+                    <span className="text-[20px] ">$</span>
                   </div>
                 </div>
               </div>
@@ -161,15 +177,17 @@ const Earnings: React.FC = () => {
                   {monthlyEarnings.map((entry, index) => (
                     <div
                       key={index}
-                      className="flex justify-between bg-gray-50 p-4 rounded-lg"
+                      className="flex justify-between bg-gray-white p-4 rounded-lg"
                     >
                       <div>
-                        <p className="font-medium">{entry.month}</p>
-                        <p className="text-sm text-gray-500">
+                        <p className="font-semibold text-[16px] text-secondary-black mb-1">
+                          {entry.month}
+                        </p>
+                        <p className="text-sm  text-text-gray">
                           {entry.lessons} lessons • {entry.hours} hours
                         </p>
                       </div>
-                      <p className="text-blue-600 font-semibold">
+                      <p className="text-secondary-blue text-[20px] font-bold">
                         {entry.amount}
                       </p>
                     </div>
@@ -184,10 +202,16 @@ const Earnings: React.FC = () => {
                 </h3>
                 <div className="space-y-4">
                   {performanceMetrics.map((metric, index) => (
-                    <div key={index}>
+                    <div key={index} className="">
                       <div className="flex justify-between mb-1">
-                        <p className="text-sm font-medium">{metric.label}</p>
-                        <p className="text-sm font-semibold">{metric.value}%</p>
+                        <p className="text-[16px] text-alt-gray font-semibold">
+                          {metric.label}
+                        </p>
+                        <p
+                          className={`${metric.textColor} text-[16px] font-semibold`}
+                        >
+                          {metric.value}%
+                        </p>
                       </div>
                       <div className="w-full h-2 bg-gray-200 rounded-full">
                         <div
@@ -199,7 +223,9 @@ const Earnings: React.FC = () => {
                   ))}
                   {/* Average Rating */}
                   <div className="flex justify-between mt-4">
-                    <p className="text-sm font-medium">Average Rating</p>
+                    <p className="text-[16px] text-alt-gray font-semibold">
+                      Average Rating
+                    </p>
                     <p className="text-yellow-500 font-bold flex items-center">
                       ⭐ 4.9
                     </p>

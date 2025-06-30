@@ -25,6 +25,7 @@ import CommonMessageComponent from "../components/CommonComponents/CommonMessage
 import RecentStudents from "../Pages/Dashboard/TutorDashboard/RecentStudents";
 import ScheduleManagement from "../Pages/Dashboard/TutorDashboard/ScheduleManagement";
 import  Earnings from "../Pages/Dashboard/TutorDashboard/Earnings";
+import TutorProfileSettings from "../Pages/Dashboard/TutorDashboard/Settings/TutorProfileSettings";
 
 const router = createBrowserRouter([
   {
@@ -118,6 +119,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/earnings",
         element: <Earnings />,
+      },
+      {
+        path: "tutor-settings",
+        element: <TutorProfileSettings />,
       },
     ],
   },

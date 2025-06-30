@@ -121,16 +121,18 @@ const LearningPreferences: React.FC = () => {
             />
             {/* Lesson Reminders Toggle */}
             <ToggleSwitch
-              label="Lesson Reminders"
+              labelHeading="Lesson Reminders"
+              labelDescription="Get notified before your lessons"
               checked={lessonReminders}
-              onChange={(checked) => setLessonReminders(checked)}
+              onChange={checked => setLessonReminders(checked)}
             />
 
             {/* New Messages Toggle */}
             <ToggleSwitch
-              label="New Messages"
+              labelHeading="New Messages"
+              labelDescription="Get notified when tutors message you"
               checked={newMessages}
-              onChange={(checked) => setNewMessages(checked)}
+              onChange={checked => setNewMessages(checked)}
             />
           </section>
 

@@ -31,8 +31,10 @@ const TransactionHistory: React.FC = () => {
   return (
     <div className="overflow-x-auto bg-white p-6 rounded-xl shadow-sm text-lg font-semibold">
       <div className="p-4 flex justify-between items-center">
-        <h2 className="text-xl font-semibold">Transaction History</h2>
-        <select className=" p-1 rounded-md border text-[16px] border-alt-border">
+        <h2 className="text-[24px] font-semibold text-secondary-black">
+          Transaction History
+        </h2>
+        <select className=" p-[10px] rounded-md border text-[16px] font-semibold text-secondary-black border-alt-border">
           <option>This Week</option>
           <option>This Month</option>
           <option>All Time</option>
@@ -41,27 +43,41 @@ const TransactionHistory: React.FC = () => {
       <table className="min-w-full text-sm text-left text-text-gray">
         <thead className="">
           <tr>
-            <th className="px-4 py-2 font-medium text-gray-900">Date</th>
-            <th className="px-4 py-2 font-medium text-gray-900">Amount</th>
-            <th className="px-4 py-2 font-medium text-gray-900">Status</th>
-            <th className="px-4 py-2 font-medium text-gray-900">Method</th>
+            <th className="px-4 py-2 text-[16px] font-semibold text-alt-gray">
+              Date
+            </th>
+            <th className="px-4 py-2 text-[16px] font-semibold text-alt-gray">
+              Amount
+            </th>
+            <th className="px-4 py-2 text-[16px] font-semibold text-alt-gray">
+              Status
+            </th>
+            <th className="px-4 py-2 text-[16px]  font-semibold text-alt-gray">
+              Method
+            </th>
           </tr>
         </thead>
         <tbody>
           {data.map((item, index) => (
             <tr key={index} className="border-t border-t-alt-border">
-              <td className="px-4 py-2">{item.date}</td>
-              <td className="px-4 py-2">{item.amount}</td>
+              <td className="px-4 text-[16px] font-normal text-secondary-black py-2">
+                {item.date}
+              </td>
+              <td className="px-4 text-[16px] font-normal text-secondary-black py-2">
+                {item.amount}
+              </td>
               <td
-                className={`px-4 py-2 ${
+                className={`px-4 text-[16px]  font-normal py-2 ${
                   item.status === "Completed"
-                    ? "text-green-500"
+                    ? "text-[#1C6642]"
                     : "text-gray-500"
                 }`}
               >
                 {item.status}
               </td>
-              <td className="px-4 py-2">{item.method}</td>
+              <td className="px-4 text-[16px]  font-normal text-secondary-black py-2">
+                {item.method}
+              </td>
             </tr>
           ))}
         </tbody>
