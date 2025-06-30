@@ -171,7 +171,7 @@ export default function TutorSignUp() {
               </p>
             )}
             <Button
-              className="w-full  bg-button-bg-blue border border-button-bg-blue hover:border-secondry-gray hover:bg-white hover:text-button-bg-blue py-[14px] transition duration-700 text-sm cursor-pointer text-white rounded-[4px] "
+              className="w-full  bg-roayl-blue border border-roayl-blue hover:border-secondry-gray hover:bg-white hover:text-roayl-blue py-[14px] transition duration-700 text-sm cursor-pointer text-white rounded-[4px] "
               type="submit"
               Txt={`Create Account`}
             />
