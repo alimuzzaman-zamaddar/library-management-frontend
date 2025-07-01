@@ -24,7 +24,11 @@ import TutorCredentials from "../Pages/Dashboard/StudentDashboard/TutorCredentia
 import CommonMessageComponent from "../components/CommonComponents/CommonMessageComponent";
 import RecentStudents from "../Pages/Dashboard/TutorDashboard/RecentStudents";
 import ScheduleManagement from "../Pages/Dashboard/TutorDashboard/ScheduleManagement";
-import  Earnings from "../Pages/Dashboard/TutorDashboard/Earnings";
+import Earnings from "../Pages/Dashboard/TutorDashboard/Earnings";
+import Availability from "../Pages/Dashboard/TutorDashboard/Availability";
+import TutorReviw from "../Pages/Dashboard/TutorDashboard/TutorReviw";
+import StudentProfile from "../Pages/Dashboard/TutorDashboard/StudentProfile";
+
 import TutorProfileSettings from "../Pages/Dashboard/TutorDashboard/Settings/TutorProfileSettings";
 import PlatformGuidelines from "../components/CommonComponents/PlatformGuidelines";
 import ContactForm from "../components/CommonComponents/ContactForm";
@@ -122,6 +126,18 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/earnings",
         element: <Earnings />,
+      },
+      {
+        path: "tutor/availability",
+        element: <Availability />,
+      },
+      {
+        path: "tutor/reviews",
+        element: <TutorReviw />,
+      },
+      {
+        path: "student/profile/:id",
+        element: <StudentProfile />,
       },
       {
         path: "tutor-settings",

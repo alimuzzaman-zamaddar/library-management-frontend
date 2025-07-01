@@ -119,11 +119,11 @@ const TutorsOrigin: React.FC<isHome> = ({ isHome }) => {
   return (
     <section
       className={`flex flex-col gap-y-12 h-auto ${
-        isHome ? "pt-[100px] pb-[80px] " : "pt-10 pb-8 "
-      }   items-center w-full container`}
+        isHome ? "lg:pt-[100px] pt-10 pb-[80px]" : "pt-10 pb-8"
+      } items-center w-full container`}
     >
       {isHome && (
-        <div className=" flex flex-col gap-y-4 items-center">
+        <div className="flex flex-col gap-y-4 items-center text-center px-4">
           <Heading
             Variant="h4"
             Txt={`Learn languages online with the world's best tutors`}
@@ -135,34 +135,36 @@ const TutorsOrigin: React.FC<isHome> = ({ isHome }) => {
           />
         </div>
       )}
+
       <div
         {...(!isAdminRoute && {
           "data-aos": "fade-up",
           "data-aos-delay": "100",
         })}
-        className="flex flex-row items-center justify-center flex-wrap gap-[36px] py-6 px-[36px] border-[1px] border-solid border-[#DBE1E5] w-full rounded-[8px] "
+        className="flex flex-wrap items-center justify-center gap-y-6 gap-x-8 px-4 sm:px-6 md:px-[36px] py-6 border border-solid border-[#DBE1E5] w-full rounded-[8px]"
       >
-        {tutorsOriginArr.map((item, idx) => {
-          return (
-            <div key={idx} className="flex flex-row gap-x-3 items-center ">
-              <Image
-                Src={item.imgUrl}
-                Alt="not found"
-                className="h-[60px] w-[60px] object-cover rounded-full "
+        {tutorsOriginArr.map((item, idx) => (
+          <div
+            key={idx}
+            className="flex flex-row gap-x-3 items-center w-full max-w-[220px] sm:w-auto"
+          >
+            <Image
+              Src={item.imgUrl}
+              Alt="not found"
+              className="h-[60px] w-[60px] object-cover rounded-full"
+            />
+            <div className="flex flex-col gap-y-1">
+              <Heading
+                className="text-lg text-primary-gray font-[600]"
+                Txt={item.origin}
               />
-              <div className="flex flex-col gap-y-1">
-                <Heading
-                  className="text-lg text-primary-gray font-[600] "
-                  Txt={item.origin}
-                />
-                <Heading
-                  className="text-sm text-primary-gray font-normal "
-                  Txt={`${item.tutorCount} + Tutors`}
-                />
-              </div>
+              <Heading
+                className="text-sm text-primary-gray font-normal"
+                Txt={`${item.tutorCount} + Tutors`}
+              />
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
     </section>
   );
