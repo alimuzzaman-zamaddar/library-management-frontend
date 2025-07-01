@@ -24,6 +24,11 @@ import TutorCredentials from "../Pages/Dashboard/StudentDashboard/TutorCredentia
 import CommonMessageComponent from "../components/CommonComponents/CommonMessageComponent";
 import RecentStudents from "../Pages/Dashboard/TutorDashboard/RecentStudents";
 import ScheduleManagement from "../Pages/Dashboard/TutorDashboard/ScheduleManagement";
+import  Earnings from "../Pages/Dashboard/TutorDashboard/Earnings";
+import TutorProfileSettings from "../Pages/Dashboard/TutorDashboard/Settings/TutorProfileSettings";
+import PlatformGuidelines from "../components/CommonComponents/PlatformGuidelines";
+import ContactForm from "../components/CommonComponents/ContactForm";
+import ReportProblem from "../components/CommonComponents/ReportProblem";
 import Earnings from "../Pages/Dashboard/TutorDashboard/Earnings";
 import Availability from "../Pages/Dashboard/TutorDashboard/Availability";
 import TutorReviw from "../Pages/Dashboard/TutorDashboard/TutorReviw";
@@ -33,6 +38,7 @@ import TutorProfileSettings from "../Pages/Dashboard/TutorDashboard/Settings/Tut
 import PlatformGuidelines from "../components/CommonComponents/PlatformGuidelines";
 import ContactForm from "../components/CommonComponents/ContactForm";
 import ReportProblem from "../components/CommonComponents/ReportProblem";
+
 
 const router = createBrowserRouter([
   {
@@ -158,6 +164,16 @@ const router = createBrowserRouter([
       {
         path: "report-a-problem",
         element: <ReportProblem />,
+        path: "tutor/availability",
+        element: <Availability />,
+      },
+      {
+        path: "tutor/reviews",
+        element: <TutorReviw />,
+      },
+      {
+        path: "student/profile/:id",
+        element: <StudentProfile />,
       },
     ],
   },
