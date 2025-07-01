@@ -51,9 +51,9 @@ const TutorDashboardPage = () => {
   return (
     <div className=" flex flex-col justify-between min-h-[calc(100vh-64px)]">
       <div>
-        <div className="p-6">
+        <div className="p-1 xl:p-6">
           <Heading
-            className="text-[32px] leading-[150%]  font-bold text-primary-blue"
+            className="text-[24px] md:text-[32px] leading-[150%]  font-bold text-primary-blue"
             Variant="h2"
             Txt="Welcome back, John! 👋"
           />
@@ -63,22 +63,22 @@ const TutorDashboardPage = () => {
           />
 
           {/* Stat Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4 gap-6">
             {cards.map(card => (
               <div
                 key={card.title}
                 className={clsx(
-                  "rounded-lg  text-white flex items-center justify-center p-8",
+                  "rounded-lg  text-white flex items-center justify-center p-4 xl:p-8",
                   cardStyles[card.title as keyof typeof cardStyles]
                 )}
               >
                 <div className="flex items-center gap-6">
                   <BookSvg />
                   <div className="flex flex-col gap-4 ">
-                    <span className="text-[16px] font-normal leading-[150%]">
+                    <span className="text-[12px] md:text-[16px] font-normal leading-[150%]">
                       {card.title}
                     </span>
-                    <span className="text-[32px] leading-[150%] font-bold">
+                    <span className="text-[24px] md:text-[32px] leading-[150%] font-bold">
                       {card.value}
                     </span>
                   </div>
@@ -87,8 +87,8 @@ const TutorDashboardPage = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mt-8">
-            <div className="bg-white rounded-xl p-6 border border-[var(--color-alt-border)]">
+          <div className="grid grid-cols-1 2xl:grid-cols-2 gap-6 mt-8">
+            <div className="bg-white rounded-xl p-3 xl:p-6 border border-[var(--color-alt-border)]">
               <div className="flex justify-between items-center mb-4 bg-[var(--color-primary-blue)] text-[var(--color-secondary-white)]  p-4 rounded-lg">
                 <Heading
                   Txt="Today's Schedule"
@@ -100,7 +100,7 @@ const TutorDashboardPage = () => {
               {[1, 2, 3].map((_, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-between p-3 rounded-md mb-2 border border-[var(--color-alt-border)] bg-gray-50"
+                  className="flex flex-col gap-3 md:flex-row  md:items-center justify-between p-3 rounded-md mb-2 border border-[var(--color-alt-border)] bg-gray-50"
                 >
                   <div className="flex gap-3 items-center">
                     <img
@@ -120,7 +120,7 @@ const TutorDashboardPage = () => {
                   <div className="flex gap-5">
                     <Button
                       Txt="Message"
-                      className="border border-[var(--color-alt-border)] gap-3 cursor-pointer duration-700 hover:text-white hover:bg-[var(--button-bg-blue)] bg-white rounded-[8px] px-6 py-2 text-sm flex items-center text-[16px] font-normal text-primary-gray"
+                      className="border border-[var(--color-alt-border)] gap-3 cursor-pointer duration-700 hover:text-white hover:bg-[var(--button-bg-blue)] bg-white rounded-sm md:rounded-[8px] px-3 py-1 md:px-6 md:py-2 text-[12px]  flex items-center md:text-[16px] font-normal text-primary-gray"
                     />
                     <Button
                       Txt={
@@ -129,7 +129,7 @@ const TutorDashboardPage = () => {
                           Join
                         </>
                       }
-                      className="bg-[#051345] hover:bg-white hover:text-[var(--button-bg-blue)] duration-700 text-white px-6 py-2 cursor-pointer rounded-[8px] flex items-center gap-3 text-[16px] font-normal  "
+                      className="bg-[#051345] hover:bg-white hover:text-[var(--button-bg-blue)] duration-700 text-white rounded-sm md:rounded-[8px] px-3 py-1 md:px-6 md:py-2 text-[12px] cursor-pointer flex items-center gap-3 md:text-[16px] font-normal  "
                     />
                   </div>
                 </div>
@@ -147,9 +147,9 @@ const TutorDashboardPage = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 xl:grid-cols-4 gap-6 mt-8">
+          <div className="grid grid-cols-1 3xl:grid-cols-4 gap-6 mt-8">
             {/* Recent Students */}
-            <div className="bg-white rounded-xl p-6 border border-[var(--color-alt-border)] xl:col-span-2">
+            <div className="bg-white rounded-xl p-3 xl:p-6 border border-[var(--color-alt-border)] xl:col-span-2">
               <div className="flex justify-between items-center mb-4 bg-[var(--color-primary-blue)] text-[var(--color-secondary-white)]  p-4 rounded-lg">
                 <Heading
                   Txt="Recent Students"
@@ -158,8 +158,8 @@ const TutorDashboardPage = () => {
                 />
                 <StudentSvg />
               </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+              <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
                 {[3, 4].map((lessons, i) => (
                   <div>
                     <div
@@ -202,7 +202,7 @@ const TutorDashboardPage = () => {
             </div>
 
             <div className="space-y-6 grid grid-cols-1 xl:grid-cols-2 gap-6 xl:col-span-2">
-              <div className="bg-white rounded-xl p-6 border border-[var(--color-alt-border)]">
+              <div className="bg-white rounded-xl p-3 xl:p-6 border border-[var(--color-alt-border)]">
                 <div className="flex justify-between items-center mb-4 bg-[var(--color-primary-blue)] text-[var(--color-secondary-white)]  p-4 rounded-lg">
                   <Heading
                     Txt="Earnings"
@@ -230,7 +230,7 @@ const TutorDashboardPage = () => {
                   className="mt-4 w-full border cursor-pointer hover:bg-[var(--color-primary-blue)] hover:text-white duration-700 border-[var(--color-alt-border)] rounded-lg py-2 text-roayl-blue text-[18px] font-semibold"
                 />
               </div>
-              <div className="bg-white rounded-xl p-6 border border-alt-border">
+              <div className="bg-white rounded-xl p-3 xl:p-6 border border-alt-border">
                 <div className="flex justify-between items-center mb-4 bg-primary-blue text-secondary-white  p-4 rounded-lg">
                   <Heading
                     Txt="Quick Actions"

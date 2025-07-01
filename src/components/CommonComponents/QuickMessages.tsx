@@ -9,12 +9,12 @@ interface QuickMessagesProps {
 
 const QuickMessages: React.FC<QuickMessagesProps> = ({ title, buttonText, messages }) => {
   return (
-    <div className="bg-white border border-[var(--color-alt-border)] rounded-xl p-8">
+    <div className="bg-white border border-alt-border rounded-xl p-3 xl:p-8">
       <div className="flex justify-between items-center mb-4 bg-[var(--color-primary-blue)] text-[var(--color-secondary-white)] p-4 rounded-lg">
         <h3 className="text-[16px] font-semibold leading-[150%]">{title}</h3>
         <QuickMessageSvg />
       </div>
-      <div className="border p-6 rounded-md border-[var(--color-alt-border)] mb-5">
+      <div className="border p-6 rounded-md border-alt-border mb-5">
         {messages.map((message, i) => (
           <div
             key={i}

@@ -109,16 +109,16 @@ const CommonDashboardLayout = () => {
       <div className="flex flex-col flex-1 h-screen  ">
         {/* Fixed Navbar */}
         <div className="fixed top-0 left-0 right-0 z-20">
-          <DashboardNavbar />
+          <DashboardNavbar setShowSidebar={setShowSidebar} />
         </div>
 
         {/* Scrollable content */}
-        <div className="flex-1  overflow-y-auto mt-[60px] pb-[250px] h-auto px-4 py-10 ">
+        <div className="flex-1  overflow-y-auto mt-[60px] pb-[50px] xl:pb-[250px] h-auto px-4 py-10 ">
           <Outlet />
           <ScrollRestoration />
         </div>
         {/* Fixed Footer aligned to content area only */}
-        <div className="flex-0  container mb-6   ">
+        <div className="flex-0  container mb-2 xl:mb-6   ">
           <DashboardFooter />
         </div>
       </div>
