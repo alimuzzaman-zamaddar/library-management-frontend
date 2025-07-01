@@ -104,7 +104,6 @@ const TutorProfileSettings: React.FC = () => {
             Txt="Manage your teaching profile and preferences"
           />
         </div>
-
         <div className="w-full  ">
           <div>
             <div className="flex gap-5 ">
