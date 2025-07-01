@@ -32,6 +32,9 @@ import ReportProblem from "../components/CommonComponents/ReportProblem";
 import Availability from "../Pages/Dashboard/TutorDashboard/Availability";
 import TutorReviw from "../Pages/Dashboard/TutorDashboard/TutorReviw";
 import StudentProfile from "../Pages/Dashboard/TutorDashboard/StudentProfile";
+import StudentDashboardPage from "../Pages/Dashboard/StudentDashboard/StudentDashboardPage";
+
+const role = localStorage.getItem("role")
 
 
 const router = createBrowserRouter([
@@ -56,13 +59,13 @@ const router = createBrowserRouter([
 
   { path: "/sign-up", element: <TutorSignUp /> },
   { path: "/onbording", element: <Onboarding /> },
-  { path: "/student-on-boarding", element: <StudentOnboarding /> },
+  { path: "/student-on-boarding", element:  <StudentOnboarding /> },
 
   {
     path: "/dashboard/",
     element: <CommonDashboardLayout />,
     children: [
-      { index: true, element: <DashboardPage /> },
+      { index: true, element:  role === "tutor" ?  <DashboardPage /> : <StudentDashboardPage/> },
       {
         path: "find-tutors",
         element: <FindTutor />,
