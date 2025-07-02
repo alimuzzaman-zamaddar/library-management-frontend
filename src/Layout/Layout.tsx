@@ -1,14 +1,13 @@
-import Footer from "../Shared/Footer";
+
+import {  Outlet } from "react-router-dom";
 import Navbar from "../Shared/Navbar";
-import { ScrollRestoration, Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
     <>
-      <Navbar />
-      <Outlet />
-      <Footer />
-      <ScrollRestoration />
+      <Navbar/>
+        <Outlet />
+
     </>
   );
 };

@@ -1,12 +1,14 @@
+// src/redux/store.ts
 import { configureStore } from "@reduxjs/toolkit";
-import msgSlice from "./Slices/msgSlice";
+import { booksApi } from "../services/booksApi"; // Import the API slice
 
-
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    msgReducer: msgSlice,
+    [booksApi.reducerPath]: booksApi.reducer, // Add the API reducer to the store
   },
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(booksApi.middleware), // Add RTK Query middleware
 });
 
 export type RootState = ReturnType<typeof store.getState>;
-export default store; 
+export type AppDispatch = typeof store.dispatch;
