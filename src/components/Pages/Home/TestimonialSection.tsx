@@ -77,7 +77,7 @@ const TestimonialSection = () => {
           }
         />
       </div>
-      <div className="grid grid-cols-3 gap-[30px]  ">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px]  ">
         {testimonialArr.map((item, idx) => {
           return (
             <TestimonialCard

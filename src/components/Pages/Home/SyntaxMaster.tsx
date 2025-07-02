@@ -44,9 +44,9 @@ const SyntaxMaster = () => {
     <section
       data-aos="fade-up"
       data-aos-delay="100"
-      className="h-auto w-auto container py-[120px] "
+      className="h-auto w-auto container py-5 xl:py-[120px] "
     >
-      <div className="h-auto w-auto flex flex-col gap-y-[70px]  bg-rgba-gray px-[170px] rounded-[100px] py-20 ">
+      <div className="h-auto w-auto flex flex-col gap-y-[70px]  bg-rgba-gray px-5 xl:px-[170px] rounded-3xl xl:rounded-[100px] py-20 ">
         <div className=" flex flex-col  gap-y-4  items-center">
           <Heading
             Variant="h4"
@@ -58,7 +58,7 @@ const SyntaxMaster = () => {
             Txt={"Tutors from all over the world offer online language lessons"}
           />
         </div>
-        <div className="flex items-center flex-row gap-x-[72px] ">
+        <div className="flex items-center  flex-col xl:flex-row gap-y-5 xl:gap-x-[72px] ">
           {syntaxMasterArr.map((item, idx) => {
             return (
               <div key={idx} className="flex items-center flex-col gap-y-6">

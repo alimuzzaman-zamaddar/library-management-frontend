@@ -85,7 +85,7 @@ const CommonHeroBanner: React.FC<commonHeroBannerSchema> = ({
                   data-aos-delay="100"
                   type="text"
                   placeholder="What would you like to learn"
-                  className="bg-white outline-none py-2.5 rounded-[8px] border border-solid md:text-lg text-md pl-12 pr-4 text-alt-gray w-full"
+                  className="bg-white outline-none p-2 xl:py-2.5 rounded-[8px] border border-solid md:text-lg text-sm pl-12 pr-4 text-alt-gray w-full"
                 />
                 <div
                   data-aos="fade-up"
@@ -98,7 +98,7 @@ const CommonHeroBanner: React.FC<commonHeroBannerSchema> = ({
             )}
 
             {variant === "find-tutor" && (
-              <div className="bg-white flex flex-col sm:flex-row gap-4 items-center rounded-[12px] py-4 px-5 border border-solid border-alt-gray w-full max-w-full sm:max-w-[657px]">
+              <div className="bg-white flex flex-col sm:flex-row gap-4 items-center rounded-[12px] py-2 xl:py-4 px-3 xl:px-5 border border-solid border-alt-gray w-full max-w-full sm:max-w-[657px]">
                 <div className="relative flex-1 w-full sm:w-auto">
                   <div className="absolute left-3 top-1/2 -translate-y-1/2">
                     <SearchIconSmall />

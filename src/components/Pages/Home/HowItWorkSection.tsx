@@ -35,7 +35,7 @@ const howitWorkSArr: howitWorksSchema[] = [
 
 const HowItWorkSection = () => {
   return (
-    <section className="flex flex-col gap-y-[60px] h-auto pt-[100px] pb-[80px] items-center w-full container">
+    <section className="flex flex-col gap-y-[30px] xl:gap-y-[60px] h-auto pt-5 xl:pt-[100px] pb-[80px] items-center w-full container">
       <div className="flex flex-col gap-y-4 items-center">
         <Heading
           Variant="h4"
@@ -47,15 +47,15 @@ const HowItWorkSection = () => {
           Txt={"Curious about what your learning journey will look like?"}
         />
       </div>
-      <div className="flex flex-col gap-y-[120px]">
+      <div className="flex flex-col  lg:gap-y-8 xl:gap-y-[120px]">
         {howitWorkSArr.map((item, idx) => {
           const isEven = idx % 2 === 0;
 
           return (
             <div
               key={idx}
-              className={`flex gap-x-20 relative items-center ${
-                isEven ? "flex-row" : "flex-row-reverse"
+              className={`flex flex-col lg:flex-row gap-y-5 gap-x-20 relative items-center ${
+                isEven ? "lg:flex-row" : "lg:flex-row-reverse"
               }`}
             >
               <div className="flex flex-col gap-y-4">
@@ -71,7 +71,7 @@ const HowItWorkSection = () => {
               <div
                 data-aos="fade-up"
                 data-aos-delay="100"
-                className="rounded-[12px] relative border-[1px] border-solid border-alt-border h-auto w-auto p-10"
+                className="rounded-[12px] relative border-[1px] border-solid border-alt-border h-auto w-auto mb-5 xl:mb-0 p-5 xl:p-10"
               >
                 <Image
                   Src={item.imgUrl}
@@ -82,7 +82,7 @@ const HowItWorkSection = () => {
                 {/* NEXT STEP ARROW */}
                 {idx < howitWorkSArr.length - 1 && (
                   <div
-                    className={`absolute  bottom-0 ${
+                    className={`absolute hidden lg:block  bottom-0 ${
                       isEven
                         ? "left-0 rotate-[-75deg] ml-[-50px] "
                         : "right-0 rotate-[75deg] mr-[-50px] "
@@ -91,7 +91,7 @@ const HowItWorkSection = () => {
                   >
                     <Image
                       Src={step1}
-                      className={`w-[76px] h-[37px] ${
+                      className={`w-[76px] h-[37px]  ${
                         isEven ? "" : "transform scale-x-[-1]"
                       }`}
                       Alt="next step arrow"

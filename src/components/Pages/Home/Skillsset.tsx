@@ -62,7 +62,7 @@ const Skillsset = () => {
       <div
         data-aos="fade-up"
         data-aos-delay="100"
-        className="grid grid-cols-4 gap-5 flex-wrap "
+        className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 flex-wrap "
       >
         {trendingSubjectArr.map((item, idx) => {
           return (

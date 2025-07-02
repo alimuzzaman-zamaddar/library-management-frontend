@@ -62,10 +62,10 @@ const redirectLinkArr: navLinksScheam[] = [
 
 const Footer = () => {
   return (
-    <footer className=" w-full h-auto  py-[100px]   bg-primary-black ">
-      <div className="container flex flex-col relative gap-y-8">
-        <div className="flex flex-row w-full items-center  justify-between ">
-          <div className="flex flex-col  gap-y-[60px] ">
+    <footer className=" w-full h-auto  py-[100px] px-5   bg-primary-black ">
+      <div className="container flex flex-col relative  gap-y-8">
+        <div className="flex flex-col xl:flex-row w-full items-center gap-x-6  justify-between ">
+          <div className="flex w-full xl:w-1/2 flex-col  gap-y-[60px] mb-6 ">
             <div className="flex flex-col gap-y-8">
               <Image
                 Src={logo}
@@ -103,29 +103,30 @@ const Footer = () => {
               }
             />
           </div>
-          <ul className="flex flex-row gap-x-[269px]  ">
+          <ul className="flex w-full xl:w-1/2 flex-wrap sm:flex-row justify-between ">
             {hotNavLinks.map((item, idx) => {
               return (
                 <div key={idx} className="flex  gap-y-6 flex-col">
-                  <Paragraph className="text-2xl text-white font-bold " Txt={item.title} />
+                  <Paragraph
+                    className="text-2xl text-white font-bold "
+                    Txt={item.title}
+                  />
                   <ul className="flex  flex-col gap-y-6 ">
-                    {
-                      item.navLink.map((link, idx) => {
-                        return (
-                          <li key={idx}>
-                            <Link
-                              data-aos="fade-up"
-                              data-aos-delay="100"
-                              className="text-lg capitalize text-secondary-white font-bold "
-                              to={link.redirectLink}
-                            >
-                              {" "}
-                              {link.label}
-                            </Link>
-                          </li>
-                        );
-                      })
-                    }
+                    {item.navLink.map((link, idx) => {
+                      return (
+                        <li key={idx}>
+                          <Link
+                            data-aos="fade-up"
+                            data-aos-delay="100"
+                            className="text-lg capitalize text-secondary-white font-bold "
+                            to={link.redirectLink}
+                          >
+                            {" "}
+                            {link.label}
+                          </Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               );

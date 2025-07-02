@@ -141,25 +141,25 @@ const TutorsOrigin: React.FC<isHome> = ({ isHome }) => {
           "data-aos": "fade-up",
           "data-aos-delay": "100",
         })}
-        className="flex flex-wrap items-center justify-center gap-y-6 gap-x-8 px-4 sm:px-6 md:px-[36px] py-6 border border-solid border-[#DBE1E5] w-full rounded-[8px]"
+        className="flex flex-wrap items-center justify-center gap-4 xl:gap-y-6 xl:gap-x-8 px-4 sm:px-6 md:px-[36px] py-6 border border-solid border-[#DBE1E5] w-full rounded-[8px]"
       >
         {tutorsOriginArr.map((item, idx) => (
           <div
             key={idx}
-            className="flex flex-row gap-x-3 items-center w-full max-w-[220px] sm:w-auto"
+            className="flex flex-row xl:items-center w-[110px] max-w-[220px] sm:w-auto"
           >
             <Image
               Src={item.imgUrl}
               Alt="not found"
-              className="h-[60px] w-[60px] object-cover rounded-full"
+              className="h-[30px] md:h-[40px] xl:h-[60px] w-[30px] md:w-[40px] xl:w-[60px] object-cover rounded-full mr-3"
             />
             <div className="flex flex-col gap-y-1">
               <Heading
-                className="text-lg text-primary-gray font-[600]"
+                className="text-sm xl:text-lg text-primary-gray font-[600]"
                 Txt={item.origin}
               />
               <Heading
-                className="text-sm text-primary-gray font-normal"
+                className="text-xs xl:text-sm text-primary-gray font-normal"
                 Txt={`${item.tutorCount} + Tutors`}
               />
             </div>

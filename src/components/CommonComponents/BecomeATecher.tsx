@@ -31,7 +31,7 @@ const BecomeATecher: React.FC<BecomeATecherSchema> = ({
       >
         <Image
           Src={bgImgUrl}
-          className="rounded-tl-[12px] rounded-bl-[12px] object-cover w-full md:w-1/2"
+          className="rounded-tl-[12px] rounded-bl-[12px] hidden xl:block object-cover w-full xl:w-1/2"
           Alt="not found"
         />
         <div
@@ -51,7 +51,7 @@ const BecomeATecher: React.FC<BecomeATecherSchema> = ({
               <Heading
                 Txt={subTitle}
                 Variant="h3"
-                className="text-[64px] max-w-[562px] text-secondary-white font-bold leading-[150%]"
+                className=" text-[36px] xl:text-[44px] 2xl:text-[64px] max-w-[562px] text-secondary-white font-bold leading-[150%]"
               />
             </div>
           </div>

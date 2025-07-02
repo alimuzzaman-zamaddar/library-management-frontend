@@ -150,7 +150,7 @@ const TrendingTutors = () => {
     <section className="flex flex-col  gap-y-[60px] h-auto pb-[80px]  items-center justify-center  w-full container ">
       <div className="flex flex-col items-center gap-y-10">
         <Heading Variant="h4" Txt={`Trending`} className="common-heading " />
-        <div className="flex flex-row gap-x-6 ">
+        <div className="flex flex-wrap gap-y-2 md:gap-y-4 gap-x-3 md:gap-x-6 ">
           {trendingOption.map((item, idx) => {
             return (
               <Button
@@ -164,7 +164,7 @@ const TrendingTutors = () => {
                       ? " bg-primary-blue text-white  "
                       : "border-solid border-alt-gray text-primary-blue "
                   }
-                  h-auto w-auto cursor-pointer rounded-[60px] py-4 px-[28px] border-[1px] font-medium ease-in-out duration-300  text-base
+                  h-auto w-auto cursor-pointer rounded-[60px]  py-2 md:py-4 px-[28px] border-[1px] font-medium ease-in-out duration-300 text-sm md:text-base
                   `}
                 Txt={item}
               />
@@ -172,7 +172,7 @@ const TrendingTutors = () => {
           })}
         </div>
       </div>
-      <div className=" grid grid-cols-4 gap-[30px] items-center justify-center flex-wrap ">
+      <div className=" grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-[30px] items-center justify-center flex-wrap ">
         {trendingTutors.map((item, idx) => {
           return (
             <TrendingTutorsCard
