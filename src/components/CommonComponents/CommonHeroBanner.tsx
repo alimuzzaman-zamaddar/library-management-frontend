@@ -135,14 +135,14 @@ const CommonHeroBanner: React.FC<commonHeroBannerSchema> = ({
             )}
 
             {variant === "become-tutor" && (
-              <div className="bg-white relative grid grid-cols-1 sm:grid-cols-2 gap-4 items-center rounded-[12px] py-4 px-5 border border-solid border-alt-gray w-full max-w-full sm:max-w-[648px]">
+              <div className="bg-white relative grid grid-cols-2 gap-4 items-center rounded-[12px] px-2 py-2 xl:py-4 xl:px-5 border border-solid border-alt-gray w-full max-w-full sm:max-w-[648px]">
                 <Button
                   Txt="Apply as a Tutor"
-                  className="primary-btn w-full !py-[13.5px]"
+                  className="primary-btn text-sm xl:text-lg w-full py-[6px] xl:!py-[13.5px]"
                 />
                 <Button
                   Txt="How Its Work"
-                  className="reverse-primary-btn w-full !py-[13.5px]"
+                  className="reverse-primary-btn text-sm xl:text-lg w-full py-[6px]  xl:!py-[13.5px]"
                 />
               </div>
             )}

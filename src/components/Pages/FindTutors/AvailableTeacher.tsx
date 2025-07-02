@@ -15,11 +15,11 @@ const isAdminRoute =
   typeof window !== "undefined" &&
   window.location.pathname.startsWith("/dashboard");
 
-  interface isHome {
-    isHome: boolean;
-  }
+interface isHome {
+  isHome: boolean;
+}
 
-const AvailableTeacher: React.FC<isHome> = ({isHome}) => {
+const AvailableTeacher: React.FC<isHome> = ({ isHome }) => {
   return (
     <section
       className={`h-auto items-center w-auto container ${

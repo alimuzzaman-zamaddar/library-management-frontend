@@ -57,7 +57,7 @@ const HowItWorksTutor = () => {
           Txt={"Curious about what your learning journey will look like?"}
         />
       </div>
-      <div className=" flex flex-row gap-x-[30px] ">
+      <div className=" flex flex-col xl:flex-row gap-x-[30px] ">
         {howitWorksArr.map((item, idx) => {
           return (
             <div
