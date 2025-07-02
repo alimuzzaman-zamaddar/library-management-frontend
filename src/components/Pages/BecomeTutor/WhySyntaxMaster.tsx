@@ -73,7 +73,7 @@ const WhySyntaxMaster = () => {
         />
       </div>
 
-      <div className=" pl-5 xl:pl-[150px] flex w-full bg-red-500">
+      <div className=" pl-5 xl:pl-[150px] flex w-full ">
         <div className="  flex flex-col xl:flex-row xl:gap-x-[280px] items-center ">
           {/* Left Side */}
           <div className="flex flex-col gap-y-6">
@@ -87,13 +87,13 @@ const WhySyntaxMaster = () => {
 
           {/* Right Side */}
           <div
-            className="relative bg-red-500 "
+            className="relative  "
             style={{ height: `${cards.length * CARD_SPACING + 60}px` }}
           >
             {cards.map((card, index) => (
               <div
                 key={index}
-                className={` cursor-pointer w-[250px] xl:w-[440px] rounded-[12px] flex flex-col gap-y-4 p-5
+                className={`absolute  cursor-pointer w-[250px] xl:w-[440px] rounded-[12px] flex flex-col gap-y-4 p-5
             transition-all duration-300 ease-[cubic-bezier(0.25,0.1,0.25,1)]
             ${hoveredCard === index ? "z-10 shadow-lg" : "z-[1] shadow-md"}`}
                 style={{
