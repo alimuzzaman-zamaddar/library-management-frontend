@@ -58,10 +58,10 @@ const SyntaxMaster = () => {
             Txt={"Tutors from all over the world offer online language lessons"}
           />
         </div>
-        <div className="flex items-center  flex-col xl:flex-row gap-y-5 xl:gap-x-[72px] ">
+        <div className="flex items-center  flex-col xl:flex-row gap-y-10 px-0 xl:gap-x-[72px] ">
           {syntaxMasterArr.map((item, idx) => {
             return (
-              <div key={idx} className="flex items-center flex-col gap-y-6">
+              <div key={idx} className="flex items-center flex-col gap-x-0 lx:gap-y-6">
                 <Image
                   Src={item.bgImgUrl}
                   Alt="not found"

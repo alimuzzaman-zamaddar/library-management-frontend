@@ -22,7 +22,7 @@ const TestimonialCard: React.FC<testimonialCardSchema> = ({
     <div
       data-aos="fade-up"
       data-aos-delay="100"
-      className="h-auto w-auto shadow-md bg-white rounded-[12px] border-[1px] border-solid border-secondry-gray p-10 flex flex-col gap-y-4  "
+      className="h-auto w-auto shadow-md bg-white rounded-[12px] border-[1px] border-solid border-secondry-gray p-6 xl:p-10 flex flex-col gap-y-4  "
     >
       <div className="flex">
         {Array.from({ length: 5 }, (_, i) => {

@@ -150,7 +150,7 @@ const TrendingTutors = () => {
     <section className="flex flex-col  gap-y-[60px] h-auto pb-[80px]  items-center justify-center  w-full container ">
       <div className="flex flex-col items-center gap-y-10">
         <Heading Variant="h4" Txt={`Trending`} className="common-heading " />
-        <div className="flex flex-wrap gap-y-2 md:gap-y-4 gap-x-3 md:gap-x-6 ">
+        <div className="flex justify-center xl:justify-start flex-wrap gap-y-2 md:gap-y-4 gap-x-3 md:gap-x-6 ">
           {trendingOption.map((item, idx) => {
             return (
               <Button

@@ -62,7 +62,7 @@ const redirectLinkArr: navLinksScheam[] = [
 
 const Footer = () => {
   return (
-    <footer className=" w-full h-auto  py-[100px] px-5   bg-primary-black ">
+    <footer className=" w-full h-auto py-10  xl:py-[100px] px-5   bg-primary-black ">
       <div className="container flex flex-col relative  gap-y-8">
         <div className="flex flex-col xl:flex-row w-full items-center gap-x-6  justify-between ">
           <div className="flex w-full xl:w-1/2 flex-col  gap-y-[60px] mb-6 ">
@@ -92,7 +92,7 @@ const Footer = () => {
                 type="email"
               />
               <Button
-                className="bg-white text-primary-gray hover:border-white  border-[1px] border-transparent  hover:bg-transparent hover:text-white cursor-pointer ease-in-out duration-300  py-5 px-10 text-xl font-[600] leading-[164%] h-auto rounded-[8px] w-auto "
+                className="bg-white text-primary-gray hover:border-white  border-[1px] border-transparent  hover:bg-transparent hover:text-white cursor-pointer ease-in-out duration-300 py-1 xl:py-5 text-sm px-5 xl:px-10 xl:text-xl font-[600] leading-[164%] h-auto rounded-[8px] w-auto "
                 Txt="Submit"
               />
             </div>
@@ -118,7 +118,7 @@ const Footer = () => {
                           <Link
                             data-aos="fade-up"
                             data-aos-delay="100"
-                            className="text-lg capitalize text-secondary-white font-bold "
+                            className="text-md xl:text-lg  capitalize text-secondary-white font-bold "
                             to={link.redirectLink}
                           >
                             {" "}
@@ -146,7 +146,7 @@ const Footer = () => {
                   <Link
                     data-aos="fade-up"
                     data-aos-delay="100"
-                    className=" text-base text-secondary-white font-[600] "
+                    className=" text-xs xl:text-base text-secondary-white font-normal xl:font-[600] "
                     to={item.redirectLink}
                   >
                     {item.label}

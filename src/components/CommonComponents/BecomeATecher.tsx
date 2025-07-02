@@ -37,7 +37,7 @@ const BecomeATecher: React.FC<BecomeATecherSchema> = ({
         <div
           data-aos="fade-up"
           data-aos-delay="100"
-          className="h-auto w-auto py-[116px] bg-primary-blue relative px-8 flex flex-col rounded-tr-[12px] rounded-br-[12px] gap-y-10"
+          className="h-auto w-auto py-10 xl:py-[116px] bg-primary-blue relative px-8 flex flex-col rounded-[12px] xl:rounded-r-[12px]  gap-y-10"
         >
           <div className="flex flex-col gap-y-4">
             <div className="flex flex-col gap-y-3">
@@ -72,7 +72,7 @@ const BecomeATecher: React.FC<BecomeATecherSchema> = ({
                 ))}
               </ul>
             )}
-            <Button className="linear-btn" Txt={btnTxt} />
+            <Button className="linear-btn py-3 xl:py-6" Txt={btnTxt} />
           </div>
         </div>
       </div>

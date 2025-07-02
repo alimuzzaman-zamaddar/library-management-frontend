@@ -141,7 +141,7 @@ const TutorsOrigin: React.FC<isHome> = ({ isHome }) => {
           "data-aos": "fade-up",
           "data-aos-delay": "100",
         })}
-        className="flex flex-wrap items-center justify-center gap-4 xl:gap-y-6 xl:gap-x-8 px-4 sm:px-6 md:px-[36px] py-6 border border-solid border-[#DBE1E5] w-full rounded-[8px]"
+        className="flex flex-wrap items-center justify-between xl:justify-center gap-4 xl:gap-y-6 xl:gap-x-8 px-4 sm:px-6 md:px-[36px] py-6 border border-solid border-[#DBE1E5] w-full rounded-[8px]"
       >
         {tutorsOriginArr.map((item, idx) => (
           <div

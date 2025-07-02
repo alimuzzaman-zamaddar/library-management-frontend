@@ -37,7 +37,7 @@ const TrendingTutorsCard: React.FC<terndingTutorsCardScheam> = ({
       <div className="relative">
         <Image
           Src={imgUrl}
-          className="w-full rounded-t-[12px] h-[412px] object-cover "
+          className="w-full rounded-t-[12px] h-[300px] xl:h-[412px] object-top object-cover "
           Alt="not found"
         />
         <div className="absolute bottom-0 left-0 pl-[30px] flex flex-col gap-y-2 pb-[30px] ">

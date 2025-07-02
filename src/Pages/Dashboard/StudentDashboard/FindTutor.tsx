@@ -17,7 +17,7 @@ const FindTutor = () => {
   ];
 
   return (
-    <section className="flex flex-col h-auto w-auto     ">
+    <section className="flex flex-col">
       <div className="h-auto w-auto container">
         <div className="h-auto rounded-[12px]  w-full flex flex-row py-[111px]  bg-primary-blue px-[150px]  ">
           <Heading

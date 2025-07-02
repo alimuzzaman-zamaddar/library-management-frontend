@@ -73,27 +73,27 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
   const navigate = useNavigate();
 
   return (
-    <div data-name={id} className="flex flex-row gap-x-5  ">
+    <div data-name={id} className="flex flex-col 2xl:flex-row gap-5 xl:gap-x-5">
       <div
         {...(!isAdminRoute && {
           "data-aos": "fade-up",
           "data-aos-delay": "100",
         })}
-        className="flex h-auto w-auto p-8  border-[1px] border-solid border-secondry-gray rounded-[12px] flex-row gap-x-4  "
+        className="flex h-auto w-auto p-4 xl:p-8  border-[1px] border-solid border-secondry-gray rounded-[12px] flex-col 2xl:flex-row gap-x-4  "
       >
         <Image
           Src={bgImgUrl}
-          className="h-[180px] w-[180px] object-cover rounded-[4px] "
+          className="w-full xl:h-[180px] xl:w-[180px] object-cover rounded-[4px] "
           Alt="not found"
         />
-        <div className="flex flex-row gap-x-8 ">
+        <div className="flex flex-col 2xl:flex-row gap-x-8 ">
           <div className="flex flex-col gap-y-4 ">
             <div className="flex flex-col gap-y-2 ">
-              <div className="flex flex-row items-center gap-x-4 ">
+              <div className="flex flex-row items-center gap-x-4 mt-5 xl:mt-0">
                 <Heading
                   Variant="h4"
                   Txt={tutorName}
-                  className="text-[32px] font-bold text-secondary-black"
+                  className=" text-[24px] xl:text-[32px] font-bold text-secondary-black"
                 />
                 <Image
                   Src={countryFlagImgUrl}
@@ -168,44 +168,46 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
               Txt={shortDescreption}
             />
             <div className="flex items-center flex-row gap-x-4 ">
-              <div
-                {...(!isAdminRoute && {
-                  "data-aos": "fade-up",
-                  "data-aos-delay": "100",
-                })}
-                className="flex flex-row items-center gap-x-1"
-              >
-                <LocationSvgIcon />
-                <Paragraph
-                  className="text-base text-nowrap font-normal  text-primary-gray"
-                  Txt={location}
-                />
-              </div>
-              <div
-                {...(!isAdminRoute && {
-                  "data-aos": "fade-up",
-                  "data-aos-delay": "100",
-                })}
-                className="flex flex-row items-center gap-x-1"
-              >
-                <LocationSvgIcon />
-                <Paragraph
-                  className="text-base text-nowrap font-normal  text-primary-gray"
-                  Txt={`Speaks:${languagePreferences}`}
-                />
-              </div>
-              <div
-                {...(!isAdminRoute && {
-                  "data-aos": "fade-up",
-                  "data-aos-delay": "100",
-                })}
-                className="flex flex-row items-center gap-x-1"
-              >
-                <LocationSvgIcon />
-                <Paragraph
-                  className="text-base text-nowrap font-normal  text-primary-gray"
-                  Txt={`Usually responds in ${respondTime}  hours`}
-                />
+              <div className="flex  flex-wrap xl:flex-row items-center gap-2">
+                <div
+                  {...(!isAdminRoute && {
+                    "data-aos": "fade-up",
+                    "data-aos-delay": "100",
+                  })}
+                  className="flex flex-row items-center gap-x-1"
+                >
+                  <LocationSvgIcon />
+                  <Paragraph
+                    className="text-base text-nowrap font-normal  text-primary-gray"
+                    Txt={location}
+                  />
+                </div>
+                <div
+                  {...(!isAdminRoute && {
+                    "data-aos": "fade-up",
+                    "data-aos-delay": "100",
+                  })}
+                  className="flex flex-row items-center gap-x-1"
+                >
+                  <LocationSvgIcon />
+                  <Paragraph
+                    className="text-base text-nowrap font-normal  text-primary-gray"
+                    Txt={`Speaks:${languagePreferences}`}
+                  />
+                </div>
+                <div
+                  {...(!isAdminRoute && {
+                    "data-aos": "fade-up",
+                    "data-aos-delay": "100",
+                  })}
+                  className="flex flex-row items-center gap-x-1"
+                >
+                  <LocationSvgIcon />
+                  <Paragraph
+                    className="text-base text-nowrap font-normal  text-primary-gray"
+                    Txt={`Usually responds in ${respondTime}  hours`}
+                  />
+                </div>
               </div>
             </div>
             <div className="flex flex-row flex-wrap gap-4 ">
@@ -231,8 +233,8 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
               } `}
             />
           </div>
-          <div className="flex flex-col gap-y-[93px]">
-            <div className="flex flex-col gap-y-2 items-end ">
+          <div className="flex flex-col gap-y-5 xl:gap-y-[93px]">
+            <div className="flex flex-row items-center gap-5  xl:flex-col gap-y-2 xl:items-end ">
               <div className="flex flex-row gap-x-4 items-center">
                 <Heading
                   Variant="h4"
@@ -263,7 +265,10 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
               </div>
             </div>
             <div className="flex flex-col gap-y-2.5 ">
-              <Button Txt={"Book Trail"} className="primary-btn !w-full" />
+              <Button
+                Txt={"Book Trail"}
+                className="primary-btn text-sm py-2 xl:py-3 xl:text-lg flex justify-center items-center w-full"
+              />
               <div className="flex flex-row gap-x-2.5 ">
                 <div
                   {...(!isAdminRoute && {
@@ -288,8 +293,8 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-between ">
-        <div className="relative w-[494px] h-[80%] rounded-[12px] overflow-hidden">
+      <div className="flex flex-col justify-between gap-5 ">
+        <div className="relative 2xl:w-[494px] h-[80%] rounded-[12px] overflow-hidden">
           <video
             {...(!isAdminRoute && {
               "data-aos": "fade-up",
@@ -319,7 +324,7 @@ const TeacherCard: React.FC<TeacherDetailsSchema> = ({
           onClick={() => {
             navigate(`/dashboard/tutors/${id}`);
           }}
-          className="text-lg  primary-btn !w-full "
+          className="primary-btn text-sm py-2 xl:py-3 xl:text-lg flex justify-center items-center w-full"
           Txt={`View Full Schedule`}
         />
       </div>

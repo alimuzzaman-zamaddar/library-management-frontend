@@ -43,7 +43,7 @@ const HowItWorkSection = () => {
           className="common-heading"
         />
         <Paragraph
-          className="common-sub-heading"
+          className="common-sub-heading text-center"
           Txt={"Curious about what your learning journey will look like?"}
         />
       </div>

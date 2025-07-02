@@ -108,7 +108,7 @@ const CommonHeroBanner: React.FC<commonHeroBannerSchema> = ({
                     data-aos-delay="100"
                     type="text"
                     placeholder="What would you like to learn"
-                    className="outline-none py-[16.5px] rounded-[8px] border border-solid border-secondry-gray text-sm pl-10 pr-4 text-text-gray w-full"
+                    className="outline-none py-[5px] xl:py-[16.5px] rounded-[8px] border border-solid border-secondry-gray text-sm pl-10 pr-4 text-text-gray w-full"
                   />
                 </div>
 
@@ -121,14 +121,14 @@ const CommonHeroBanner: React.FC<commonHeroBannerSchema> = ({
                     data-aos-delay="100"
                     type="text"
                     placeholder="Location"
-                    className="outline-none py-[16.5px] rounded-[8px] border border-solid border-secondry-gray text-sm pl-[36px] pr-4 text-text-gray w-full"
+                    className="outline-none py-[5px] xl:py-[16.5px] rounded-[8px] border border-solid border-secondry-gray text-sm pl-[36px] pr-4 text-text-gray w-full"
                   />
                 </div>
 
                 <div className="flex-shrink-0 w-full sm:w-auto">
                   <Button
                     Txt="Find Tutor"
-                    className="primary-btn !py-[13.5px] !px-[37.5px] w-full sm:w-auto"
+                    className="primary-btn text-sm xl:text-lg !px-0 !py-2 lg:!py-[13.5px] lg:!px-[37.5px] w-full sm:w-auto"
                   />
                 </div>
               </div>

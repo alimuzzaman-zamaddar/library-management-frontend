@@ -23,7 +23,7 @@ const AvailableTeacher: React.FC<isHome> = ({isHome}) => {
   return (
     <section
       className={`h-auto items-center w-auto container ${
-        isHome ? 'pt-20 pb-[120px] ' : 'py-8'
+        isHome ? "pt-20 pb-[120px] " : "py-8"
       } flex flex-col gap-y-20`}
     >
       <div
@@ -31,11 +31,11 @@ const AvailableTeacher: React.FC<isHome> = ({isHome}) => {
           "data-aos": "fade-up",
           "data-aos-delay": "100",
         })}
-        className=" h-auto w-full shadow-md bg-white border-[1px] rounded-[12px] border-solid border-alt-border p-8 flex flex-row justify-between "
+        className=" h-auto w-full shadow-md bg-white border-[1px] rounded-[12px] border-solid border-alt-border p-8 flex flex-wrap xl:flex-row justify-between "
       >
         <div className="flex flex-col gap-y-5">
-          <div className="flex flex-row gap-x-5 ">
-            <div className="h-auto w-auto gap-x-2 p-3 border-[1px] border-solid border-secondry-gray rounded-[12px] flex items-center   ">
+          <div className="flex flex-wrap gap-y-4 xl:flex-row gap-x-5 ">
+            <div className="h-auto w-auto gap-x-2 text-sm xl:text-lg p-2 xl:p-3 border-[1px] border-solid border-secondry-gray rounded-[12px] flex items-center">
               <div
                 {...(!isAdminRoute && {
                   "data-aos": "fade-up",
@@ -45,7 +45,7 @@ const AvailableTeacher: React.FC<isHome> = ({isHome}) => {
                 <FilterSvg />
               </div>
               <Heading
-                className="text-lg font-[600]  text-primary-gray "
+                className="text-md xl:text-lg font-[600]  text-primary-gray "
                 Txt={"All Filters"}
               />
             </div>
@@ -55,7 +55,7 @@ const AvailableTeacher: React.FC<isHome> = ({isHome}) => {
                   "data-aos": "fade-up",
                   "data-aos-delay": "100",
                 })}
-                className="h-auto cursor-pointer outline-none text-lg font-[600]  text-primary-gray w-auto  gap-x-2 pl-8 p-3 border-[1px] border-solid border-secondry-gray rounded-[12px] flex items-center "
+                className="h-auto cursor-pointer text-sm xl:text-lg font-[600] outline-none  text-primary-gray w-auto  gap-x-2 pl-10 xl:py-3 py-2 pr-3  border-[1px] border-solid border-secondry-gray rounded-[12px] flex items-center "
                 name=""
               >
                 <option value="">Price Range</option>
@@ -66,7 +66,7 @@ const AvailableTeacher: React.FC<isHome> = ({isHome}) => {
               <div
                 data-aos="fade-up"
                 data-aos-delay="100"
-                className="absolute top-1/2 left-0 pl-2.5 -translate-y-1/2"
+                className="absolute top-1/2 left-0  pl-2.5 -translate-y-1/2"
               >
                 <DollarSvg />
               </div>
@@ -77,7 +77,7 @@ const AvailableTeacher: React.FC<isHome> = ({isHome}) => {
                   "data-aos": "fade-up",
                   "data-aos-delay": "100",
                 })}
-                className="h-auto cursor-pointer text-lg font-[600] outline-none  text-primary-gray w-auto  gap-x-2 pl-8 p-3 border-[1px] border-solid border-secondry-gray rounded-[12px] flex items-center "
+                className="h-auto cursor-pointer text-sm xl:text-lg font-[600] outline-none  text-primary-gray w-auto  gap-x-2 pl-10 xl:py-3 py-2 pr-3  border-[1px] border-solid border-secondry-gray rounded-[12px] flex items-center "
                 name=""
               >
                 <option value="">Country</option>
@@ -103,7 +103,7 @@ const AvailableTeacher: React.FC<isHome> = ({isHome}) => {
                   "data-aos": "fade-up",
                   "data-aos-delay": "100",
                 })}
-                className="h-auto cursor-pointer text-lg font-[600] outline-none  text-primary-gray w-auto  gap-x-2 pl-8 p-3 border-[1px] border-solid border-secondry-gray rounded-[12px] flex items-center "
+                className="h-auto cursor-pointer text-sm xl:text-lg font-[600] outline-none  text-primary-gray w-auto  gap-x-2 pl-10 xl:py-3 py-2 pr-3  border-[1px] border-solid border-secondry-gray rounded-[12px] flex items-center "
                 name=""
               >
                 <option value="">English Tutor</option>
@@ -123,7 +123,7 @@ const AvailableTeacher: React.FC<isHome> = ({isHome}) => {
               </div>
             </div>
           </div>
-          <div className="relative max-w-[275px] flex-1">
+          <div className="relative max-w-[275px] flex-1 mb-4">
             <div
               {...(!isAdminRoute && {
                 "data-aos": "fade-up",
@@ -140,7 +140,7 @@ const AvailableTeacher: React.FC<isHome> = ({isHome}) => {
               })}
               type="text"
               placeholder="Search By Name"
-              className="outline-none py-[16.5px] rounded-[8px] border-[1px] border-solid border-secondry-gray text-sm pl-10 pr-4 text-text-gray w-full"
+              className="outline-none py-[8px] xl:py-[16.5px] rounded-[8px] border-[1px] border-solid border-secondry-gray text-sm pl-10 pr-4 text-text-gray w-full"
             />
           </div>
         </div>
@@ -148,7 +148,7 @@ const AvailableTeacher: React.FC<isHome> = ({isHome}) => {
           <div className="flex flex-row gap-x-3 items-center ">
             <Paragraph
               Txt="1,247 tutors"
-              className="text-lg font-normal text-primary-gray"
+              className="text-xs xl:text-lg font-normal text-primary-gray"
             />
             <div className="relative">
               <select
@@ -157,8 +157,8 @@ const AvailableTeacher: React.FC<isHome> = ({isHome}) => {
                   "data-aos-delay": "100",
                 })}
                 className="
-            h-auto cursor-pointer text-lg font-[600] text-primary-gray
-            w-auto pl-10 pr-3 py-3
+            h-auto cursor-pointer text-sm xl:text-lg font-[600] text-primary-gray
+            w-auto pl-10 pr-3 py-2 xl:py-3 
             border border-secondry-gray rounded-[12px]
             outline-none
         "
@@ -188,7 +188,7 @@ const AvailableTeacher: React.FC<isHome> = ({isHome}) => {
             className="text-[32px] text-black font-bold"
             Txt={`200+ online teachers available`}
           />
-          <div className="flex flex-col gap-y-8">
+          <div className="flex flex-col gap-y-14 xl:gap-y-8">
             {teacherDetials.map((item, idx) => {
               return (
                 <TeacherCard
