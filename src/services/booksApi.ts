@@ -16,44 +16,53 @@ interface BorrowSummaryResponse {
   message: string;
   data: BorrowSummaryItem[];
 }
-
 export const booksApi = createApi({
   reducerPath: "booksApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api/",
+    baseUrl: "https://library-management-server-peach-nine.vercel.app/api/",
   }),
+  tagTypes: ["Books"], // 👈 add this
   endpoints: builder => ({
     getBooks: builder.query({
       query: () => "books",
+      providesTags: ["Books"], // 👈 this provides the tag
     }),
+
     getBook: builder.query<
       { success: boolean; message: string; data: BookData },
       string
     >({
       query: id => `books/${id}`,
     }),
+
     addBook: builder.mutation({
       query: newBook => ({
         url: "books",
         method: "POST",
         body: newBook,
       }),
+      invalidatesTags: ["Books"], // 👈 invalidates the tag after action
     }),
+
     updateBook: builder.mutation({
-      query: updatedBook => ({
-        url: `books/${updatedBook.id}`,
-        method: "PATCH",
-        body: updatedBook,
+      query: ({ id, ...put }) => ({
+        url: `books/${id}`,
+        method: "PUT",
+        body: put,
       }),
+      invalidatesTags: ["Books"], // 👈
     }),
+
     deleteBook: builder.mutation<{ success: boolean; message: string }, string>(
       {
         query: bookId => ({
           url: `books/${bookId}`,
           method: "DELETE",
         }),
+        invalidatesTags: ["Books"], // 👈
       }
     ),
+
     borrowBook: builder.mutation<
       { success: boolean; message: string },
       { book: string; quantity: number; dueDate: string }
@@ -63,14 +72,16 @@ export const booksApi = createApi({
         method: "POST",
         body: { book, quantity, dueDate },
       }),
+      invalidatesTags: ["Books"], // 👈 optional if borrow affects availability
     }),
 
-    // ✅ New: Borrow Summary Query
     getBorrowSummary: builder.query<BorrowSummaryResponse, void>({
       query: () => "borrow",
     }),
   }),
 });
+
+
 
 export const {
   useGetBooksQuery,
@@ -79,5 +90,5 @@ export const {
   useUpdateBookMutation,
   useDeleteBookMutation,
   useBorrowBookMutation,
-  useGetBorrowSummaryQuery, 
+  useGetBorrowSummaryQuery,
 } = booksApi;

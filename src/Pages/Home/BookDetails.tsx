@@ -18,7 +18,7 @@ const BookDetails: React.FC = () => {
   const book = data.data;
 
   return (
-    <div className="max-w-2xl mx-auto mt-10 bg-white shadow p-6 rounded-md">
+    <div className="max-w-2xl mx-auto bg-white shadow p-6 rounded-md mt-20">
       <h2 className="text-2xl font-bold mb-4">{book.title}</h2>
       <p>
         <strong>Author:</strong> {book.author}
@@ -40,9 +40,6 @@ const BookDetails: React.FC = () => {
       </p>
       <p className="text-sm text-gray-500 mt-2">
         Created: {new Date(book.createdAt || "").toLocaleString()}
-      </p>
-      <p className="text-sm text-gray-500">
-        Updated: {new Date(book.updatedAt || "").toLocaleString()}
       </p>
     </div>
   );

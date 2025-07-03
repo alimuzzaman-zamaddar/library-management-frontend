@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams} from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import { useEffect } from "react";
@@ -16,7 +16,7 @@ export interface BookData {
 
 const EditBook = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
+
 
   const { data: bookRes, isLoading } = useGetBookQuery(id!);
   const [updateBook] = useUpdateBookMutation();
@@ -25,14 +25,20 @@ const EditBook = () => {
 
   useEffect(() => {
     if (bookRes?.data) {
-      reset(bookRes.data); // Book is inside data field
+      const allowedGenres = ["SCIENCE", "FICTION", "HISTORY", "ROMANCE"] as const;
+      const genre: BookData["genre"] =
+        allowedGenres.includes(bookRes.data.genre as BookData["genre"])
+          ? (bookRes.data.genre as BookData["genre"])
+          : "SCIENCE";
+      reset({ ...bookRes.data, genre }); // Book is inside data field
     }
   }, [bookRes, reset]);
 
   const onSubmit = async (data: BookData) => {
     try {
       await updateBook({ ...data, id }).unwrap();
-      navigate("/books"); // Redirect to book list
+      alert("book Edited successfully")
+      // navigate("/books"); // Redirect to book list
     } catch (err) {
       console.error("Failed to update book", err);
     }
@@ -42,7 +48,7 @@ const EditBook = () => {
     return <div className="text-center mt-10">Loading book...</div>;
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded">
+    <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded mt-20">
       <h2 className="text-2xl font-bold mb-4">Edit Book</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <input

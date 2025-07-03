@@ -1,17 +1,13 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useAddBookMutation } from "../../services/booksApi";
+import toast from "react-hot-toast";
 
-// Define types based on the backend schema
-export  interface BookData {
+export interface BookData {
+  _id?: string; // <- add this line
+  createdAt?: string; // <- optional but helpful
   title: string;
   author: string;
-  genre:
-    | "SCIENCE"
-    | "FICTION"
-    | "HISTORY"
-    | "NON_FICTION"
-    | "BIOGRAPHY"
-    | "FANTASY"; 
+  genre: "SCIENCE" | "FICTION" | "HISTORY" | "NON_FICTION" | "BIOGRAPHY" | "FANTASY";
   isbn: string;
   description: string;
   copies: number;
@@ -19,31 +15,33 @@ export  interface BookData {
 }
 
 const AddBook = () => {
-  // Use mutation hook
-  const [addBook] = useAddBookMutation();
+  const [addBook, { isLoading }] = useAddBookMutation();
+  
 
-  // Initialize state with type validation
   const [bookData, setBookData] = useState<BookData>({
     title: "",
     author: "",
-    genre: "SCIENCE", // Default genre, can be changed
+    genre: "SCIENCE",
     isbn: "",
     description: "",
     copies: 0,
     available: true,
   });
 
-  // Handle input change for each field
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setBookData({ ...bookData, [name]: value });
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value, type } = e.target;
+    const newValue =
+      type === "checkbox"
+        ? (e.target as HTMLInputElement).checked
+        : value;
+    setBookData({ ...bookData, [name]: newValue });
   };
 
-  // Handle form submit
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validate required fields
     const requiredFields = [
       "title",
       "author",
@@ -59,81 +57,142 @@ const AddBook = () => {
       }
     }
 
-    // Check for valid genre (it should be one of the allowed enums)
-    const validGenres = [
-      "SCIENCE",
-      "FICTION",
-      "HISTORY",
-      "FANTASY",
-      "NON_FICTION",
-      "BIOGRAPHY",
-    ];
-    if (!validGenres.includes(bookData.genre)) {
-      alert("Invalid genre. Please choose a valid genre.");
-      return;
-    }
-
-    // // Check if ISBN is a valid number or string format (you can enhance this)
-    // if (bookData.isbn.length !== 13) {
-    //   alert("ISBN must be a 13-character string.");
-    //   return;
-    // }
-
     try {
       const result = await addBook(bookData).unwrap();
       console.log("Book added successfully:", result);
+      toast.success("Book added successfully!");
+      setBookData({
+        title: "",
+        author: "",
+        genre: "SCIENCE",
+        isbn: "",
+        description: "",
+        copies: 0,
+        available: true,
+      })
     } catch (err) {
       console.error("Failed to add book:", err);
+      alert("Failed to add book.");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="title"
-        value={bookData.title}
-        onChange={handleChange}
-        placeholder="Title"
-      />
-      <input
-        type="text"
-        name="author"
-        value={bookData.author}
-        onChange={handleChange}
-        placeholder="Author"
-      />
-      <select name="genre" value={bookData.genre} onChange={handleChange}>
-        <option value="SCIENCE">SCIENCE</option>
-        <option value="FICTION">FICTION</option>
-        <option value="HISTORY">HISTORY</option>
-        <option value="NON_FICTION">NON_FICTION</option>
-        <option value="BIOGRAPHY">BIOGRAPHY</option>
-        <option value="FANTASY">FANTASY</option>
-      </select>
-      <input
-        type="text"
-        name="isbn"
-        value={bookData.isbn}
-        onChange={handleChange}
-        placeholder="ISBN"
-      />
-      <input
-        type="text"
-        name="description"
-        value={bookData.description}
-        onChange={handleChange}
-        placeholder="Description"
-      />
-      <input
-        type="number"
-        name="copies"
-        value={bookData.copies}
-        onChange={handleChange}
-        placeholder="Copies"
-      />
-      <button type="submit">Add Book</button>
-    </form>
+    <div className="max-w-3xl mx-auto p-8 bg-white rounded-xl shadow-lg mt-20">
+      <h2 className="text-3xl font-bold text-[#041345] mb-6">Add New Book</h2>
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <div>
+          <label className="block text-sm font-medium text-black mb-1">
+            Title
+          </label>
+          <input
+            type="text"
+            name="title"
+            value={bookData.title}
+            onChange={handleChange}
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-[#041345]"
+            placeholder="Enter title"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-black mb-1">
+            Author
+          </label>
+          <input
+            type="text"
+            name="author"
+            value={bookData.author}
+            onChange={handleChange}
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-[#041345]"
+            placeholder="Enter author"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-black mb-1">
+            Genre
+          </label>
+          <select
+            name="genre"
+            value={bookData.genre}
+            onChange={handleChange}
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-[#041345]"
+          >
+            <option value="SCIENCE">Science</option>
+            <option value="FICTION">Fiction</option>
+            <option value="HISTORY">History</option>
+            <option value="NON_FICTION">Non-Fiction</option>
+            <option value="BIOGRAPHY">Biography</option>
+            <option value="FANTASY">Fantasy</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-black mb-1">
+            ISBN <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            name="isbn"
+            value={bookData.isbn}
+            onChange={handleChange}
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-[#041345]"
+            placeholder="Enter number (10-30 digits)"
+            required
+            pattern="^\d{10,30}$"
+            title="Please enter a number between 10 and 30 digits"
+            onInvalid={() => toast.error("Please enter a number between 10 and 30 digits")}
+          />
+          <span className="text-xs text-gray-500">Must be unique</span>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-black mb-1">
+            Description
+          </label>
+          <input
+            type="text"
+            name="description"
+            value={bookData.description}
+            onChange={handleChange}
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-[#041345]"
+            placeholder="Enter short description"
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-black mb-1">
+            Copies
+          </label>
+          <input
+            type="number"
+            name="copies"
+            value={bookData.copies}
+            onChange={handleChange}
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-[#041345]"
+            placeholder="Number of copies"
+          />
+        </div>
+
+        <div className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            name="available"
+            checked={bookData.available}
+            onChange={handleChange}
+            className="accent-[#041345] w-5 h-5"
+          />
+          <label className="text-black">Available</label>
+        </div>
+
+        <button
+          type="submit"
+          className="bg-[#041345] text-white w-full py-3 rounded-md font-semibold hover:bg-opacity-90 transition duration-200"
+        >
+         {isLoading ? "Adding book..." : "Add Book"}
+        </button>
+      </form>
+    </div>
   );
 };
 
